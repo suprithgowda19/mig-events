@@ -321,4 +321,39 @@
     });
   }
 
+
+  // =========================================================================
+  // 8. Cinematic Production Showreel Modal Player
+  // =========================================================================
+  const showreelModal = document.getElementById('videoShowreelModal');
+  const openShowreelBtn = document.getElementById('openShowreelBtn');
+  const closeShowreelBtn = document.getElementById('closeShowreelBtn');
+  const showreelIframe = document.getElementById('showreelIframe');
+
+  if (showreelModal && openShowreelBtn && closeShowreelBtn && showreelIframe) {
+    function openShowreel() {
+      showreelIframe.src = 'https://www.youtube-nocookie.com/embed/MLpWrANjFbI?autoplay=1&rel=0&modestbranding=1';
+      showreelModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeShowreel() {
+      showreelIframe.src = '';
+      showreelModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
+
+    openShowreelBtn.addEventListener('click', openShowreel);
+    closeShowreelBtn.addEventListener('click', closeShowreel);
+    showreelModal.addEventListener('click', (e) => {
+      if (e.target === showreelModal) closeShowreel();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !showreelModal.classList.contains('pointer-events-none')) {
+        closeShowreel();
+      }
+    });
+  }
+
 })();

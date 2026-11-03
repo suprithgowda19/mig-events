@@ -315,81 +315,208 @@
       });
 
       // =========================================================================
-      // Bidirectional Lateral Converging Card Motion Engine
-      // Cards dynamically slide in from sides toward center as user scrolls down,
-      // and cleanly reverse back outward & disappear when scrolling back up.
+      // Jitter.video Inspired Kinetic Motion Engine
+      // 1. "Rotating Cards" 3D Isometric Pivot & Drop (Capabilities & Portfolio)
+      // 2. "Stacked Cards" Deck Fan-Out & Retract (Testimonials)
+      // 3. Specular Light Beam Sheen Tracking
       // =========================================================================
       const isMobile = window.innerWidth <= 768;
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      const motionCards = gsap.utils.toArray('.motion-card-wrapper');
-
       if (prefersReducedMotion) {
-        motionCards.forEach((card) => {
+        gsap.utils.toArray('.motion-card-wrapper, .jitter-stack-card').forEach((card) => {
           gsap.fromTo(card,
             { opacity: 0 },
             {
               opacity: 1,
-              duration: 0.6,
-              ease: 'power2.out',
               scrollTrigger: {
                 trigger: card,
-                start: 'top 88%',
-                toggleActions: 'play none none reverse'
+                start: 'top 95%',
+                end: 'top 65%',
+                scrub: 0.6
               }
             }
           );
         });
       } else {
-        const slideOffset = isMobile ? 50 : 135;
+        const slideOffsetX = isMobile ? 65 : 180;
+        const slideOffsetY = isMobile ? 65 : 150;
 
-        motionCards.forEach((card) => {
+        // 1. Jitter Rotating & Drop Ingress (Capabilities, Portfolio, Partners)
+        gsap.utils.toArray('.motion-card-wrapper').forEach((card) => {
           let initX = 0;
           let initY = 0;
+          let initRotX = 0;
           let initRotY = 0;
-          let initScale = 0.94;
+          let initRotZ = 0;
+          let initScale = 0.90;
 
-          if (card.classList.contains('motion-slide-left')) {
-            initX = -slideOffset;
-            initRotY = isMobile ? -3 : -7;
-          } else if (card.classList.contains('motion-slide-right')) {
-            initX = slideOffset;
-            initRotY = isMobile ? 3 : 7;
-          } else if (card.classList.contains('motion-slide-center')) {
-            initY = isMobile ? 35 : 70;
+          if (card.classList.contains('motion-fall-top') || card.classList.contains('jitter-drop-top')) {
+            // Jitter Overhead Rig Drop with 3D Forward Pitch
+            initY = -slideOffsetY;
+            initRotX = isMobile ? 10 : 24;
+            initScale = 0.92;
+          } else if (card.classList.contains('motion-rise-bottom') || card.classList.contains('jitter-rise-center')) {
+            // Jitter Stage Lift Rise with 3D Backward Pitch
+            initY = slideOffsetY;
+            initRotX = isMobile ? -8 : -18;
             initScale = 0.90;
+          } else if (card.classList.contains('motion-slide-left') || card.classList.contains('jitter-rotate-left')) {
+            // Jitter Left 3D Isometric Pivot
+            initX = -slideOffsetX;
+            initY = isMobile ? 0 : 35;
+            initRotY = isMobile ? -6 : -22;
+            initRotX = isMobile ? 3 : 8;
+            initRotZ = isMobile ? 0 : -2;
+          } else if (card.classList.contains('motion-slide-right') || card.classList.contains('jitter-rotate-right')) {
+            // Jitter Right 3D Isometric Pivot
+            initX = slideOffsetX;
+            initY = isMobile ? 0 : 35;
+            initRotY = isMobile ? 6 : 22;
+            initRotX = isMobile ? -3 : -8;
+            initRotZ = isMobile ? 0 : 2;
           } else {
-            const siblings = Array.from(card.parentNode ? card.parentNode.children : []);
-            const idx = siblings.indexOf(card);
-            initX = (idx % 2 === 0) ? -slideOffset : slideOffset;
-            initRotY = (idx % 2 === 0) ? -6 : 6;
+            initX = -slideOffsetX;
+            initRotY = -12;
           }
 
           gsap.fromTo(card,
             {
               x: initX,
               y: initY,
+              rotateX: initRotX,
               rotateY: initRotY,
+              rotateZ: initRotZ,
               scale: initScale,
-              opacity: 0
+              opacity: 0,
+              transformPerspective: 1400
             },
             {
               x: 0,
               y: 0,
+              rotateX: 0,
               rotateY: 0,
+              rotateZ: 0,
               scale: 1,
               opacity: 1,
-              duration: 0.85,
-              ease: 'power3.out',
+              ease: 'power2.out',
               scrollTrigger: {
                 trigger: card,
-                start: 'top 88%',
-                toggleActions: 'play none none reverse',
-                invalidateOnRefresh: true
+                start: 'top 96%',
+                end: 'top 60%',
+                scrub: 0.75,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                  const innerSheen = card.querySelector('.jitter-sheen');
+                  if (innerSheen) {
+                    if (self.progress > 0.6) {
+                      innerSheen.style.backgroundPosition = '-100% 0';
+                    } else {
+                      innerSheen.style.backgroundPosition = '200% 0';
+                    }
+                  }
+                }
               }
             }
           );
         });
+
+        // 2. Jitter "Stacked Cards" Deck Fan-Out (Testimonial Reviews)
+        const reviewsSection = document.getElementById('reviews');
+        if (reviewsSection) {
+          const stackCards = reviewsSection.querySelectorAll('.jitter-stack-card');
+          if (stackCards.length === 3 && !isMobile) {
+            // Left Card: fans out to the left
+            gsap.fromTo(stackCards[0],
+              {
+                x: 105,
+                y: 15,
+                rotation: -6,
+                scale: 0.94,
+                opacity: 0
+              },
+              {
+                x: 0,
+                y: 0,
+                rotation: 0,
+                scale: 1,
+                opacity: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: reviewsSection,
+                  start: 'top 92%',
+                  end: 'top 55%',
+                  scrub: 0.8,
+                  invalidateOnRefresh: true
+                }
+              }
+            );
+
+            // Center Card: elevates and scales up
+            gsap.fromTo(stackCards[1],
+              {
+                y: 30,
+                scale: 0.90,
+                opacity: 0
+              },
+              {
+                y: 0,
+                scale: 1,
+                opacity: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: reviewsSection,
+                  start: 'top 92%',
+                  end: 'top 55%',
+                  scrub: 0.8,
+                  invalidateOnRefresh: true
+                }
+              }
+            );
+
+            // Right Card: fans out to the right
+            gsap.fromTo(stackCards[2],
+              {
+                x: -105,
+                y: 15,
+                rotation: 6,
+                scale: 0.94,
+                opacity: 0
+              },
+              {
+                x: 0,
+                y: 0,
+                rotation: 0,
+                scale: 1,
+                opacity: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: reviewsSection,
+                  start: 'top 92%',
+                  end: 'top 55%',
+                  scrub: 0.8,
+                  invalidateOnRefresh: true
+                }
+              }
+            );
+          } else if (isMobile && stackCards.length > 0) {
+            stackCards.forEach((card) => {
+              gsap.fromTo(card,
+                { y: 50, opacity: 0 },
+                {
+                  y: 0,
+                  opacity: 1,
+                  scrollTrigger: {
+                    trigger: card,
+                    start: 'top 95%',
+                    end: 'top 70%',
+                    scrub: 0.6
+                  }
+                }
+              );
+            });
+          }
+        }
       }
     }
   }

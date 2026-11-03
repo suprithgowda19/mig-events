@@ -52,7 +52,7 @@
         <img src="assets/images/1097_cropped-mig.png" alt="MIG Events Logo" class="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         <div class="flex flex-col">
           <span class="font-display font-extrabold tracking-wider text-base sm:text-lg text-white group-hover:text-amber-200 transition-colors">MIG EVENTS</span>
-          <span class="font-mono text-[11px] tracking-[0.2em] text-stone-400 uppercase">PRODUCTIONS // 2026</span>
+          <span class="font-mono text-[11px] tracking-[0.2em] text-stone-300 uppercase">PRODUCTIONS // 2026</span>
         </div>
 
         <!-- Live Audio Waveform Micro-Visualizer -->
@@ -118,42 +118,40 @@
     <canvas id="stageBeamsCanvas"></canvas>
 
     <!-- Hero Content -->
-    <div class="parallax-content max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24 text-center">
-      
-      <!-- Status Badge (Solid indicator, no decorative pulse) -->
-      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-md mb-8 hero-sub-element">
-        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span class="font-mono text-[11px] tracking-[0.2em] text-stone-300 uppercase">EXPERIENTIAL PRODUCTION & STAGECRAFT</span>
-      </div>
+    <div class="parallax-content max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-44 pb-24 text-center">
 
-      <!-- GPJ-Style Bold All-Caps Architectural Statement -->
+      <!-- GPJ-Style Bold Architectural Headline -->
       <h1 class="font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-tight leading-[0.98] uppercase text-white mb-8 hero-title-shadow">
         <span class="hero-headline-word inline-block">WHERE VISION</span> <br />
         <span class="hero-headline-word inline-block text-stone-200">MEETS SPECTACLE.</span>
       </h1>
 
-      <p class="max-w-2xl mx-auto text-sm sm:text-lg text-stone-300 font-light leading-relaxed mb-10 hero-sub-element">
-        Strategy-led. Creative-driven. Flawlessly engineered.<br class="hidden sm:inline" />
-        We produce arena concert spectacles, high-stakes corporate summits, royal weddings, and turnkey German hangar infrastructure across India.
+      <p class="max-w-2xl mx-auto text-sm sm:text-lg text-stone-200 font-light leading-relaxed mb-10 hero-sub-element">
+        Experiential stagecraft engineered with military precision.<br class="hidden sm:inline" />
+        Turnkey arena concerts, high-stakes corporate summits, royal weddings, and German hangar infrastructure across India.
       </p>
 
       <!-- Action Triggers -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto hero-sub-element">
-        <a href="#portfolio" class="w-full sm:w-auto btn-editorial-gold px-8 py-4 rounded-full text-xs font-display tracking-widest uppercase flex items-center justify-center gap-2 magnetic-target">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto hero-sub-element">
+        <a href="#portfolio" class="w-full sm:w-auto btn-editorial-gold px-7 py-4 rounded-full text-xs font-display tracking-widest uppercase flex items-center justify-center gap-2 magnetic-target">
           <span>Explore ExperienceWork</span>
           <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
         </a>
-        <a href="https://wa.me/917022019101?text=Hi%20MIG%20Events,%20I%20would%20like%20to%20inquire%20about%20event%20production." target="_blank" class="w-full sm:w-auto btn-editorial-outline px-8 py-4 rounded-full text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 magnetic-target">
+        <button id="openShowreelBtn" class="w-full sm:w-auto px-6 py-4 rounded-full text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 border border-white/20 bg-white/[0.04] text-white hover:bg-white/10 hover:border-white/40 transition-all magnetic-target">
+          <i data-lucide="play" class="w-3.5 h-3.5 text-amber-300 fill-amber-300"></i>
+          <span>Watch 2026 Reel</span>
+        </button>
+        <a href="https://wa.me/917022019101?text=Hi%20MIG%20Events,%20I%20would%20like%20to%20inquire%20about%20event%20production." target="_blank" class="w-full sm:w-auto btn-editorial-outline px-6 py-4 rounded-full text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 magnetic-target">
           <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
           <span>Direct Desk</span>
         </a>
       </div>
 
-      <!-- Scroll Indicator -->
-      <div class="mt-16 inline-flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
-        <span class="font-mono text-[11px] uppercase tracking-[0.25em] text-stone-400 mb-2">SCROLL_DOWN</span>
+      <!-- Scroll Indicator (Clean Smooth Pulse, No Tacky Bounce) -->
+      <div class="mt-16 inline-flex flex-col items-center opacity-80 hover:opacity-100 transition-opacity">
+        <span class="font-mono text-[11px] uppercase tracking-[0.25em] text-stone-300 mb-2">SCROLL</span>
         <div class="w-4 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
-          <div class="w-1 h-2 bg-stone-300 rounded-full animate-bounce"></div>
+          <div class="w-1 h-2.5 bg-stone-200 rounded-full"></div>
         </div>
       </div>
 
@@ -170,27 +168,27 @@
       <div class="pt-4 sm:pt-0 text-center">
         <div class="flex items-center justify-center text-4xl sm:text-5xl font-display font-black text-white">
           <span class="stat-number tabular-nums" data-target="500">0</span>
-          <span class="text-stone-400 ml-1">+</span>
+          <span class="text-stone-300 ml-1">+</span>
         </div>
-        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-400 mt-2">Stages Engineered</p>
+        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-300 mt-2">Stages Engineered</p>
       </div>
 
       <!-- Stat 2 -->
       <div class="pt-4 sm:pt-0 text-center">
         <div class="flex items-center justify-center text-4xl sm:text-5xl font-display font-black text-white">
           <span class="stat-number tabular-nums" data-target="15">0</span>
-          <span class="text-stone-400 ml-1">+</span>
+          <span class="text-stone-300 ml-1">+</span>
         </div>
-        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-400 mt-2">Years of Production</p>
+        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-300 mt-2">Years of Production</p>
       </div>
 
       <!-- Stat 3 -->
       <div class="pt-4 sm:pt-0 text-center">
         <div class="flex items-center justify-center text-4xl sm:text-5xl font-display font-black text-white">
           <span class="stat-number tabular-nums" data-target="100">0</span>
-          <span class="text-stone-400 ml-0.5">k+</span>
+          <span class="text-stone-300 ml-0.5">k+</span>
         </div>
-        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-400 mt-2">Live Attendees</p>
+        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-300 mt-2">Live Attendees</p>
       </div>
 
       <!-- Stat 4 -->
@@ -199,7 +197,7 @@
           <span class="stat-number tabular-nums" data-target="99">0</span>
           <span class="text-emerald-400 ml-0.5">%</span>
         </div>
-        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-400 mt-2">Flawless Delivery</p>
+        <p class="font-mono text-[11px] uppercase tracking-widest text-stone-300 mt-2">Flawless Delivery</p>
       </div>
 
     </div>
@@ -210,12 +208,11 @@
        ========================================================================= -->
   <section id="capabilities" class="relative py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="max-w-3xl mb-20 gsap-reveal-title">
-      <span class="tag-badge">[ CAPABILITIES ]</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-4">
+    <div class="max-w-3xl mb-16 gsap-reveal-title">
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white">
         Turnkey Production Engineering
       </h2>
-      <p class="text-stone-300 text-sm sm:text-base mt-4 font-light">
+      <p class="text-stone-200 text-sm sm:text-base mt-4 font-light">
         We eliminate multi-vendor friction by housing structural engineering, audio-visual acoustics, set design, and celebrity liaison under one turnkey production desk.
       </p>
     </div>
@@ -225,19 +222,19 @@
       
       <!-- Card 1: Corporate Summits (Slide from Left) -->
       <div class="motion-card-wrapper motion-slide-left">
-        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden"><div class="jitter-sheen"></div>
           <div>
             <div class="flex items-center justify-between mb-8">
-              <span class="font-mono text-[11px] text-stone-400">CORP_MICE</span>
+              <span class="font-mono text-[11px] text-stone-300">CORP_MICE</span>
               <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-200">
                 <i data-lucide="briefcase" class="w-5 h-5"></i>
               </div>
             </div>
             <h3 class="font-display font-bold text-xl uppercase text-white mb-3">Corporate Summits & MICE</h3>
-            <p class="text-stone-300 text-xs leading-relaxed mb-6 font-light">
+            <p class="text-stone-200 text-xs leading-relaxed mb-6 font-light">
               High-stakes annual dealer conventions, flagship product reveals, and leadership summits with broadcast-grade reliability and seamless hybrid streaming.
             </p>
-            <div class="space-y-2 font-mono text-[11px] text-stone-300">
+            <div class="space-y-2 font-mono text-[11px] text-stone-200">
               <div class="flex items-center gap-2"><span>&bull;</span> Keynote Staging & Curved LED Walls</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Broadcast Control & Live Webcasts</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Delegate Flow & RFID Credentialing</div>
@@ -250,21 +247,21 @@
         </div>
       </div>
 
-      <!-- Card 2: Luxury Weddings (Slide from Center/Bottom) -->
-      <div class="motion-card-wrapper motion-slide-center">
-        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between">
+      <!-- Card 2: Luxury Weddings (Drops from Top) -->
+      <div class="motion-card-wrapper motion-fall-top">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden"><div class="jitter-sheen"></div>
           <div>
             <div class="flex items-center justify-between mb-8">
-              <span class="font-mono text-[11px] text-stone-400">WEDDINGS</span>
+              <span class="font-mono text-[11px] text-stone-300">WEDDINGS</span>
               <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-200">
                 <i data-lucide="heart" class="w-5 h-5"></i>
               </div>
             </div>
             <h3 class="font-display font-bold text-xl uppercase text-white mb-3">Luxury Weddings & Galas</h3>
-            <p class="text-stone-300 text-xs leading-relaxed mb-6 font-light">
+            <p class="text-stone-200 text-xs leading-relaxed mb-6 font-light">
               Grand mandap architecture, concert-grade Sangeet stages, and bespoke royal destination affairs curated across heritage palaces and coastal resorts.
             </p>
-            <div class="space-y-2 font-mono text-[11px] text-stone-300">
+            <div class="space-y-2 font-mono text-[11px] text-stone-200">
               <div class="flex items-center gap-2"><span>&bull;</span> Thematic Architectural Mandap Sets</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Intelligent Moving-Head Sangeet Rigs</div>
               <div class="flex items-center gap-2"><span>&bull;</span> VIP Concierge & Destination Management</div>
@@ -279,19 +276,19 @@
 
       <!-- Card 3: Live Concerts (Slide from Right) -->
       <div class="motion-card-wrapper motion-slide-right">
-        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden"><div class="jitter-sheen"></div>
           <div>
             <div class="flex items-center justify-between mb-8">
-              <span class="font-mono text-[11px] text-stone-400">CONCERTS</span>
+              <span class="font-mono text-[11px] text-stone-300">CONCERTS</span>
               <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-200">
                 <i data-lucide="mic-2" class="w-5 h-5"></i>
               </div>
             </div>
             <h3 class="font-display font-bold text-xl uppercase text-white mb-3">Arena Concerts & Festivals</h3>
-            <p class="text-stone-300 text-xs leading-relaxed mb-6 font-light">
+            <p class="text-stone-200 text-xs leading-relaxed mb-6 font-light">
               Electrifying stage power. Multi-tier line-array acoustics, high-density concert beam grids, synchronized timecoded timekeeping, and pyrotechnics.
             </p>
-            <div class="space-y-2 font-mono text-[11px] text-stone-300">
+            <div class="space-y-2 font-mono text-[11px] text-stone-200">
               <div class="flex items-center gap-2"><span>&bull;</span> Line-Array Audio & FOH Consoles</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Timecoded Laser & SFX Show Control</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Heavy Trussing & Crowd Safety Barriers</div>
@@ -306,19 +303,19 @@
 
       <!-- Card 4: Ad Films & Celebrity PR (Slide from Left) -->
       <div class="motion-card-wrapper motion-slide-left">
-        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden"><div class="jitter-sheen"></div>
           <div>
             <div class="flex items-center justify-between mb-8">
-              <span class="font-mono text-[11px] text-stone-400">CELEBRITY</span>
+              <span class="font-mono text-[11px] text-stone-300">CELEBRITY</span>
               <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-200">
                 <i data-lucide="film" class="w-5 h-5"></i>
               </div>
             </div>
             <h3 class="font-display font-bold text-xl uppercase text-white mb-3">Ad Films & Celebrity PR</h3>
-            <p class="text-stone-300 text-xs leading-relaxed mb-6 font-light">
+            <p class="text-stone-200 text-xs leading-relaxed mb-6 font-light">
               Direct artist procurement, A-list celebrity talent management, red carpet media logistics, and custom commercial studio set fabrication.
             </p>
-            <div class="space-y-2 font-mono text-[11px] text-stone-300">
+            <div class="space-y-2 font-mono text-[11px] text-stone-200">
               <div class="flex items-center gap-2"><span>&bull;</span> National Performer & Artist Booking</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Film Production Sets & Gaffing</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Press Conferences & Red Carpet PR</div>
@@ -331,21 +328,21 @@
         </div>
       </div>
 
-      <!-- Card 5: German Hangars & Heavy Fabrication (Slide from Right) -->
-      <div class="motion-card-wrapper motion-slide-right md:col-span-2 lg:col-span-2">
-        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between">
+      <!-- Card 5: German Hangars & Heavy Fabrication (Drops from Top) -->
+      <div class="motion-card-wrapper motion-fall-top md:col-span-2 lg:col-span-2">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden"><div class="jitter-sheen"></div>
           <div>
             <div class="flex items-center justify-between mb-8">
-              <span class="font-mono text-[11px] text-stone-400">STRUCTURES</span>
+              <span class="font-mono text-[11px] text-stone-300">STRUCTURES</span>
               <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-200">
                 <i data-lucide="layers" class="w-5 h-5"></i>
               </div>
             </div>
             <h3 class="font-display font-bold text-xl uppercase text-white mb-3">German Hangars, Heavy Trussing & Fabrication</h3>
-            <p class="text-stone-300 text-xs leading-relaxed mb-6 font-light">
+            <p class="text-stone-200 text-xs leading-relaxed mb-6 font-light">
               We fabricate all-weather climate-controlled German Pagodas and clear-span A-frame hangars capable of hosting thousands across greenfield sites, sports grounds, or palace lawns.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-[11px] text-stone-300">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-[11px] text-stone-200">
               <div class="flex items-center gap-2"><span>&bull;</span> German Clear-Span Waterproof Hangars</div>
               <div class="flex items-center gap-2"><span>&bull;</span> High-Tonnage Aluminum Roof Grids</div>
               <div class="flex items-center gap-2"><span>&bull;</span> Ultra-High Brightness P2.6/P3.9 LEDs</div>
@@ -371,11 +368,10 @@
       <!-- Section Header & Filter Tabs -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
         <div class="gsap-reveal-title">
-          <span class="tag-badge">[ ARCHIVE ]</span>
-          <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-4">
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white">
             Selected Productions
           </h2>
-          <p class="text-stone-400 text-sm mt-3 font-light max-w-xl">
+          <p class="text-stone-200 text-sm mt-3 font-light max-w-xl">
             Real evidence from the field. Browse actual stages, summits, and grand galas executed by MIG.
           </p>
         </div>
@@ -385,16 +381,16 @@
           <button class="filter-btn px-4 py-2 rounded-full border border-white text-white bg-white/10 transition-all" data-filter="all">
             ALL [10]
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 text-stone-400 hover:text-white transition-all" data-filter="corporate">
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/15 text-stone-300 hover:text-white hover:border-white/30 transition-all" data-filter="corporate">
             CORPORATE
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 text-stone-400 hover:text-white transition-all" data-filter="weddings">
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/15 text-stone-300 hover:text-white hover:border-white/30 transition-all" data-filter="weddings">
             WEDDINGS
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 text-stone-400 hover:text-white transition-all" data-filter="concerts">
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/15 text-stone-300 hover:text-white hover:border-white/30 transition-all" data-filter="concerts">
             CONCERTS
           </button>
-          <button class="filter-btn px-4 py-2 rounded-full border border-white/10 text-stone-400 hover:text-white transition-all" data-filter="celebrity">
+          <button class="filter-btn px-4 py-2 rounded-full border border-white/15 text-stone-300 hover:text-white hover:border-white/30 transition-all" data-filter="celebrity">
             CELEBRITY_PR
           </button>
         </div>
@@ -405,10 +401,11 @@
         
         <!-- Item 1: Arena Concert (Slide from Left) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-left" data-category="concerts">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="concerts" data-img="assets/images/280_Hero-Music-1.jpg" data-title="Grand Arena Music Festival">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/280_Hero-Music-1.jpg" data-title="Grand Arena Music Festival">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/280_Hero-Music-1.jpg" alt="Concert Stage" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // PALACE GROUNDS</span>
                 <span class="text-stone-300">CAP // 15,000+</span>
               </div>
@@ -422,12 +419,13 @@
           </div>
         </div>
 
-        <!-- Item 2: Corporate Leadership Summit (Slide from Center) -->
-        <div class="gallery-item-wrap motion-card-wrapper motion-slide-center" data-category="corporate">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="corporate" data-img="assets/images/326_Corporate-Hero.webp" data-title="Tech Summit & Global Leadership Meet">
+        <!-- Item 2: Corporate Leadership Summit (Drops from Top) -->
+        <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="corporate">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="corporate" data-img="assets/images/326_Corporate-Hero.webp" data-title="Tech Summit & Global Leadership Meet">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/326_Corporate-Hero.webp" alt="Corporate Summit" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // TAJ WEST END</span>
                 <span class="text-stone-300">DELEGATES // 1,200</span>
               </div>
@@ -443,10 +441,11 @@
 
         <!-- Item 3: Luxury Royal Wedding (Slide from Right) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-right" data-category="weddings">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="weddings" data-img="assets/images/284_wedding-hero.webp" data-title="The Royal Palace Destination Wedding">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/284_wedding-hero.webp" data-title="The Royal Palace Destination Wedding">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/284_wedding-hero.webp" alt="Wedding Setup" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // BANGALORE PALACE</span>
                 <span class="text-stone-300">THEME // ROYAL MANDAP</span>
               </div>
@@ -460,12 +459,13 @@
           </div>
         </div>
 
-        <!-- Item 4: German Hangar Fabrication (Slide from Left) -->
-        <div class="gallery-item-wrap motion-card-wrapper motion-slide-left" data-category="concerts">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="concerts" data-img="assets/images/719_SDR04401-scaled.jpg" data-title="All-Weather German Hangar Arena">
+        <!-- Item 4: German Hangar Fabrication (Drops from Top) -->
+        <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="concerts">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/719_SDR04401-scaled.jpg" data-title="All-Weather German Hangar Arena">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/719_SDR04401-scaled.jpg" alt="German Hangar" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>SPAN // 50 METERS</span>
                 <span class="text-stone-300">SPEC // WEATHERPROOF</span>
               </div>
@@ -479,12 +479,13 @@
           </div>
         </div>
 
-        <!-- Item 5: Sangeet Night Concert (Slide from Center) -->
-        <div class="gallery-item-wrap motion-card-wrapper motion-slide-center" data-category="weddings">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="weddings" data-img="assets/images/845_DSC04891-scaled.jpg" data-title="Bespoke Sangeet Night Stage & Lighting">
+        <!-- Item 5: Sangeet Night Concert (Rises from Bottom) -->
+        <div class="gallery-item-wrap motion-card-wrapper motion-rise-bottom" data-category="weddings">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/845_DSC04891-scaled.jpg" data-title="Bespoke Sangeet Night Stage & Lighting">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/845_DSC04891-scaled.jpg" alt="Sangeet Night" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // JW MARRIOTT</span>
                 <span class="text-stone-300">RIG // 48 MOVING HEADS</span>
               </div>
@@ -498,12 +499,13 @@
           </div>
         </div>
 
-        <!-- Item 6: Celebrity PR & Film Launch (Slide from Right) -->
-        <div class="gallery-item-wrap motion-card-wrapper motion-slide-right" data-category="celebrity">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="celebrity" data-img="assets/images/785_RFP01274-scaled.jpg" data-title="Film Launch & Red Carpet Celebrity PR">
+        <!-- Item 6: Celebrity PR & Film Launch (Drops from Top) -->
+        <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="celebrity">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="celebrity" data-img="assets/images/785_RFP01274-scaled.jpg" data-title="Film Launch & Red Carpet Celebrity PR">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/785_RFP01274-scaled.jpg" alt="Celebrity Event" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>PR // RED CARPET</span>
                 <span class="text-stone-300">MEDIA // 40+ OUTLETS</span>
               </div>
@@ -519,10 +521,11 @@
 
         <!-- Item 7: Corporate Award Honors (Slide from Left) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-left" data-category="corporate">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="corporate" data-img="assets/images/732_DSC08613-scaled.jpg" data-title="Corporate Honors & Awards Night">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="corporate" data-img="assets/images/732_DSC08613-scaled.jpg" data-title="Corporate Honors & Awards Night">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/732_DSC08613-scaled.jpg" alt="Awards Night" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // SHERATON GRAND</span>
                 <span class="text-stone-300">STAGE // CURVED LED</span>
               </div>
@@ -536,12 +539,13 @@
           </div>
         </div>
 
-        <!-- Item 8: Electronic Music Showcase (Slide from Center) -->
-        <div class="gallery-item-wrap motion-card-wrapper motion-slide-center" data-category="concerts">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="concerts" data-img="assets/images/851_KGP07594-scaled.jpg" data-title="Live Band & Electronic Music Festival">
+        <!-- Item 8: Electronic Music Showcase (Drops from Top) -->
+        <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="concerts">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/851_KGP07594-scaled.jpg" data-title="Live Band & Electronic Music Festival">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/851_KGP07594-scaled.jpg" alt="Concert Stage" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // MANPHO GROUNDS</span>
                 <span class="text-stone-300">SFX // RGB LASERS</span>
               </div>
@@ -557,10 +561,11 @@
 
         <!-- Item 9: Glasshouse Wedding Reception (Slide from Right) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-right" data-category="weddings">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full" data-category="weddings" data-img="assets/images/596_50-Creative-Wedding-Home-Decor-Ideas-for-Intimate-Pre-Wedding-Events.jpg" data-title="Grand Glasshouse Wedding Reception">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/596_50-Creative-Wedding-Home-Decor-Ideas-for-Intimate-Pre-Wedding-Events.jpg" data-title="Grand Glasshouse Wedding Reception">
+            <div class="jitter-sheen"></div>
             <img src="assets/images/596_50-Creative-Wedding-Home-Decor-Ideas-for-Intimate-Pre-Wedding-Events.jpg" alt="Wedding Reception" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
-              <div class="flex items-center justify-between font-mono text-[11px] text-stone-400 mb-2">
+              <div class="flex items-center justify-between font-mono text-[11px] text-stone-300 mb-2">
                 <span>LOC // THE LEELA PALACE</span>
                 <span class="text-stone-300">DECOR // CHANDELIER CANOPY</span>
               </div>
@@ -587,11 +592,10 @@
     <div class="parallax-overlay-dark"></div>
 
     <div class="parallax-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-36 text-center">
-      <span class="tag-badge mb-8">[ MANIFESTO ]</span>
-      <blockquote class="font-display font-black text-2xl sm:text-4xl lg:text-5xl uppercase leading-tight tracking-tight text-white mt-6 mb-8 hero-title-shadow">
+      <blockquote class="font-display font-bold text-2xl sm:text-4xl lg:text-5xl leading-tight tracking-tight text-white mb-8 hero-title-shadow">
         “We don't merely assemble stages. We engineer moments of awe that linger long after the spotlights dim.”
       </blockquote>
-      <p class="font-mono text-xs text-stone-300 uppercase tracking-[0.25em]">
+      <p class="font-mono text-xs text-stone-200 uppercase tracking-[0.25em]">
         — MIG Events & Productions Desk // Bangalore
       </p>
     </div>
@@ -602,41 +606,57 @@
        ========================================================================= -->
   <section class="py-20 bg-pitch border-b border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-      <span class="font-mono text-[11px] tracking-[0.25em] text-stone-400 uppercase">ENTERPRISE CLIENTS & VENUE PARTNERS</span>
+      <span class="font-mono text-[11px] tracking-[0.25em] text-stone-300 uppercase">ENTERPRISE CLIENTS & VENUE PARTNERS</span>
     </div>
     
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">INFOSYS SUMMITS</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Annual Conventions</span>
+      <div class="motion-card-wrapper motion-slide-left">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">INFOSYS SUMMITS</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Annual Conventions</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">TAJ HOTELS</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Luxury Galas</span>
+      <div class="motion-card-wrapper motion-slide-left">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">TAJ HOTELS</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Luxury Galas</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">JW MARRIOTT</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Ballroom Staging</span>
+      <div class="motion-card-wrapper motion-slide-right">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">JW MARRIOTT</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Ballroom Staging</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">BANGALORE PALACE</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Heritage Productions</span>
+      <div class="motion-card-wrapper motion-slide-right">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">BANGALORE PALACE</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Heritage Productions</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">DELL TECHNOLOGIES</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Keynote Reveals</span>
+      <div class="motion-card-wrapper motion-slide-left">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">DELL TECHNOLOGIES</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Keynote Reveals</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">THE LEELA PALACES</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Destination Weddings</span>
+      <div class="motion-card-wrapper motion-slide-left">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">THE LEELA PALACES</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Destination Weddings</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">HERO MOTOCORP</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Dealer Summits</span>
+      <div class="motion-card-wrapper motion-slide-right">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">HERO MOTOCORP</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Dealer Summits</span>
+        </div>
       </div>
-      <div class="editorial-card rounded-xl p-6 text-center">
-        <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">MANPHO GROUNDS</span>
-        <span class="font-mono text-[11px] text-stone-400 mt-1 block">Arena Concerts</span>
+      <div class="motion-card-wrapper motion-slide-right">
+        <div class="editorial-card rounded-xl p-6 text-center h-full flex flex-col justify-center">
+          <span class="font-display font-bold text-sm sm:text-base text-stone-200 block">MANPHO GROUNDS</span>
+          <span class="font-mono text-[11px] text-stone-300 mt-1 block">Arena Concerts</span>
+        </div>
       </div>
     </div>
   </section>
@@ -646,65 +666,73 @@
        ========================================================================= -->
   <section id="reviews" class="py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-16 gsap-reveal-title">
-      <span class="tag-badge">[ TESTIMONIALS ]</span>
-      <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-4">
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white">
         Client Feedback
       </h2>
-      <p class="text-stone-300 text-sm mt-3 font-light">
+      <p class="text-stone-200 text-sm mt-3 font-light">
         Unfiltered feedback from enterprise marketing leaders and families who place their critical milestones in our hands.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 jitter-stack-wrapper">
       
-      <!-- Review 1 -->
-      <div class="editorial-card rounded-2xl p-8 flex flex-col justify-between">
-        <div>
-          <div class="font-mono text-[11px] text-stone-400 mb-6">RATING: 5.0 / 5.0</div>
-          <p class="text-stone-300 text-sm leading-relaxed font-light mb-8">
-            “MIG Events handled our 2,000-delegate tech symposium with unmatched military precision. The German hangar installation, line-array acoustics, and seamless LED visuals made our production flawless and impactful.”
-          </p>
-        </div>
-        <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+      <!-- Review 1 (Jitter Stack Card: Fans Left) -->
+      <div class="jitter-stack-card">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="jitter-sheen"></div>
           <div>
-            <h3 class="text-white text-sm font-semibold">Rajesh Menon</h3>
-            <p class="font-mono text-[11px] text-stone-400">VP Marketing, Enterprise Tech</p>
+            <div class="font-mono text-[11px] text-stone-300 mb-6">RATING: 5.0 / 5.0</div>
+            <p class="text-stone-200 text-sm leading-relaxed font-light mb-8">
+              “MIG Events handled our 2,000-delegate tech symposium with unmatched military precision. The German hangar installation, line-array acoustics, and seamless LED visuals made our production flawless and impactful.”
+            </p>
           </div>
-          <span class="font-mono text-xs text-stone-400">01</span>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <div>
+              <h3 class="text-white text-sm font-semibold">Rajesh Menon</h3>
+              <p class="font-mono text-[11px] text-stone-300">VP Marketing, Enterprise Tech</p>
+            </div>
+            <span class="font-mono text-xs text-stone-300">01</span>
+          </div>
         </div>
       </div>
 
-      <!-- Review 2 -->
-      <div class="editorial-card rounded-2xl p-8 flex flex-col justify-between">
-        <div>
-          <div class="font-mono text-[11px] text-stone-400 mb-6">RATING: 5.0 / 5.0</div>
-          <p class="text-stone-300 text-sm leading-relaxed font-light mb-8">
-            “Our 3-day destination wedding in Bangalore Palace was an absolute dream. From the royal floral mandap to the electrifying Sangeet stage that kept everyone dancing until 3 AM — MIG made it truly unforgettable!”
-          </p>
-        </div>
-        <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+      <!-- Review 2 (Jitter Stack Card: Center Deck) -->
+      <div class="jitter-stack-card">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="jitter-sheen"></div>
           <div>
-            <h3 class="text-white text-sm font-semibold">Pooja & Rohan Shetty</h3>
-            <p class="font-mono text-[11px] text-stone-400">Bangalore Palace Destination</p>
+            <div class="font-mono text-[11px] text-stone-300 mb-6">RATING: 5.0 / 5.0</div>
+            <p class="text-stone-200 text-sm leading-relaxed font-light mb-8">
+              “Our 3-day destination wedding in Bangalore Palace was an absolute dream. From the royal floral mandap to the electrifying Sangeet stage that kept everyone dancing until 3 AM — MIG made it truly unforgettable!”
+            </p>
           </div>
-          <span class="font-mono text-xs text-stone-400">02</span>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <div>
+              <h3 class="text-white text-sm font-semibold">Pooja & Rohan Shetty</h3>
+              <p class="font-mono text-[11px] text-stone-300">Bangalore Palace Destination</p>
+            </div>
+            <span class="font-mono text-xs text-stone-300">02</span>
+          </div>
         </div>
       </div>
 
-      <!-- Review 3 -->
-      <div class="editorial-card rounded-2xl p-8 flex flex-col justify-between">
-        <div>
-          <div class="font-mono text-[11px] text-stone-400 mb-6">RATING: 5.0 / 5.0</div>
-          <p class="text-stone-300 text-sm leading-relaxed font-light mb-8">
-            “We brought in MIG for our multi-city promotional concert tour. Their sound consoles, light programming, and safety protocol execution were on par with international festival standards.”
-          </p>
-        </div>
-        <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+      <!-- Review 3 (Jitter Stack Card: Fans Right) -->
+      <div class="jitter-stack-card">
+        <div class="editorial-card h-full rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
+          <div class="jitter-sheen"></div>
           <div>
-            <h3 class="text-white text-sm font-semibold">Ananya Rao</h3>
-            <p class="font-mono text-[11px] text-stone-400">Festival Director, Live Sounds</p>
+            <div class="font-mono text-[11px] text-stone-300 mb-6">RATING: 5.0 / 5.0</div>
+            <p class="text-stone-200 text-sm leading-relaxed font-light mb-8">
+              “We brought in MIG for our multi-city promotional concert tour. Their sound consoles, light programming, and safety protocol execution were on par with international festival standards.”
+            </p>
           </div>
-          <span class="font-mono text-xs text-stone-400">03</span>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <div>
+              <h3 class="text-white text-sm font-semibold">Ananya Rao</h3>
+              <p class="font-mono text-[11px] text-stone-300">Festival Director, Live Sounds</p>
+            </div>
+            <span class="font-mono text-xs text-stone-300">03</span>
+          </div>
         </div>
       </div>
 
@@ -718,11 +746,10 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-12">
-        <span class="tag-badge">[ INQUIRY ]</span>
-        <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white mt-4">
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tight text-white">
           Plan Your Production
         </h2>
-        <p class="text-stone-300 text-sm mt-3 font-light">
+        <p class="text-stone-200 text-sm mt-3 font-light">
           Configure your event parameters to receive an instant scope of work and immediate WhatsApp connection with our production directors.
         </p>
       </div>
@@ -731,9 +758,9 @@
       <div class="flex items-center justify-between mb-8 max-w-xs mx-auto font-mono text-xs">
         <span id="wizardProgress1" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold">1</span>
         <div class="h-[1px] flex-1 bg-white/10 mx-2"></div>
-        <span id="wizardProgress2" class="w-8 h-8 rounded-full border border-white/20 text-stone-400 flex items-center justify-center font-bold">2</span>
+        <span id="wizardProgress2" class="w-8 h-8 rounded-full border border-white/20 text-stone-300 flex items-center justify-center font-bold">2</span>
         <div class="h-[1px] flex-1 bg-white/10 mx-2"></div>
-        <span id="wizardProgress3" class="w-8 h-8 rounded-full border border-white/20 text-stone-400 flex items-center justify-center font-bold">3</span>
+        <span id="wizardProgress3" class="w-8 h-8 rounded-full border border-white/20 text-stone-300 flex items-center justify-center font-bold">3</span>
       </div>
 
       <!-- Wizard Box -->
@@ -748,7 +775,7 @@
               <button type="button" class="wizard-type-btn editorial-card p-6 rounded-xl text-left border border-white hover:border-white transition-all flex items-center justify-between" data-value="Corporate Summit & MICE">
                 <div>
                   <span class="font-display font-bold text-base text-white block">Corporate Summit & MICE</span>
-                  <span class="font-mono text-[11px] text-stone-400">Conference, Product Launch, Dealer Meet</span>
+                  <span class="font-mono text-[11px] text-stone-300">Conference, Product Launch, Dealer Meet</span>
                 </div>
                 <i data-lucide="briefcase" class="w-5 h-5 text-stone-200"></i>
               </button>
@@ -756,7 +783,7 @@
               <button type="button" class="wizard-type-btn editorial-card p-6 rounded-xl text-left border border-white/10 hover:border-white transition-all flex items-center justify-between" data-value="Luxury Wedding & Reception">
                 <div>
                   <span class="font-display font-bold text-base text-white block">Luxury Wedding & Reception</span>
-                  <span class="font-mono text-[11px] text-stone-400">Mandap, Sangeet Night, Thematic Decor</span>
+                  <span class="font-mono text-[11px] text-stone-300">Mandap, Sangeet Night, Thematic Decor</span>
                 </div>
                 <i data-lucide="heart" class="w-5 h-5 text-stone-200"></i>
               </button>
@@ -764,7 +791,7 @@
               <button type="button" class="wizard-type-btn editorial-card p-6 rounded-xl text-left border border-white/10 hover:border-white transition-all flex items-center justify-between" data-value="Arena Concert / Live Show">
                 <div>
                   <span class="font-display font-bold text-base text-white block">Arena Concert & Live Show</span>
-                  <span class="font-mono text-[11px] text-stone-400">Stage Trussing, Line-Array, Festival Rig</span>
+                  <span class="font-mono text-[11px] text-stone-300">Stage Trussing, Line-Array, Festival Rig</span>
                 </div>
                 <i data-lucide="mic-2" class="w-5 h-5 text-stone-200"></i>
               </button>
@@ -772,7 +799,7 @@
               <button type="button" class="wizard-type-btn editorial-card p-6 rounded-xl text-left border border-white/10 hover:border-white transition-all flex items-center justify-between" data-value="Ad Film Shoot / Celebrity PR">
                 <div>
                   <span class="font-display font-bold text-base text-white block">Celebrity PR & Ad Film</span>
-                  <span class="font-mono text-[11px] text-stone-400">Artist Booking, Film Set, Campaign</span>
+                  <span class="font-mono text-[11px] text-stone-300">Artist Booking, Film Set, Campaign</span>
                 </div>
                 <i data-lucide="film" class="w-5 h-5 text-stone-200"></i>
               </button>
@@ -792,22 +819,22 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <button type="button" class="wizard-scale-btn editorial-card p-6 rounded-xl text-left border border-white hover:border-white transition-all" data-value="Intimate VIP Gathering (Under 100 Guests)">
                 <span class="font-display font-bold text-base text-white block">Intimate VIP Gathering</span>
-                <span class="font-mono text-[11px] text-stone-400">Under 100 Guests</span>
+                <span class="font-mono text-[11px] text-stone-300">Under 100 Guests</span>
               </button>
 
               <button type="button" class="wizard-scale-btn editorial-card p-6 rounded-xl text-left border border-white/10 hover:border-white transition-all" data-value="Medium Gala (100 - 500 Guests)">
                 <span class="font-display font-bold text-base text-white block">Medium Gala / Convention</span>
-                <span class="font-mono text-[11px] text-stone-400">100 - 500 Guests</span>
+                <span class="font-mono text-[11px] text-stone-300">100 - 500 Guests</span>
               </button>
 
               <button type="button" class="wizard-scale-btn editorial-card p-6 rounded-xl text-left border border-white/10 hover:border-white transition-all" data-value="Large Production (500 - 2,000 Guests)">
                 <span class="font-display font-bold text-base text-white block">Large Production / Summit</span>
-                <span class="font-mono text-[11px] text-stone-400">500 - 2,000 Guests</span>
+                <span class="font-mono text-[11px] text-stone-300">500 - 2,000 Guests</span>
               </button>
 
               <button type="button" class="wizard-scale-btn editorial-card p-6 rounded-xl text-left border border-white/10 hover:border-white transition-all" data-value="Mega Arena / Festival (2,000+ Guests)">
                 <span class="font-display font-bold text-base text-white block">Mega Arena & Stadium</span>
-                <span class="font-mono text-[11px] text-stone-400">2,000+ Attendees</span>
+                <span class="font-mono text-[11px] text-stone-300">2,000+ Attendees</span>
               </button>
             </div>
 
@@ -888,20 +915,20 @@
             <img src="assets/images/1097_cropped-mig.png" alt="MIG Events" class="h-9 w-auto" />
             <div>
               <span class="font-display font-extrabold text-base text-white block">MIG EVENTS</span>
-              <span class="font-mono text-[11px] tracking-[0.2em] text-stone-400 uppercase block">Make It Great</span>
+              <span class="font-mono text-[11px] tracking-[0.2em] text-stone-300 uppercase block">Make It Great</span>
             </div>
           </div>
-          <p class="text-stone-400 text-xs leading-relaxed font-light mb-6">
+          <p class="text-stone-300 text-xs leading-relaxed font-light mb-6">
             Experiential event management, arena concert infrastructure, luxury wedding architecture, and turnkey German hangars.
           </p>
           <div class="flex items-center gap-3">
-            <a href="https://wa.me/917022019101" target="_blank" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-400 hover:text-white hover:border-white/30 transition-colors">
+            <a href="https://wa.me/917022019101" target="_blank" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-300 hover:text-white hover:border-white/30 transition-colors">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
             </a>
-            <a href="mailto:sumanthnaik2001@gmail.com" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-400 hover:text-white hover:border-white/30 transition-colors">
+            <a href="mailto:sumanthnaik2001@gmail.com" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-300 hover:text-white hover:border-white/30 transition-colors">
               <i data-lucide="mail" class="w-4 h-4"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-400 hover:text-white hover:border-white/30 transition-colors">
+            <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-300 hover:text-white hover:border-white/30 transition-colors">
               <i data-lucide="instagram" class="w-4 h-4"></i>
             </a>
           </div>
@@ -910,7 +937,7 @@
         <!-- Quick Links -->
         <div>
           <span class="font-mono text-[11px] tracking-[0.2em] text-stone-300 uppercase block mb-5">PRODUCTIONS</span>
-          <ul class="space-y-3 font-mono text-xs text-stone-400">
+          <ul class="space-y-3 font-mono text-xs text-stone-300">
             <li><a href="#capabilities" class="hover:text-white transition-colors">Corporate Summits</a></li>
             <li><a href="#capabilities" class="hover:text-white transition-colors">Royal Weddings</a></li>
             <li><a href="#capabilities" class="hover:text-white transition-colors">Arena Concerts</a></li>
@@ -922,7 +949,7 @@
         <!-- Working Locations -->
         <div>
           <span class="font-mono text-[11px] tracking-[0.2em] text-stone-300 uppercase block mb-5">DESTINATIONS</span>
-          <ul class="space-y-3 font-mono text-xs text-stone-400">
+          <ul class="space-y-3 font-mono text-xs text-stone-300">
             <li>Bangalore (HQ Hub)</li>
             <li>Goa Coastal Affairs</li>
             <li>Hyderabad & Chennai</li>
@@ -939,14 +966,14 @@
               <i data-lucide="phone-call" class="w-4 h-4 text-stone-300 shrink-0 mt-0.5"></i>
               <div>
                 <a href="tel:+917022019101" class="hover:text-white font-semibold transition-colors">+91 70220 19101</a>
-                <span class="block text-[11px] text-stone-500">Mon - Sat, 9:00 AM - 9:00 PM</span>
+                <span class="block text-[11px] text-stone-300">Mon - Sat, 9:00 AM - 9:00 PM</span>
               </div>
             </div>
             <div class="flex items-start gap-3">
               <i data-lucide="mail" class="w-4 h-4 text-stone-300 shrink-0 mt-0.5"></i>
               <div>
                 <a href="mailto:sumanthnaik2001@gmail.com" class="hover:text-white transition-colors">sumanthnaik2001@gmail.com</a>
-                <span class="block text-[11px] text-stone-500">RFP & Quotation Inquiries</span>
+                <span class="block text-[11px] text-stone-300">RFP & Quotation Inquiries</span>
               </div>
             </div>
           </div>
@@ -955,7 +982,7 @@
       </div>
 
       <!-- Copyright -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-stone-500">
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-stone-300">
         <p>&copy; 2026 MIG Events & Productions. Make It Great.</p>
         <p class="mt-4 sm:mt-0 flex items-center gap-2">
           <span>Engineered with Precision & Passion</span>
@@ -995,5 +1022,18 @@
   </script>
   <script src="js/main.js"></script>
   <script src="js/motion-graphics.js"></script>
+
+  <!-- =========================================================================
+       12. CINEMATIC VIDEO SHOWREEL MODAL
+       ========================================================================= -->
+  <div id="videoShowreelModal" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-8 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-5xl aspect-video bg-pitch rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
+      <button id="closeShowreelBtn" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white hover:bg-black/90 transition-all">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <iframe id="showreelIframe" class="w-full h-full" src="" title="MIG Events Production Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
 </body>
 </html>
