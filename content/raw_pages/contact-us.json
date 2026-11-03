@@ -1,0 +1,212 @@
+{
+  "id": 439,
+  "date": "2026-07-09T15:56:35",
+  "date_gmt": "2026-07-09T15:56:35",
+  "guid": {
+    "rendered": "https://lightsalmon-elephant-568117.hostingersite.com/?page_id=439"
+  },
+  "modified": "2026-08-10T20:43:38",
+  "modified_gmt": "2026-08-10T20:43:38",
+  "slug": "contact-us",
+  "status": "publish",
+  "type": "page",
+  "link": "https://migeventsandproductions.com/contact-us/",
+  "title": {
+    "rendered": "Contact Us"
+  },
+  "content": {
+    "rendered": "\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"439\" class=\"elementor elementor-439\" data-elementor-post-type=\"page\">\n\t\t\t\t<div class=\"elementor-element elementor-element-57ca3497 e-flex e-con-boxed e-con e-parent\" data-id=\"57ca3497\" data-element_type=\"container\" data-e-type=\"container\" data-settings=\"{&quot;background_background&quot;:&quot;classic&quot;}\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t<div class=\"elementor-element elementor-element-5081a18f e-con-full e-flex e-con e-child\" data-id=\"5081a18f\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div class=\"elementor-element elementor-element-2c119fc2 elementor-widget elementor-widget-heading\" data-id=\"2c119fc2\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"heading.default\">\n\t\t\t\t\t<h1 class=\"elementor-heading-title elementor-size-default\">Contact Us</h1>\t\t\t\t</div>\n\t\t\t\t<div class=\"elementor-element elementor-element-19ea7492 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list\" data-id=\"19ea7492\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"icon-list.default\">\n\t\t\t\t\t\t\t<ul class=\"elementor-icon-list-items elementor-inline-items\">\n\t\t\t\t\t\t\t<li class=\"elementor-icon-list-item elementor-inline-item\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"#\">\n\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-icon-list-text\">Home</span>\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li class=\"elementor-icon-list-item elementor-inline-item\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-icon-list-icon\">\n\t\t\t\t\t\t\t<i aria-hidden=\"true\" class=\"jki jki-arrow-up-right-line\"></i>\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-icon-list-text\">Contact Us</span>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t<div class=\"elementor-element elementor-element-6cf31c26 e-flex e-con-boxed e-con e-parent\" data-id=\"6cf31c26\" data-element_type=\"container\" data-e-type=\"container\" data-settings=\"{&quot;background_background&quot;:&quot;classic&quot;}\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t<div class=\"elementor-element elementor-element-67f4210b e-con-full e-flex e-con e-child\" data-id=\"67f4210b\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t<div class=\"elementor-element elementor-element-43ccaf5b e-con-full e-flex e-con e-child\" data-id=\"43ccaf5b\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div class=\"elementor-element elementor-element-1956266a elementor-tablet-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list\" data-id=\"1956266a\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"icon-list.default\">\n\t\t\t\t\t\t\t<ul class=\"elementor-icon-list-items\">\n\t\t\t\t\t\t\t<li class=\"elementor-icon-list-item\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-icon-list-icon\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" class=\"e-font-icon-svg e-fas-dove\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M288 167.2v-28.1c-28.2-36.3-47.1-79.3-54.1-125.2-2.1-13.5-19-18.8-27.8-8.3-21.1 24.9-37.7 54.1-48.9 86.5 34.2 38.3 80 64.6 130.8 75.1zM400 64c-44.2 0-80 35.9-80 80.1v59.4C215.6 197.3 127 133 87 41.8c-5.5-12.5-23.2-13.2-29-.9C41.4 76 32 115.2 32 156.6c0 70.8 34.1 136.9 85.1 185.9 13.2 12.7 26.1 23.2 38.9 32.8l-143.9 36C1.4 414-3.4 426.4 2.6 435.7 20 462.6 63 508.2 155.8 512c8 .3 16-2.6 22.1-7.9l65.2-56.1H320c88.4 0 160-71.5 160-159.9V128l32-64H400zm0 96.1c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16z\"></path></svg>\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-icon-list-text\">Talk to Our Event Experts</span>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t<div class=\"elementor-element elementor-element-45de3c1 elementor-widget elementor-widget-elementskit-heading\" data-id=\"45de3c1\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"elementskit-heading.default\">\n\t\t\t\t\t<div class=\"ekit-wid-con\" ><div class=\"ekit-heading elementskit-section-title-wraper    ekit_heading_tablet-text_center   ekit_heading_mobile-\"><h1 class=\"ekit-heading--title elementskit-section-title \">Lets Make Your Event <span>Unforgettable</span></h1></div></div>\t\t\t\t</div>\n\t\t\t\t<div class=\"elementor-element elementor-element-53e55527 elementor-widget elementor-widget-text-editor\" data-id=\"53e55527\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"text-editor.default\">\n\t\t\t\t\t\t\t\t\t<p>From concept to execution, we bring creativity, precision, and seamless planning together to create events that leave a lasting impression. Let’s turn your vision into an experience worth remembering.</p>\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"elementor-element elementor-element-ef3dfb2 elementor-invisible elementor-widget elementor-widget-google_maps\" data-id=\"ef3dfb2\" data-element_type=\"widget\" data-e-type=\"widget\" data-settings=\"{&quot;_animation&quot;:&quot;rollIn&quot;,&quot;_animation_mobile&quot;:&quot;none&quot;}\" data-widget_type=\"google_maps.default\">\n\t\t\t\t\t\t\t<div class=\"elementor-custom-embed\">\n\t\t\t<iframe loading=\"lazy\"\n\t\t\t\t\tsrc=\"https://maps.google.com/maps?q=MIG%20events&#038;t=m&#038;z=10&#038;output=embed&#038;iwloc=near\"\n\t\t\t\t\ttitle=\"MIG events\"\n\t\t\t\t\taria-label=\"MIG events\"\n\t\t\t></iframe>\n\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t<div class=\"elementor-element elementor-element-2066de97 e-con-full e-flex elementor-invisible e-con e-child\" data-id=\"2066de97\" data-element_type=\"container\" data-e-type=\"container\" data-settings=\"{&quot;animation&quot;:&quot;slideInUp&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;animation_mobile&quot;:&quot;none&quot;}\">\n\t\t\t\t<div class=\"elementor-element elementor-element-93de39a elementor-widget elementor-widget-elementskit-heading\" data-id=\"93de39a\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"elementskit-heading.default\">\n\t\t\t\t\t<div class=\"ekit-wid-con\" ><div class=\"ekit-heading elementskit-section-title-wraper text_center   ekit_heading_tablet-text_center   ekit_heading_mobile-\"><h3 class=\"ekit-heading--title elementskit-section-title \">Your Dream Event <span>Starts</span> Here</h3></div></div>\t\t\t\t</div>\n\t\t\t\t<div class=\"elementor-element elementor-element-354b8884 elementor-widget elementor-widget-text-editor\" data-id=\"354b8884\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"text-editor.default\">\n\t\t\t\t\t\t\t\t\t<p>Start Planning Your Event</p>\t\t\t\t\t\t\t\t</div>\n\t\t\t\t<div class=\"elementor-element elementor-element-e9f07bd elementor-widget elementor-widget-metform\" data-id=\"e9f07bd\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"metform.default\">\n\t\t\t\t\t<div id=\"mf-response-props-id-668\" data-previous-steps-style=\"\" data-editswitchopen=\"\" data-response_type=\"alert\" data-erroricon=\"fas fa-exclamation-triangle\" data-successicon=\"fas fa-check\" data-messageposition=\"top\" class=\"   mf-scroll-top-no\">\n\t\t<div class=\"formpicker_warper formpicker_warper_editable\" data-metform-formpicker-key=\"668\" >\n\t\t\t\t\n\t\t\t<div class=\"mf-widget-container\">\n\t\t\t\t\r\n\t\t<div\r\n\t\t\tid=\"metform-wrap-e9f07bd-668\"\r\n\t\t\tclass=\"mf-form-wrapper\"\r\n\t\t\tdata-form-id=\"668\"\r\n\t\t\tdata-action=\"https://migeventsandproductions.com/wp-json/metform/v1/entries/insert/668\"\r\n\t\t\tdata-wp-nonce=\"4801d35209\"\r\n\t\t\tdata-form-nonce=\"af772df83b\"\r\n\t\t\tdata-quiz-summery = \"false\"\r\n\t\t\tdata-save-progress = \"false\"\r\n\t\t\tdata-form-type=\"general-form\"\r\n\t\t\tdata-stop-vertical-effect=\"\"\r\n\t\t\tdata-payment-submit-before=\"0\"\r\n\t\t\t></div>\r\n\r\n\r\n\t\t<!----------------------------- \r\n\t\t\t* controls_data : find the the props passed indie of data attribute\r\n\t\t\t* props.SubmitResponseMarkup : contains the markup of error or success message\r\n\t\t\t* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals\r\n\t\t--------------------------- -->\r\n\r\n\t\t\t\t<script type=\"text/mf\" class=\"mf-template\">\r\n\t\t\tfunction controls_data (value){\r\n\t\t\t\tlet currentWrapper = \"mf-response-props-id-668\";\r\n\t\t\t\tlet currentEl = document.getElementById(currentWrapper);\r\n\t\t\t\t\r\n\t\t\t\treturn currentEl ? currentEl.dataset[value] : false\r\n\t\t\t}\r\n\r\n\r\n\t\t\tlet is_edit_mode = '' ? true : false;\r\n\t\t\tlet message_position = controls_data('messageposition') || 'top';\r\n\r\n\t\t\t\r\n\t\t\tlet message_successIcon = controls_data('successicon') || '';\r\n\t\t\tlet message_errorIcon = controls_data('erroricon') || '';\r\n\t\t\tlet message_editSwitch = controls_data('editswitchopen') === 'yes' ? true : false;\r\n\t\t\tlet message_proClass = controls_data('editswitchopen') === 'yes' ? 'mf_pro_activated' : '';\r\n\t\t\t\r\n\t\t\tlet is_dummy_markup = is_edit_mode && message_editSwitch ? true : false;\r\n\r\n\t\t\t\r\n\t\t\treturn html`\r\n\t\t\t\t<form\r\n\t\t\t\t\tclassName=\"metform-form-content\"\r\n\t\t\t\t\tref=${parent.formContainerRef}\r\n\t\t\t\t\tonSubmit=${ validation.handleSubmit( parent.handleFormSubmit ) }\r\n\t\t\t\t\r\n\t\t\t\t\t>\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t${is_dummy_markup ? message_position === 'top' ?  props.ResponseDummyMarkup(message_successIcon, message_proClass) : '' : ''}\r\n\t\t\t\t\t${is_dummy_markup ? ' ' :  message_position === 'top' ? props.SubmitResponseMarkup`${parent}${state}${message_successIcon}${message_errorIcon}${message_proClass}` : ''}\r\n\r\n\t\t\t\t\t<!--------------------------------------------------------\r\n\t\t\t\t\t*** IMPORTANT / DANGEROUS ***\r\n\t\t\t\t\t${html``} must be used as in immediate child of \"metform-form-main-wrapper\"\r\n\t\t\t\t\tclass otherwise multistep form will not run at all\r\n\t\t\t\t\t---------------------------------------------------------->\r\n\r\n\t\t\t\t\t<div className=\"metform-form-main-wrapper\" key=${'hide-form-after-submit'} ref=${parent.formRef}>\r\n\t\t\t\t\t${html`\r\n\t\t\t\t\t\t\t\t<div data-elementor-type=\"wp-post\" key=\"2\" data-elementor-id=\"668\" className=\"elementor elementor-668\" data-elementor-post-type=\"metform-form\">\n\t\t\t\t<div className=\"elementor-element elementor-element-46a3f1bf e-con-full e-flex e-con e-parent\" data-id=\"46a3f1bf\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t<div className=\"elementor-element elementor-element-65b14f34 e-con-full e-grid e-con e-child\" data-id=\"65b14f34\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div className=\"elementor-element elementor-element-229b8a8 elementor-widget elementor-widget-mf-text\" data-id=\"229b8a8\" data-element_type=\"widget\" data-e-type=\"widget\" data-settings=\"{&quot;mf_input_name&quot;:&quot;mf--name&quot;}\" data-widget_type=\"mf-text.default\">\n\t\t\t\t\t\r\n\t\t<div className=\"mf-input-wrapper\">\r\n\t\t\t\t\t\t\t<label className=\"mf-input-label\" htmlFor=\"mf-input-text-229b8a8\">\r\n\t\t\t\t\t${ parent.decodeEntities(` Name`) } \t\t\t\t\t<span className=\"mf-input-required-indicator\">*</span>\r\n\t\t\t\t</label>\r\n\t\t\t\r\n\t\t\t<input\r\n\t\t\t\ttype=\"text\"\r\n\t\t\t\tclassName=\"mf-input mf-conditional-input\"\r\n\t\t\t\tid=\"mf-input-text-229b8a8\"\r\n\t\t\t\tname=\"mf--name\"\r\n\t\t\t\tplaceholder=\"${ parent.decodeEntities(`Name here`) } \"\r\n\t\t\t\t\t\t\t\t\tonInput=${parent.handleChange}\r\n\t\t\t\t\tonBlur=${parent.handleChange}\r\n\t\t\t\t\taria-invalid=${validation.errors['mf--name'] ? 'true' : 'false'}\r\n\t\t\t\t\tref=${el =>{\r\n\t\t\t\t\t\t\t\t\t\t\t\tparent.activateValidation({\"message\":\"This field is required.\",\"minLength\":1,\"maxLength\":\"\",\"type\":\"none\",\"required\":true,\"expression\":\"null\"}, el)\r\n\t\t\t\t\t}}\r\n\t\t\t\t\t\t\t\t/>\r\n\r\n\t\t\t\t\t\t\t<${validation.ErrorMessage}\r\n\t\t\t\t\terrors=${validation.errors}\r\n\t\t\t\t\tname=\"mf--name\"\r\n\t\t\t\t\tas=${html`<span className=\"mf-error-message\"></span>`}\r\n\t\t\t\t\t/>\r\n\t\t\t\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t</div>\n\t\t\t\t<div className=\"elementor-element elementor-element-1a922000 elementor-widget elementor-widget-mf-text\" data-id=\"1a922000\" data-element_type=\"widget\" data-e-type=\"widget\" data-settings=\"{&quot;mf_input_name&quot;:&quot;Phone-number&quot;}\" data-widget_type=\"mf-text.default\">\n\t\t\t\t\t\r\n\t\t<div className=\"mf-input-wrapper\">\r\n\t\t\t\t\t\t\t<label className=\"mf-input-label\" htmlFor=\"mf-input-text-1a922000\">\r\n\t\t\t\t\t${ parent.decodeEntities(`Phone Number`) } \t\t\t\t\t<span className=\"mf-input-required-indicator\">*</span>\r\n\t\t\t\t</label>\r\n\t\t\t\r\n\t\t\t<input\r\n\t\t\t\ttype=\"text\"\r\n\t\t\t\tclassName=\"mf-input mf-conditional-input\"\r\n\t\t\t\tid=\"mf-input-text-1a922000\"\r\n\t\t\t\tname=\"Phone-number\"\r\n\t\t\t\tplaceholder=\"${ parent.decodeEntities(`Phone Number`) } \"\r\n\t\t\t\t\t\t\t\t\tonInput=${parent.handleChange}\r\n\t\t\t\t\tonBlur=${parent.handleChange}\r\n\t\t\t\t\taria-invalid=${validation.errors['Phone-number'] ? 'true' : 'false'}\r\n\t\t\t\t\tref=${el =>{\r\n\t\t\t\t\t\t\t\t\t\t\t\tparent.activateValidation({\"message\":\"This field is required.\",\"minLength\":1,\"maxLength\":\"\",\"type\":\"none\",\"required\":true,\"expression\":\"null\"}, el)\r\n\t\t\t\t\t}}\r\n\t\t\t\t\t\t\t\t/>\r\n\r\n\t\t\t\t\t\t\t<${validation.ErrorMessage}\r\n\t\t\t\t\terrors=${validation.errors}\r\n\t\t\t\t\tname=\"Phone-number\"\r\n\t\t\t\t\tas=${html`<span className=\"mf-error-message\"></span>`}\r\n\t\t\t\t\t/>\r\n\t\t\t\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t</div>\n\t\t\t\t<div className=\"elementor-element elementor-element-752b6f44 elementor-widget elementor-widget-mf-email\" data-id=\"752b6f44\" data-element_type=\"widget\" data-e-type=\"widget\" data-settings=\"{&quot;mf_input_name&quot;:&quot;mf-email&quot;}\" data-widget_type=\"mf-email.default\">\n\t\t\t\t\t\r\n\t\t<div className=\"mf-input-wrapper\">\r\n\t\t\t\t\t\t\t<label className=\"mf-input-label\" htmlFor=\"mf-input-email-752b6f44\">\r\n\t\t\t\t\t${ parent.decodeEntities(`Email Address`) } \t\t\t\t\t<span className=\"mf-input-required-indicator\">*</span>\r\n\t\t\t\t</label>\r\n\t\t\t\r\n\t\t\t<input \r\n\t\t\t\ttype=\"email\" \r\n\t\t\t\t \r\n\t\t\t\tdefaultValue=\"\" \r\n\t\t\t\tclassName=\"mf-input mf-conditional-input\" \r\n\t\t\t\tid=\"mf-input-email-752b6f44\" \r\n\t\t\t\tname=\"mf-email\" \r\n\t\t\t\tplaceholder=\"${ parent.decodeEntities(`Add email`) } \" \r\n\t\t\t\t \r\n\t\t\t\tonBlur=${parent.handleChange} onFocus=${parent.handleChange} aria-invalid=${validation.errors['mf-email'] ? 'true' : 'false' } \r\n\t\t\t\tref=${el=> parent.activateValidation({\"message\":\"This field is required.\",\"emailMessage\":\"Please enter a valid Email address\",\"minLength\":1,\"maxLength\":\"\",\"type\":\"none\",\"required\":true,\"expression\":\"null\"}, el)}\r\n\t\t\t\t\t\t\t/>\r\n\r\n\t\t\t\t\t\t<${validation.ErrorMessage} \r\n\t\t\t\terrors=${validation.errors} \r\n\t\t\t\tname=\"mf-email\" \r\n\t\t\t\tas=${html`<span className=\"mf-error-message\"></span>`}\r\n\t\t\t/>\r\n\t\t\t\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t</div>\n\t\t\t\t<div className=\"elementor-element elementor-element-452c321f elementor-widget elementor-widget-mf-text\" data-id=\"452c321f\" data-element_type=\"widget\" data-e-type=\"widget\" data-settings=\"{&quot;mf_input_name&quot;:&quot;mf-location&quot;}\" data-widget_type=\"mf-text.default\">\n\t\t\t\t\t\r\n\t\t<div className=\"mf-input-wrapper\">\r\n\t\t\t\t\t\t\t<label className=\"mf-input-label\" htmlFor=\"mf-input-text-452c321f\">\r\n\t\t\t\t\t${ parent.decodeEntities(`Location`) } \t\t\t\t\t<span className=\"mf-input-required-indicator\">*</span>\r\n\t\t\t\t</label>\r\n\t\t\t\r\n\t\t\t<input\r\n\t\t\t\ttype=\"text\"\r\n\t\t\t\tclassName=\"mf-input mf-conditional-input\"\r\n\t\t\t\tid=\"mf-input-text-452c321f\"\r\n\t\t\t\tname=\"mf-location\"\r\n\t\t\t\tplaceholder=\"${ parent.decodeEntities(`Location`) } \"\r\n\t\t\t\t\t\t\t\t\tonInput=${parent.handleChange}\r\n\t\t\t\t\tonBlur=${parent.handleChange}\r\n\t\t\t\t\taria-invalid=${validation.errors['mf-location'] ? 'true' : 'false'}\r\n\t\t\t\t\tref=${el =>{\r\n\t\t\t\t\t\t\t\t\t\t\t\tparent.activateValidation({\"message\":\"This field is required.\",\"minLength\":1,\"maxLength\":\"\",\"type\":\"none\",\"required\":true,\"expression\":\"null\"}, el)\r\n\t\t\t\t\t}}\r\n\t\t\t\t\t\t\t\t/>\r\n\r\n\t\t\t\t\t\t\t<${validation.ErrorMessage}\r\n\t\t\t\t\terrors=${validation.errors}\r\n\t\t\t\t\tname=\"mf-location\"\r\n\t\t\t\t\tas=${html`<span className=\"mf-error-message\"></span>`}\r\n\t\t\t\t\t/>\r\n\t\t\t\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div className=\"elementor-element elementor-element-13f46608 elementor-widget__width-inherit elementor-widget elementor-widget-mf-textarea\" data-id=\"13f46608\" data-element_type=\"widget\" data-e-type=\"widget\" data-settings=\"{&quot;mf_input_name&quot;:&quot;mf-message&quot;}\" data-widget_type=\"mf-textarea.default\">\n\t\t\t\t\t\r\n\t\t<div className=\"mf-input-wrapper\">\r\n\t\t\t\t\t\t\t<label className=\"mf-input-label\" htmlFor=\"mf-input-text-area-13f46608\">\r\n\t\t\t\t\t${ parent.decodeEntities(`Message`) } \t\t\t\t\t<span className=\"mf-input-required-indicator\">*</span>\r\n\t\t\t\t</label>\r\n\t\t\t\r\n\t\t\t<textarea className=\"mf-input mf-textarea mf-conditional-input\" id=\"mf-input-text-area-13f46608\"\r\n\t\t\t\tname=\"mf-message\" \r\n\t\t\t\tplaceholder=\"${ parent.decodeEntities(`Message`) } \"\r\n\t\t\t\tcols=\"30\" rows=\"10\"\r\n\t\t\t\t\t\t\t\t\tonInput=${ parent.handleChange }\r\n\t\t\t\t\taria-invalid=${validation.errors['mf-message'] ? 'true' : 'false'}\r\n\t\t\t\t\tref=${ el => parent.activateValidation({\"message\":\"This field is required.\",\"minLength\":1,\"maxLength\":\"\",\"type\":\"none\",\"required\":true,\"expression\":\"null\"}, el)}\r\n\t\t\t\t\t\t\t\t></textarea>\r\n\r\n\t\t\t\t\t\t\t<${validation.ErrorMessage}\r\n\t\t\t\t\terrors=${validation.errors}\r\n\t\t\t\t\tname=\"mf-message\"\r\n\t\t\t\t\tas=${html`<span className=\"mf-error-message\"></span>`}\r\n\t\t\t\t\t/>\r\n\t\t\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t</div>\n\t\t\t\t<div className=\"elementor-element elementor-element-50e956bc elementor-widget__width-inherit elementor-widget elementor-widget-mf-recaptcha\" data-id=\"50e956bc\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"mf-recaptcha.default\">\n\t\t\t\t\t\t\t<div className=\"mf-input-wrapper\">\n\t\t\t\n\t\t\t\t\t<div\n\t\t\t\t\t\tclassName=\"g-recaptcha \"\n\t\t\t\t\t\tid=\"g-recaptcha\"\n\t\t\t\t\t\tdata-sitekey=\"6LfhnZMtAAAAAIvhBnH4BoqmBfzn2rO_vRGPug_X\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdata-callback=\"handleReCAPTCHA_${this.state.recaptcha_uid}\"\n\t\t\t\t\t\t\tdata-expired-callback=\"handleReCAPTCHA_${this.state.recaptcha_uid}\"\n\t\t\t\t\t\t\tdata-error-callback=\"handleReCAPTCHA_${this.state.recaptcha_uid}\"\n\t\t\t\t\t\t\taria-invalid=${validation.errors['g-recaptcha-response'] ? 'true' : 'false'}\n\t\t\t\t\t\t\t\t\t\t\t\t></div>\n\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\"\n\t\t\t\t\t\t\tname=\"g-recaptcha-response\"\n\t\t\t\t\t\t\tclassName=\"mf-input mf-mobile-hidden\"\n\t\t\t\t\t\t\tvalue=${parent.getValue('g-recaptcha-response')}\n\t\t\t\t\t\t\tref=${el => parent.activateValidation({\"message\":\"reCAPTCHA is required.\",\"required\":true}, el)}\n\t\t\t\t\t\t\t/>\n\n\t\t\t\t\t\t<${validation.ErrorMessage} errors=${validation.errors} name=\"g-recaptcha-response\" as=${html`<span className=\"mf-error-message\"></span>`} />\n\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t<div className=\"elementor-element elementor-element-54379b03 elementor-widget__width-auto elementor-widget elementor-widget-mf-button\" data-id=\"54379b03\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"mf-button.default\">\n\t\t\t\t\t\t\t<div className=\"mf-btn-wraper mf-conditional-input\" data-mf-form-conditional-logic-requirement=\"\">\r\n\t\t\t\t\t\t\t<button type=\"submit\" className=\"metform-btn metform-submit-btn \" id=\"\">\r\n\t\t\t\t\t<span>${ parent.decodeEntities(`Send Message`) } </span>\r\n\t\t\t\t</button>\r\n\t\t\t        </div>\r\n        \t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t\t\t`}\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t${is_dummy_markup ? message_position === 'bottom' ? props.ResponseDummyMarkup(message_successIcon, message_proClass) : '' : ''}\r\n\t\t\t\t\t${is_dummy_markup ? ' ' : message_position === 'bottom' ? props.SubmitResponseMarkup`${parent}${state}${message_successIcon}${message_errorIcon}${message_proClass}` : ''}\r\n\t\t\t\t\r\n\t\t\t\t</form>\r\n\t\t\t`\r\n\t\t</script>\r\n\r\n\t\t\t\t\t</div>\n\t\t</div>\n\t\t</div>\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Contact Us Home Contact Us Talk to Our Event Experts Lets Make Your Event Unforgettable From concept to execution, we [&hellip;]</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 0,
+  "parent": 0,
+  "menu_order": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "",
+  "meta": {
+    "site-sidebar-layout": "no-sidebar",
+    "site-content-layout": "",
+    "ast-site-content-layout": "full-width-container",
+    "site-content-style": "default",
+    "site-sidebar-style": "default",
+    "ast-global-header-display": "",
+    "ast-banner-title-visibility": "",
+    "ast-main-header-display": "",
+    "ast-hfb-above-header-display": "",
+    "ast-hfb-below-header-display": "",
+    "ast-hfb-mobile-header-display": "",
+    "site-post-title": "",
+    "ast-breadcrumbs-content": "",
+    "ast-featured-img": "disabled",
+    "footer-sml-layout": "",
+    "ast-disable-related-posts": "",
+    "theme-transparent-header-meta": "",
+    "adv-header-id-meta": "",
+    "stick-header-meta": "",
+    "header-above-stick-meta": "",
+    "header-main-stick-meta": "",
+    "header-below-stick-meta": "",
+    "astra-migrate-meta-layouts": "default",
+    "ast-page-background-enabled": "default",
+    "ast-page-background-meta": {
+      "desktop": {
+        "background-color": "var(--ast-global-color-5)",
+        "background-image": "",
+        "background-repeat": "repeat",
+        "background-position": "center center",
+        "background-size": "auto",
+        "background-attachment": "scroll",
+        "background-type": "",
+        "background-media": "",
+        "overlay-type": "",
+        "overlay-color": "",
+        "overlay-opacity": "",
+        "overlay-gradient": ""
+      },
+      "tablet": {
+        "background-color": "",
+        "background-image": "",
+        "background-repeat": "repeat",
+        "background-position": "center center",
+        "background-size": "auto",
+        "background-attachment": "scroll",
+        "background-type": "",
+        "background-media": "",
+        "overlay-type": "",
+        "overlay-color": "",
+        "overlay-opacity": "",
+        "overlay-gradient": ""
+      },
+      "mobile": {
+        "background-color": "",
+        "background-image": "",
+        "background-repeat": "repeat",
+        "background-position": "center center",
+        "background-size": "auto",
+        "background-attachment": "scroll",
+        "background-type": "",
+        "background-media": "",
+        "overlay-type": "",
+        "overlay-color": "",
+        "overlay-opacity": "",
+        "overlay-gradient": ""
+      }
+    },
+    "ast-content-background-meta": {
+      "desktop": {
+        "background-color": "var(--ast-global-color-4)",
+        "background-image": "",
+        "background-repeat": "repeat",
+        "background-position": "center center",
+        "background-size": "auto",
+        "background-attachment": "scroll",
+        "background-type": "",
+        "background-media": "",
+        "overlay-type": "",
+        "overlay-color": "",
+        "overlay-opacity": "",
+        "overlay-gradient": ""
+      },
+      "tablet": {
+        "background-color": "var(--ast-global-color-4)",
+        "background-image": "",
+        "background-repeat": "repeat",
+        "background-position": "center center",
+        "background-size": "auto",
+        "background-attachment": "scroll",
+        "background-type": "",
+        "background-media": "",
+        "overlay-type": "",
+        "overlay-color": "",
+        "overlay-opacity": "",
+        "overlay-gradient": ""
+      },
+      "mobile": {
+        "background-color": "var(--ast-global-color-4)",
+        "background-image": "",
+        "background-repeat": "repeat",
+        "background-position": "center center",
+        "background-size": "auto",
+        "background-attachment": "scroll",
+        "background-type": "",
+        "background-media": "",
+        "overlay-type": "",
+        "overlay-color": "",
+        "overlay-opacity": "",
+        "overlay-gradient": ""
+      }
+    },
+    "footnotes": ""
+  },
+  "class_list": [
+    "post-439",
+    "page",
+    "type-page",
+    "status-publish",
+    "hentry"
+  ],
+  "_links": {
+    "self": [
+      {
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/pages/439",
+        "targetHints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/pages"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/types/page"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/users/2"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/comments?post=439"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 16,
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/pages/439/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 942,
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/pages/439/revisions/942"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://migeventsandproductions.com/wp-json/wp/v2/media?parent=439"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}
