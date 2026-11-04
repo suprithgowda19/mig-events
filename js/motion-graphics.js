@@ -750,30 +750,264 @@
   }
 
   // =========================================================================
-  // 11. Before-and-After "Production Reveal" Slider
+  // 11. Upgraded Before-and-After "Production Reveal" Slider & Web Audio Foley
   // =========================================================================
   const revealSlider = document.getElementById('revealSlider');
+  const revealSection = document.getElementById('transformationSlider');
+  const audioToggleBtn = document.getElementById('revealAudioToggle');
+  const revealHandle = document.getElementById('revealHandle');
+
   if (revealSlider) {
-    const setReveal = (clientX) => {
-      const rect = revealSlider.getBoundingClientRect();
-      let percent = ((clientX - rect.left) / rect.width) * 100;
+    let currentPos = 50;
+    let isUserInteracting = false;
+    let autoSweepTween = null;
+
+    // --- Web Audio Foley Synthesizer Engine ---
+    let audioCtx = null;
+    let isAudioActive = false;
+    let masterGain = null;
+    let dayGain = null;
+    let nightGain = null;
+    let dayNoiseSource = null;
+    let crowdNoiseSource = null;
+    let bassOsc = null;
+    let bassGain = null;
+    let metallicTimer = null;
+
+    const initAudioEngine = () => {
+      if (audioCtx) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+
+        // Master Gain
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+        masterGain.connect(audioCtx.destination);
+
+        // --- Channel 1: Daytime Ambient Wind & Rigging Clang ---
+        dayGain = audioCtx.createGain();
+        dayGain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+        dayGain.connect(masterGain);
+
+        // Generate Pink/Brown Noise buffer for wind (3 seconds looping)
+        const bufferSize = audioCtx.sampleRate * 3;
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          output[i] = (b0 + b1 + b2) * 0.15;
+        }
+
+        dayNoiseSource = audioCtx.createBufferSource();
+        dayNoiseSource.buffer = noiseBuffer;
+        dayNoiseSource.loop = true;
+
+        const dayFilter = audioCtx.createBiquadFilter();
+        dayFilter.type = 'lowpass';
+        dayFilter.frequency.setValueAtTime(320, audioCtx.currentTime);
+
+        dayNoiseSource.connect(dayFilter);
+        dayFilter.connect(dayGain);
+        dayNoiseSource.start(0);
+
+        // Metallic Truss Clangs (Synthesized periodic resonant pings)
+        const triggerMetallicPing = () => {
+          if (!isAudioActive || !audioCtx) return;
+          const osc = audioCtx.createOscillator();
+          const pingGain = audioCtx.createGain();
+          const freqs = [1420, 1840, 2260, 2750];
+          const chosenFreq = freqs[Math.floor(Math.random() * freqs.length)];
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(chosenFreq, audioCtx.currentTime);
+
+          pingGain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          pingGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
+
+          osc.connect(pingGain);
+          pingGain.connect(dayGain);
+
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.36);
+
+          metallicTimer = setTimeout(triggerMetallicPing, Math.random() * 3200 + 1800);
+        };
+        metallicTimer = setTimeout(triggerMetallicPing, 1500);
+
+        // --- Channel 2: Nighttime Concert Arena Audio ---
+        nightGain = audioCtx.createGain();
+        nightGain.gain.setValueAtTime(0.5, audioCtx.currentTime);
+        nightGain.connect(masterGain);
+
+        // Arena Crowd Cheering Noise
+        const crowdBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const cOut = crowdBuffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          cOut[i] = (Math.random() * 2 - 1) * 0.2;
+        }
+        crowdNoiseSource = audioCtx.createBufferSource();
+        crowdNoiseSource.buffer = crowdBuffer;
+        crowdNoiseSource.loop = true;
+
+        const crowdFilter = audioCtx.createBiquadFilter();
+        crowdFilter.type = 'bandpass';
+        crowdFilter.frequency.setValueAtTime(1100, audioCtx.currentTime);
+        crowdFilter.Q.setValueAtTime(1.2, audioCtx.currentTime);
+
+        crowdNoiseSource.connect(crowdFilter);
+        crowdFilter.connect(nightGain);
+        crowdNoiseSource.start(0);
+
+        // Sub-Bass Concert Pulse (48Hz Kick & Drone)
+        bassOsc = audioCtx.createOscillator();
+        bassOsc.type = 'triangle';
+        bassOsc.frequency.setValueAtTime(48, audioCtx.currentTime);
+
+        bassGain = audioCtx.createGain();
+        bassGain.gain.setValueAtTime(0.22, audioCtx.currentTime);
+
+        bassOsc.connect(bassGain);
+        bassGain.connect(nightGain);
+        bassOsc.start(0);
+
+      } catch (err) {
+        console.warn('Web Audio initialization error:', err);
+      }
+    };
+
+    const updateAudioCrossfade = (percent) => {
+      if (!audioCtx || !isAudioActive) return;
+      const now = audioCtx.currentTime;
+      // percent: 0 = 100% night, 100 = 100% day
+      const dayRatio = Math.max(0, Math.min(1, percent / 100));
+      const nightRatio = 1 - dayRatio;
+
+      if (dayGain) dayGain.gain.linearRampToValueAtTime(dayRatio * 0.5, now + 0.05);
+      if (nightGain) nightGain.gain.linearRampToValueAtTime(nightRatio * 0.7, now + 0.05);
+    };
+
+    if (audioToggleBtn) {
+      audioToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        initAudioEngine();
+        if (!audioCtx) return;
+
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        isAudioActive = !isAudioActive;
+        const now = audioCtx.currentTime;
+        const statusText = audioToggleBtn.querySelector('.sound-status-text');
+
+        if (isAudioActive) {
+          masterGain.gain.linearRampToValueAtTime(0.35, now + 0.3);
+          audioToggleBtn.classList.add('is-active');
+          if (statusText) statusText.textContent = 'SOUND: LIVE (DUAL FOLEY)';
+          updateAudioCrossfade(currentPos);
+        } else {
+          masterGain.gain.linearRampToValueAtTime(0, now + 0.2);
+          audioToggleBtn.classList.remove('is-active');
+          if (statusText) statusText.textContent = 'SOUND: OFF';
+        }
+      });
+    }
+
+    // --- Slider Position Update Logic ---
+    const setReveal = (percent, triggerAudio = true) => {
       percent = Math.max(5, Math.min(95, percent));
+      currentPos = percent;
       revealSlider.style.setProperty('--reveal-pos', `${percent.toFixed(2)}%`);
+      if (triggerAudio) {
+        updateAudioCrossfade(percent);
+      }
+    };
+
+    const handlePointerPos = (clientX) => {
+      const rect = revealSlider.getBoundingClientRect();
+      const percent = ((clientX - rect.left) / rect.width) * 100;
+      setReveal(percent);
+    };
+
+    // Kill auto-sweep if user touches or moves over slider
+    const cancelAutoSweep = () => {
+      if (autoSweepTween) {
+        autoSweepTween.kill();
+        autoSweepTween = null;
+      }
+      if (revealHandle) {
+        revealHandle.classList.remove('is-sweeping');
+      }
+      isUserInteracting = true;
     };
 
     revealSlider.addEventListener('mousemove', (e) => {
-      setReveal(e.clientX);
+      cancelAutoSweep();
+      handlePointerPos(e.clientX);
+    });
+
+    revealSlider.addEventListener('mousedown', (e) => {
+      cancelAutoSweep();
+      handlePointerPos(e.clientX);
     });
 
     revealSlider.addEventListener('touchmove', (e) => {
+      cancelAutoSweep();
       if (e.touches && e.touches[0]) {
-        setReveal(e.touches[0].clientX);
+        handlePointerPos(e.touches[0].clientX);
       }
     }, { passive: true });
+
+    revealSlider.addEventListener('touchstart', cancelAutoSweep, { passive: true });
+
+    // --- Feature 2: Ambient Auto-Scan Pulse on Page Scroll ---
+    if (revealSection && typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
+      ScrollTrigger.create({
+        trigger: revealSection,
+        start: 'top 70%',
+        once: true,
+        onEnter: () => {
+          if (isUserInteracting) return;
+          if (revealHandle) revealHandle.classList.add('is-sweeping');
+
+          const sliderState = { pos: 50 };
+          autoSweepTween = gsap.timeline({
+            delay: 0.35,
+            onComplete: () => {
+              if (revealHandle) revealHandle.classList.remove('is-sweeping');
+              autoSweepTween = null;
+            }
+          })
+          .to(sliderState, {
+            pos: 30,
+            duration: 0.7,
+            ease: 'power2.inOut',
+            onUpdate: () => setReveal(sliderState.pos, false)
+          })
+          .to(sliderState, {
+            pos: 70,
+            duration: 0.85,
+            ease: 'power2.inOut',
+            onUpdate: () => setReveal(sliderState.pos, false)
+          })
+          .to(sliderState, {
+            pos: 50,
+            duration: 0.55,
+            ease: 'power2.out',
+            onUpdate: () => setReveal(sliderState.pos, false)
+          });
+        }
+      });
+    }
   }
 
   // =========================================================================
-  // 12. Magnetic Kinetic Buttons & Rolling Odometer Counters
+  // 12. Telemetry Rolling Odometer Numbers & Magnetic Kinetic Buttons
   // =========================================================================
   const magneticTargets = document.querySelectorAll('.magnetic-target');
   magneticTargets.forEach((btn) => {
@@ -797,8 +1031,9 @@
     });
   });
 
-  const statNumbers = document.querySelectorAll('.stat-number');
-  statNumbers.forEach((stat) => {
+  // Rolling Odometer Stats for Header & Transformation Telemetry
+  const allRollingStats = document.querySelectorAll('.stat-number, .telemetry-stat-num');
+  allRollingStats.forEach((stat) => {
     const targetVal = parseInt(stat.getAttribute('data-target') || '0', 10);
     if (!targetVal || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 

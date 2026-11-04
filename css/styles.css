@@ -1041,3 +1041,87 @@ body.has-cursor-moved .spotlight-cursor-beam {
     opacity: 0;
   }
 }
+
+
+/* ==========================================================================
+   Upgraded Before-and-After Slider: Sound Toggle, Auto-Sweep & Banners
+   ========================================================================== */
+.card-banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(15rem, 25vw, 19.5rem);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.card-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%; /* Prevents heads/faces from being chopped off */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.editorial-card:hover .card-banner-img {
+  transform: scale(1.05);
+}
+
+/* Sound Toggle Pill for Transformation Slider */
+.reveal-sound-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.reveal-sound-btn:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.reveal-sound-btn.is-active {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #f59e0b;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+}
+
+.reveal-sound-btn.is-active .sound-status-text {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.reveal-sound-btn.is-active .sound-off-icon {
+  display: none;
+}
+
+.reveal-sound-btn.is-active .sound-on-icon {
+  display: block;
+}
+
+/* Handle pulse animation during auto-sweep */
+.reveal-handle.is-sweeping .reveal-handle-pill {
+  animation: handle-glow-pulse 0.9s infinite alternate;
+}
+
+@keyframes handle-glow-pulse {
+  from {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.9);
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
