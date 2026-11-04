@@ -210,6 +210,113 @@
   </section>
 
   <!-- =========================================================================
+       3.5. WEBFLOW SCROLL SNAP KINETIC SHOWCASE (REVERSE ENGINEERED SYSTEM)
+       ========================================================================= -->
+  <section id="scrollSnapShowcase" class="scroll-snap-section">
+    <div class="scroll-snap-sticky">
+      
+      <!-- 4 Sliding Background Layers (Stack) -->
+      <div class="snap-layers-container">
+        
+        <!-- Layer 1: Concerts -->
+        <div class="snap-layer layer-1">
+          <img src="assets/images/280_Hero-Music-1.jpg" alt="Concert Arena Infrastructure" class="snap-layer-img" loading="lazy" />
+          <div class="snap-layer-overlay"></div>
+        </div>
+
+        <!-- Layer 2: Corporate Summits -->
+        <div class="snap-layer layer-2">
+          <img src="assets/images/Corporate-Hero-1024x683.webp" alt="Corporate Summits & Keynotes" class="snap-layer-img" loading="lazy" />
+          <div class="snap-layer-overlay"></div>
+        </div>
+
+        <!-- Layer 3: Luxury Weddings -->
+        <div class="snap-layer layer-3">
+          <img src="assets/images/284_wedding-hero.webp" alt="Destination Palace Weddings" class="snap-layer-img" loading="lazy" />
+          <div class="snap-layer-overlay"></div>
+        </div>
+
+        <!-- Layer 4: Technical Rigging -->
+        <div class="snap-layer layer-4">
+          <img src="assets/images/852_KGP09547-scaled.jpg" alt="Mega Stage Truss & Rigging" class="snap-layer-img" loading="lazy" />
+          <div class="snap-layer-overlay"></div>
+        </div>
+
+      </div>
+
+      <!-- Floating Kinetic Stage UI -->
+      <div class="snap-ui-stage">
+        
+        <!-- Top Navigation Bar & Chapter Pills -->
+        <div class="snap-navbar">
+          <div class="snap-brand-wrapper">
+            <span>MIG REALMS &bull;</span>
+            <div class="snap-brand-rail">
+              <span class="snap-brand-item">Arena Concerts</span>
+              <span class="snap-brand-item">Corporate Summits</span>
+              <span class="snap-brand-item">Royal Weddings</span>
+              <span class="snap-brand-item">Mega Staging</span>
+            </div>
+          </div>
+
+          <div class="snap-nav-pills">
+            <button type="button" class="snap-nav-btn active" data-snap-idx="0">01 Concerts</button>
+            <button type="button" class="snap-nav-btn" data-snap-idx="1">02 Summits</button>
+            <button type="button" class="snap-nav-btn" data-snap-idx="2">03 Weddings</button>
+            <button type="button" class="snap-nav-btn" data-snap-idx="3">04 Staging</button>
+          </div>
+        </div>
+
+        <!-- Center Giant Typography Elevator Rail (Webflow mix-blend-mode exclusion) -->
+        <div class="snap-header-wrapper">
+          <div class="snap-header-rail">
+            <h2 class="snap-giant-text">CONCERTS</h2>
+            <h2 class="snap-giant-text">SUMMITS</h2>
+            <h2 class="snap-giant-text">WEDDINGS</h2>
+            <h2 class="snap-giant-text">STAGING</h2>
+          </div>
+        </div>
+
+        <!-- Bottom Context Rail & Live Progress Bar -->
+        <div class="snap-footer-bar">
+          
+          <div class="snap-sub-rail-wrapper">
+            <div class="snap-sub-rail">
+              <div class="snap-sub-item">
+                <span class="font-mono text-xs uppercase tracking-widest text-amber-300">Pillar 01 &bull; Stadium Entertainment</span>
+                <p class="text-xs sm:text-sm font-light text-stone-200 mt-1">120dB Arena Acoustic Design &bull; DMX Moving-Head Beams &bull; 40m Heavy Truss Spans</p>
+              </div>
+              <div class="snap-sub-item">
+                <span class="font-mono text-xs uppercase tracking-widest text-amber-300">Pillar 02 &bull; Corporate Summits</span>
+                <p class="text-xs sm:text-sm font-light text-stone-200 mt-1">Curved 1.9mm MicroLED Walls &bull; 4K Multi-Cam Broadcast &bull; Delegate RFID Credentialing</p>
+              </div>
+              <div class="snap-sub-item">
+                <span class="font-mono text-xs uppercase tracking-widest text-amber-300">Pillar 03 &bull; Luxury Galas</span>
+                <p class="text-xs sm:text-sm font-light text-stone-200 mt-1">Bespoke Royal Mandap Sets &bull; Heritage Palace Staging &bull; Concert-Grade Sangeet Acoustics</p>
+              </div>
+              <div class="snap-sub-item">
+                <span class="font-mono text-xs uppercase tracking-widest text-amber-300">Pillar 04 &bull; Technical Staging</span>
+                <p class="text-xs sm:text-sm font-light text-stone-200 mt-1">German Hangar Pavilions &bull; Certified Rigging Engineers &bull; Turnkey Power Infrastructure</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="snap-progress-box">
+            <span class="font-mono text-[11px] text-stone-400 tracking-wider">EXPEDITION</span>
+            <div class="snap-progress-track">
+              <div class="snap-progress-fill"></div>
+            </div>
+            <span class="snap-counter font-mono text-xs text-amber-300 font-bold">01 / 04</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
        4. CAPABILITIES / PRODUCTION PILLARS
        ========================================================================= -->
   <section id="capabilities" class="relative py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -544,4 +544,106 @@
     }, 180);
   }
 
+
+  // =========================================================================
+  // 7. Webflow Scroll Snap Kinetic Section Engine (Reverse Engineered System)
+  // =========================================================================
+  const snapSection = document.getElementById('scrollSnapShowcase');
+  if (snapSection && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const layer2 = snapSection.querySelector('.layer-2');
+    const layer3 = snapSection.querySelector('.layer-3');
+    const layer4 = snapSection.querySelector('.layer-4');
+    const headerRail = snapSection.querySelector('.snap-header-rail');
+    const brandRail = snapSection.querySelector('.snap-brand-rail');
+    const subRail = snapSection.querySelector('.snap-sub-rail');
+    const progressFill = snapSection.querySelector('.snap-progress-fill');
+    const counter = snapSection.querySelector('.snap-counter');
+    const navBtns = snapSection.querySelectorAll('.snap-nav-btn');
+
+    // 4 chapters: 0.0, 0.3333, 0.6666, 1.0
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: snapSection,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.6,
+        snap: {
+          snapTo: [0, 0.3333, 0.6666, 1],
+          duration: { min: 0.25, max: 0.6 },
+          delay: 0.05,
+          ease: 'power2.inOut'
+        },
+        onUpdate: (self) => {
+          const p = self.progress;
+          if (progressFill) {
+            progressFill.style.width = `${Math.min(100, Math.max(25, 25 + p * 75))}%`;
+          }
+
+          let activeIdx = 0;
+          if (p >= 0.83) activeIdx = 3;
+          else if (p >= 0.5) activeIdx = 2;
+          else if (p >= 0.17) activeIdx = 1;
+
+          if (counter) {
+            counter.textContent = `0${activeIdx + 1} / 04`;
+          }
+
+          navBtns.forEach((btn, i) => {
+            if (i === activeIdx) {
+              btn.classList.add('active');
+            } else {
+              btn.classList.remove('active');
+            }
+          });
+        }
+      }
+    });
+
+    // 1. Kinetic Typography Elevator Rail:
+    // Header rail has 4 words stacked. -100% of single word height * 3 = -75% of container height.
+    tl.to(headerRail, { yPercent: -75, ease: 'none', duration: 1 }, 0);
+
+    // 2. Brand Rail & Sub Rail:
+    tl.to(brandRail, { yPercent: -75, ease: 'none', duration: 1 }, 0);
+    tl.to(subRail, { yPercent: -75, ease: 'none', duration: 1 }, 0);
+
+    // 3. Sliding Background Layers (The exact Webflow timeline math!):
+    // From 0 to 0.3333: Layer 2 slides up from 100% to 0%
+    tl.fromTo(layer2, 
+      { yPercent: 100 }, 
+      { yPercent: 0, ease: 'power1.inOut', duration: 0.3333 }, 
+      0
+    );
+
+    // From 0.3333 to 0.6666: Layer 3 slides up from 100% to 0%
+    tl.fromTo(layer3, 
+      { yPercent: 100 }, 
+      { yPercent: 0, ease: 'power1.inOut', duration: 0.3333 }, 
+      0.3333
+    );
+
+    // From 0.6666 to 1.0000: Layer 4 slides up from 100% to 0%
+    tl.fromTo(layer4, 
+      { yPercent: 100 }, 
+      { yPercent: 0, ease: 'power1.inOut', duration: 0.3334 }, 
+      0.6666
+    );
+
+    // Click on nav pills to scroll to snap point
+    navBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idx = parseInt(btn.getAttribute('data-snap-idx'), 10);
+        const st = tl.scrollTrigger;
+        if (st) {
+          const targetScroll = st.start + (st.end - st.start) * (idx / 3);
+          window.scrollTo({
+            top: targetScroll + 2,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
 })();

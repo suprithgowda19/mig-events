@@ -410,3 +410,267 @@ h4 {
     transform: none !important;
   }
 }
+
+
+/* ==========================================================================
+   Webflow Scroll Snap Kinetic Section (Reverse Engineered Architecture)
+   ========================================================================== */
+.scroll-snap-section {
+  position: relative;
+  width: 100%;
+  height: 380vh; /* Controlled scrub height for 4 discrete chapters */
+  background: #0a0a0a;
+}
+
+.scroll-snap-sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 30;
+}
+
+/* Background Layers Stack (mix-blend-mode difference + real imagery) */
+.snap-layers-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snap-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.snap-layer.layer-1 {
+  background-color: #a31621; /* Crimson Velvet from original Webflow cloneable */
+  z-index: 1;
+}
+
+.snap-layer.layer-2 {
+  background-color: #0f172a; /* Slate Midnight Blue */
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+.snap-layer.layer-3 {
+  background-color: #262626; /* Architectural Slate */
+  transform: translateY(100%);
+  z-index: 3;
+}
+
+.snap-layer.layer-4 {
+  background-color: #1a1a1a; /* Deep Obsidian Stagecraft */
+  transform: translateY(100%);
+  z-index: 4;
+}
+
+.snap-layer-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.42;
+  filter: contrast(1.15) brightness(0.85);
+  transform: scale(1.04);
+  transition: transform 0.8s ease-out;
+}
+
+.snap-layer-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.75) 100%),
+              linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 40%, rgba(10,10,10,0.8) 100%);
+}
+
+/* UI Canvas (Floating over the layers) */
+.snap-ui-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  pointer-events: none;
+}
+
+/* Top Navigation Bar */
+.snap-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.snap-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.snap-brand-rail {
+  height: 1.5em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.snap-brand-item {
+  height: 1.5em;
+  line-height: 1.5em;
+  color: var(--accent-gold);
+  will-change: transform;
+}
+
+.snap-nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.snap-nav-btn {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  color: #a8a29e;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.snap-nav-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.snap-nav-btn.active {
+  background: #f59e0b;
+  color: #000;
+  border-color: #f59e0b;
+  font-weight: 700;
+}
+
+/* Center Giant Kinetic Typography Elevator Rail */
+.snap-header-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: clamp(4.5rem, 14vw, 11rem);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 15;
+  text-align: center;
+  mix-blend-mode: exclusion; /* Webflow exact optical effect */
+}
+
+.snap-header-rail {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  will-change: transform;
+}
+
+.snap-giant-text {
+  height: clamp(4.5rem, 14vw, 11rem);
+  line-height: clamp(4.5rem, 14vw, 11rem);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 11.5vw, 10rem);
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Bottom Rail Bar & Progress */
+.snap-footer-bar {
+  display: flex;
+  flex-direction: column;
+  sm:flex-row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.2rem;
+  width: 100%;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.snap-sub-rail-wrapper {
+  height: 3.6rem;
+  overflow: hidden;
+  max-width: 44rem;
+}
+
+.snap-sub-rail {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.snap-sub-item {
+  height: 3.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.snap-progress-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.snap-progress-track {
+  width: 110px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.snap-progress-fill {
+  height: 100%;
+  width: 25%;
+  background: #f59e0b;
+  border-radius: 9999px;
+  transition: width 0.1s linear;
+}
