@@ -7,7 +7,7 @@
    - Generous container padding, strict contrast ratios, no skipped headings
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@700;800;900&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   --bg-pitch: #060709;
@@ -27,8 +27,17 @@
   --text-muted: #D1D5DB;
   --text-dim: #9CA3AF;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  /* Brand Guidelines Official Palette (MIG Events Vol. 01 — 2026) */
+  --brand-plum: #380626;         /* PRIMARY BRAND ANCHOR */
+  --brand-plum-deep: #1e0314;    /* Deep Plum Base/Shadow */
+  --brand-white: #FFFFFF;        /* PURE WHITE */
+  --brand-silver: #E7E4E7;       /* SOFT SILVER SUPPORT */
+  --brand-grey: #777279;         /* ASH GREY SECONDARY */
+  --brand-berry: #86265F;        /* BERRY PURPLE ACCENTS */
+  --brand-tangerine: #F04B2B;    /* TANGERINE HIGHLIGHTS */
+
+  --font-display: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Space Mono', monospace;
 }
 
@@ -453,24 +462,24 @@ h4 {
 }
 
 .snap-layer.layer-1 {
-  background-color: #a31621; /* Crimson Velvet from original Webflow cloneable */
+  background: linear-gradient(135deg, #86265F 0%, #F04B2B 100%); /* Deep Berry-Purple & Tangerine Flame */
   z-index: 1;
 }
 
 .snap-layer.layer-2 {
-  background-color: #0f172a; /* Slate Midnight Blue */
+  background: linear-gradient(135deg, #380626 0%, #150210 100%); /* Deep Plum & Executive Navy */
   transform: translateY(100%);
   z-index: 2;
 }
 
 .snap-layer.layer-3 {
-  background-color: #262626; /* Architectural Slate */
+  background: linear-gradient(135deg, #380626 0%, #1c1410 100%); /* Royal Palace Plum & Saffron Twilight */
   transform: translateY(100%);
   z-index: 3;
 }
 
 .snap-layer.layer-4 {
-  background-color: #1a1a1a; /* Deep Obsidian Stagecraft */
+  background: linear-gradient(135deg, #0f172a 0%, #09090b 100%); /* Clear-Span German Hangar Obsidian */
   transform: translateY(100%);
   z-index: 4;
 }
@@ -605,7 +614,7 @@ h4 {
 .snap-giant-text {
   height: clamp(4.5rem, 14vw, 11rem);
   line-height: clamp(4.5rem, 14vw, 11rem);
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 900;
   font-size: clamp(3.2rem, 11.5vw, 10rem);
   text-transform: uppercase;
