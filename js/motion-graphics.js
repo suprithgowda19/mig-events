@@ -1055,4 +1055,380 @@
     });
   });
 
+
+  // =========================================================================
+  // 13. The "Make It Great" Audio Signature (Easter Egg Web Audio Synthesizer)
+  // =========================================================================
+  const audioSigBtn = document.getElementById('migAudioSignatureBtn');
+
+  function playMigAudioSignature() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      if (ctx.state === 'suspended') ctx.resume();
+      const now = ctx.currentTime;
+
+      const sigBtnText = document.getElementById('migSigBtnText');
+      if (sigBtnText) {
+        sigBtnText.innerHTML = '<span class="text-amber-300 font-bold">PLAYING 2.2s</span>';
+      }
+
+      // 1. Sub-Bass Cinema Boom (Gliding Sine: 140Hz -> 32Hz)
+      const subOsc = ctx.createOscillator();
+      const subGain = ctx.createGain();
+      subOsc.type = 'sine';
+      subOsc.frequency.setValueAtTime(140, now);
+      subOsc.frequency.exponentialRampToValueAtTime(32, now + 1.2);
+
+      subGain.gain.setValueAtTime(0.001, now);
+      subGain.gain.linearRampToValueAtTime(0.35, now + 0.08);
+      subGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+
+      subOsc.connect(subGain);
+      subGain.connect(ctx.destination);
+      subOsc.start(now);
+      subOsc.stop(now + 1.9);
+
+      // 2. Stage Volumetric Atmosphere Whoosh (Swept Bandpass Noise)
+      const bufferSize = Math.floor(ctx.sampleRate * 2.2);
+      const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = (Math.random() * 2 - 1) * 0.15;
+      }
+      const noiseSource = ctx.createBufferSource();
+      noiseSource.buffer = noiseBuffer;
+
+      const noiseFilter = ctx.createBiquadFilter();
+      noiseFilter.type = 'bandpass';
+      noiseFilter.frequency.setValueAtTime(320, now);
+      noiseFilter.frequency.exponentialRampToValueAtTime(2400, now + 0.6);
+      noiseFilter.frequency.exponentialRampToValueAtTime(450, now + 1.8);
+      noiseFilter.Q.setValueAtTime(3.2, now);
+
+      const noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.001, now);
+      noiseGain.gain.linearRampToValueAtTime(0.25, now + 0.5);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 2.0);
+
+      noiseSource.connect(noiseFilter);
+      noiseFilter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      noiseSource.start(now);
+      noiseSource.stop(now + 2.1);
+
+      // 3. Concert Snare & Stadium Reverb Hit (at t = 0.65s)
+      const hitTime = now + 0.65;
+      const snareOsc = ctx.createOscillator();
+      const snareGain = ctx.createGain();
+      snareOsc.type = 'triangle';
+      snareOsc.frequency.setValueAtTime(190, hitTime);
+      snareOsc.frequency.exponentialRampToValueAtTime(45, hitTime + 0.15);
+
+      snareGain.gain.setValueAtTime(0.4, hitTime);
+      snareGain.gain.exponentialRampToValueAtTime(0.0001, hitTime + 0.25);
+
+      snareOsc.connect(snareGain);
+      snareGain.connect(ctx.destination);
+      snareOsc.start(hitTime);
+      snareOsc.stop(hitTime + 0.3);
+
+      // Snare reverberant tail
+      const tailBuffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 1.3), ctx.sampleRate);
+      const tailData = tailBuffer.getChannelData(0);
+      for (let i = 0; i < tailData.length; i++) {
+        tailData[i] = (Math.random() * 2 - 1);
+      }
+      const tailSource = ctx.createBufferSource();
+      tailSource.buffer = tailBuffer;
+
+      const tailFilter = ctx.createBiquadFilter();
+      tailFilter.type = 'highpass';
+      tailFilter.frequency.setValueAtTime(1100, hitTime);
+
+      const tailGain = ctx.createGain();
+      tailGain.gain.setValueAtTime(0.28, hitTime);
+      tailGain.gain.exponentialRampToValueAtTime(0.0001, hitTime + 1.25);
+
+      tailSource.connect(tailFilter);
+      tailFilter.connect(tailGain);
+      tailGain.connect(ctx.destination);
+      tailSource.start(hitTime);
+      tailSource.stop(hitTime + 1.3);
+
+      // Revert button text after audio ends
+      setTimeout(() => {
+        if (sigBtnText) sigBtnText.textContent = 'SOUND SIGNATURE';
+      }, 2200);
+
+    } catch (e) {
+      console.warn('Audio signature unavailable:', e);
+    }
+  }
+
+  if (audioSigBtn) {
+    audioSigBtn.addEventListener('click', playMigAudioSignature);
+  }
+
+
+  // =========================================================================
+  // 14. Good vs. GREAT Interactive Sound & Light Switcher
+  // =========================================================================
+  const toggleStandardBtn = document.getElementById('toggleStandardBtn');
+  const toggleGreatBtn = document.getElementById('toggleGreatBtn');
+  const gvgStandardImg = document.getElementById('gvgStandardImg');
+  const gvgGreatImg = document.getElementById('gvgGreatImg');
+  const gvgModeBadge = document.getElementById('gvgModeBadge');
+  const gvgStageDisplay = document.querySelector('.gvg-stage-display');
+
+  const gvgSoundSpec = document.getElementById('gvgSoundSpec');
+  const gvgLightSpec = document.getElementById('gvgLightSpec');
+  const gvgPowerSpec = document.getElementById('gvgPowerSpec');
+
+  const gvgMetric1Title = document.getElementById('gvgMetric1Title');
+  const gvgMetric1Status = document.getElementById('gvgMetric1Status');
+  const gvgMetric1Desc = document.getElementById('gvgMetric1Desc');
+
+  const gvgMetric2Title = document.getElementById('gvgMetric2Title');
+  const gvgMetric2Status = document.getElementById('gvgMetric2Status');
+  const gvgMetric2Desc = document.getElementById('gvgMetric2Desc');
+
+  const gvgMetric3Title = document.getElementById('gvgMetric3Title');
+  const gvgMetric3Status = document.getElementById('gvgMetric3Status');
+  const gvgMetric3Desc = document.getElementById('gvgMetric3Desc');
+
+  function playToggleClickSound(isGreat) {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const now = ctx.currentTime;
+
+      if (isGreat) {
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.exponentialRampToValueAtTime(580, now + 0.12);
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+      } else {
+        osc.frequency.setValueAtTime(440, now);
+        osc.frequency.exponentialRampToValueAtTime(140, now + 0.12);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+      }
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.16);
+    } catch (_) {}
+  }
+
+  function setGoodVsGreatMode(mode) {
+    const isGreat = (mode === 'great');
+    playToggleClickSound(isGreat);
+
+    if (isGreat) {
+      // Buttons state
+      toggleGreatBtn.classList.add('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-500', 'text-black', 'shadow-lg');
+      toggleGreatBtn.classList.remove('text-stone-400');
+      toggleStandardBtn.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-500', 'text-black', 'shadow-lg');
+      toggleStandardBtn.classList.add('text-stone-400');
+
+      // Visuals
+      if (gvgGreatImg) gvgGreatImg.style.opacity = '1';
+      if (gvgStandardImg) gvgStandardImg.style.opacity = '0';
+      if (gvgStageDisplay) {
+        gvgStageDisplay.classList.add('mode-great');
+        gvgStageDisplay.classList.remove('mode-standard');
+      }
+
+      // Badge
+      if (gvgModeBadge) {
+        gvgModeBadge.className = 'font-mono text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-amber-400 text-black font-bold flex items-center gap-1.5 shadow-lg';
+        gvgModeBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-black animate-ping"></span>MODE: MAKE IT GREAT';
+      }
+
+      // HUD Telemetry
+      if (gvgSoundSpec) gvgSoundSpec.innerHTML = '<i data-lucide="volume-2" class="w-3.5 h-3.5"></i> L-Acoustics K2 Array (122dB)';
+      if (gvgLightSpec) gvgLightSpec.innerHTML = '<i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> GrandMA3 DMX Moving-Heads';
+      if (gvgPowerSpec) gvgPowerSpec.innerHTML = '<i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i> 250 kVA Synchronized Grid';
+
+      // Comparison Metrics Cards
+      if (gvgMetric1Title) gvgMetric1Title.textContent = 'L-Acoustics K2 Arena Array';
+      if (gvgMetric1Status) {
+        gvgMetric1Status.textContent = '122dB CALIBRATED';
+        gvgMetric1Status.className = 'text-amber-400 font-bold';
+      }
+      if (gvgMetric1Desc) gvgMetric1Desc.textContent = 'Soundvision 3D acoustic simulation ensuring continuous 122dB SPL across 200m without phase cancellation.';
+
+      if (gvgMetric2Title) gvgMetric2Title.textContent = '50m Curved 1.9mm MicroLED Wall';
+      if (gvgMetric2Status) {
+        gvgMetric2Status.textContent = '4K MICROLED + BEAMS';
+        gvgMetric2Status.className = 'text-amber-400 font-bold';
+      }
+      if (gvgMetric2Desc) gvgMetric2Desc.textContent = 'Tangerine & Deep Plum moving-head beam shafts, synchronized SMPTE timecode and broadcast-grade cameras.';
+
+      if (gvgMetric3Title) gvgMetric3Title.textContent = 'Dual 250 kVA Synchronized Power';
+      if (gvgMetric3Status) {
+        gvgMetric3Status.textContent = 'ZERO INCIDENT';
+        gvgMetric3Status.className = 'text-emerald-400 font-bold';
+      }
+      if (gvgMetric3Desc) gvgMetric3Desc.textContent = 'Automated instantaneous failover, EN AW-6082 T6 German hangar box trussing rated for 110 km/h wind shear.';
+
+    } else {
+      // Standard Event Mode
+      toggleStandardBtn.classList.add('active', 'bg-white/20', 'text-white', 'shadow-lg');
+      toggleStandardBtn.classList.remove('text-stone-400');
+      toggleGreatBtn.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-500', 'text-black', 'shadow-lg');
+      toggleGreatBtn.classList.add('text-stone-400');
+
+      if (gvgGreatImg) gvgGreatImg.style.opacity = '0';
+      if (gvgStandardImg) gvgStandardImg.style.opacity = '1';
+      if (gvgStageDisplay) {
+        gvgStageDisplay.classList.add('mode-standard');
+        gvgStageDisplay.classList.remove('mode-great');
+      }
+
+      if (gvgModeBadge) {
+        gvgModeBadge.className = 'font-mono text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-stone-700 text-stone-200 font-medium flex items-center gap-1.5 shadow';
+        gvgModeBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-stone-400"></span>MODE: STANDARD VENDOR SETUP';
+      }
+
+      if (gvgSoundSpec) gvgSoundSpec.innerHTML = '<i data-lucide="volume-x" class="w-3.5 h-3.5"></i> Basic 2-Speaker Tripod PA (92dB)';
+      if (gvgLightSpec) gvgLightSpec.innerHTML = '<i data-lucide="zap-off" class="w-3.5 h-3.5 text-stone-400"></i> 4 Static Par Cans & Wash';
+      if (gvgPowerSpec) gvgPowerSpec.innerHTML = '<i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-500"></i> Single 5 kVA Domestic Line (No Backup)';
+
+      if (gvgMetric1Title) gvgMetric1Title.textContent = 'Generic 2-Speaker Tripod PA';
+      if (gvgMetric1Status) {
+        gvgMetric1Status.textContent = '92dB UNEVEN';
+        gvgMetric1Status.className = 'text-stone-400 font-bold';
+      }
+      if (gvgMetric1Desc) gvgMetric1Desc.textContent = 'High speech distortion at 30 meters with reverberant feedback echoes and uncalibrated coverage.';
+
+      if (gvgMetric2Title) gvgMetric2Title.textContent = 'Static Par Cans & Fabric Drop';
+      if (gvgMetric2Status) {
+        gvgMetric2Status.textContent = 'FLAT LIGHTING';
+        gvgMetric2Status.className = 'text-stone-400 font-bold';
+      }
+      if (gvgMetric2Desc) gvgMetric2Desc.textContent = 'Monochrome flat wash with 3,000 ANSI lumen front projector washed out by daylight glare.';
+
+      if (gvgMetric3Title) gvgMetric3Title.textContent = 'Single Domestic Power Feed';
+      if (gvgMetric3Status) {
+        gvgMetric3Status.textContent = 'ZERO REDUNDANCY';
+        gvgMetric3Status.className = 'text-rose-400 font-bold';
+      }
+      if (gvgMetric3Desc) gvgMetric3Desc.textContent = 'Single point of failure with no automatic transfer switch or certified wind-load structural staging.';
+    }
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  if (toggleStandardBtn && toggleGreatBtn) {
+    toggleStandardBtn.addEventListener('click', () => setGoodVsGreatMode('standard'));
+    toggleGreatBtn.addEventListener('click', () => setGoodVsGreatMode('great'));
+  }
+
+
+  // =========================================================================
+  // 15. The "M · I · G" Hero Acronym Expansion Hover / Scroll Effect
+  // =========================================================================
+  const heroAcronym = document.getElementById('migHeroAcronym');
+  if (heroAcronym && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const acronymCards = heroAcronym.querySelectorAll('.mig-acronym-card');
+
+    ScrollTrigger.create({
+      trigger: heroAcronym,
+      start: 'top 90%',
+      onEnter: () => {
+        gsap.from(acronymCards, {
+          y: 30,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 1.0,
+          ease: 'power3.out'
+        });
+      }
+    });
+
+    // Subtly expand card gap and glow on scroll depth
+    gsap.to('.mig-acronym-container', {
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      },
+      scale: 1.015,
+      ease: 'none'
+    });
+  }
+
+
+  // =========================================================================
+  // 16. Interactive "Blueprint to Arena" 3D Stage Layer Exploder
+  // =========================================================================
+  const stageExploderContainer = document.getElementById('stageExploderContainer');
+  const stageExploderViewport = document.getElementById('stageExploderViewport');
+  const toggle3dExplodeBtn = document.getElementById('toggle3dExplodeBtn');
+  const exploderFilterBtns = document.querySelectorAll('.exploder-filter-btn');
+
+  if (stageExploderContainer && stageExploderViewport) {
+    let isExploded = false;
+
+    // Toggle Explode State
+    if (toggle3dExplodeBtn) {
+      toggle3dExplodeBtn.addEventListener('click', () => {
+        isExploded = !isExploded;
+        stageExploderContainer.classList.toggle('is-exploded', isExploded);
+        toggle3dExplodeBtn.textContent = isExploded ? '⚡ COLLAPSE STACK' : '⚡ EXPLODE 3D STACK';
+        playToggleClickSound(isExploded);
+      });
+    }
+
+    // Interactive 3D Mouse Parallax Tilt
+    stageExploderContainer.addEventListener('mousemove', (e) => {
+      const rect = stageExploderContainer.getBoundingClientRect();
+      const xNorm = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+      const yNorm = (e.clientY - rect.top) / rect.height - 0.5;
+
+      const rotX = 20 - yNorm * 20; // range 10deg to 30deg
+      const rotY = -14 + xNorm * 24; // range -26deg to -2deg
+      stageExploderViewport.style.transform = `rotateX(${rotX.toFixed(1)}deg) rotateY(${rotY.toFixed(1)}deg) rotateZ(3deg)`;
+    });
+
+    stageExploderContainer.addEventListener('mouseleave', () => {
+      stageExploderViewport.style.transform = `rotateX(20deg) rotateY(-14deg) rotateZ(3deg)`;
+    });
+
+    // Layer Isolation Tabs
+    exploderFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        exploderFilterBtns.forEach(b => b.classList.remove('active', 'text-amber-300'));
+        btn.classList.add('active', 'text-amber-300');
+
+        const plane = btn.getAttribute('data-plane');
+        const planes = stageExploderViewport.querySelectorAll('.stage-layer-plane');
+        
+        if (plane === 'all') {
+          planes.forEach(p => p.style.opacity = '1');
+        } else {
+          planes.forEach(p => {
+            if (p.classList.contains(`plane-${plane}`)) {
+              p.style.opacity = '1';
+              p.style.transform = 'translateZ(90px) scale(1.05)';
+            } else {
+              p.style.opacity = '0.2';
+              p.style.transform = 'translateZ(0px) scale(0.98)';
+            }
+          });
+        }
+      });
+    });
+  }
+
 })();

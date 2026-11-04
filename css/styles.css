@@ -52,7 +52,12 @@ html {
 
 body {
   overflow-x: hidden;
-  background-color: var(--bg-pitch);
+  background-color: #060709;
+  background-image: 
+    radial-gradient(circle at 50% 18%, rgba(56, 6, 38, 0.45) 0%, rgba(14, 16, 21, 0.95) 55%, #060709 100%),
+    radial-gradient(circle at 85% 55%, rgba(134, 38, 95, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 15% 80%, rgba(240, 75, 43, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -723,8 +728,8 @@ h4 {
   pointer-events: none;
   z-index: 9998;
   background: radial-gradient(circle, 
-              rgba(245, 158, 11, 0.10) 0%, 
-              rgba(217, 119, 6, 0.04) 40%, 
+              rgba(240, 75, 43, 0.12) 0%, 
+              rgba(56, 6, 38, 0.14) 45%, 
               transparent 70%);
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
@@ -1134,4 +1139,125 @@ body.has-cursor-moved .spotlight-cursor-beam {
     box-shadow: 0 0 30px rgba(245, 158, 11, 0.9);
     transform: translate(-50%, -50%) scale(1.12);
   }
+}
+
+
+/* =========================================================================
+   M · I · G HERO ACRONYM EXPANSION ENGINE
+   ========================================================================= */
+.mig-acronym-container {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mig-acronym-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              background-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.mig-acronym-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(56, 6, 38, 0.4), 0 0 20px rgba(240, 75, 43, 0.15);
+}
+
+/* =========================================================================
+   GOOD VS. GREAT INTERACTIVE SOUND & LIGHT SWITCHER
+   ========================================================================= */
+.gvg-toggle-btn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.gvg-stage-display {
+  background-color: #060709;
+}
+
+.gvg-stage-display.mode-great #gvgStageFX {
+  background: radial-gradient(circle at 50% 30%, rgba(240, 75, 43, 0.15) 0%, rgba(56, 6, 38, 0.25) 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.gvg-stage-display.mode-standard #gvgStageFX {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.gvg-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.gvg-card:hover {
+  transform: translateX(4px);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* =========================================================================
+   3D STAGE LAYER EXPLODER (ISOMETRIC SCHEMATICS)
+   ========================================================================= */
+.stage-exploder-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.stage-exploder-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 42vw, 440px);
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(-14deg) rotateZ(3deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stage-layer-plane {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(14, 16, 21, 0.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s ease,
+              border-color 0.4s ease;
+}
+
+.stage-layer-plane.plane-1 {
+  /* 01. Structural Rigging (Base) */
+  transform: translateZ(0px);
+  z-index: 1;
+}
+
+.stage-layer-plane.plane-2 {
+  /* 02. Acoustic & Power Infrastructure (Middle) */
+  transform: translateZ(35px);
+  z-index: 2;
+}
+
+.stage-layer-plane.plane-3 {
+  /* 03. Aesthetic Refinement (Top Finish) */
+  transform: translateZ(70px);
+  z-index: 3;
+}
+
+/* Exploded State (Triggered on hover or button toggle) */
+.stage-exploder-container.is-exploded .stage-layer-plane.plane-1,
+.stage-exploder-container:hover .stage-layer-plane.plane-1 {
+  transform: translateZ(-35px);
+  border-color: rgba(240, 75, 43, 0.45);
+}
+
+.stage-exploder-container.is-exploded .stage-layer-plane.plane-2,
+.stage-exploder-container:hover .stage-layer-plane.plane-2 {
+  transform: translateZ(65px);
+  border-color: rgba(197, 168, 128, 0.6);
+  box-shadow: 0 30px 60px rgba(56, 6, 38, 0.45);
+}
+
+.stage-exploder-container.is-exploded .stage-layer-plane.plane-3,
+.stage-exploder-container:hover .stage-layer-plane.plane-3 {
+  transform: translateZ(145px);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 45px 90px rgba(0, 0, 0, 0.8);
 }

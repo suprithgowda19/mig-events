@@ -295,7 +295,7 @@
         `📅 *Planned Date:* ${encodeURIComponent(wizardData.date)}%0A%0A` +
         `_Inquiry sent via MIG Events & Productions Digital Platform._`;
 
-      const whatsappURL = `https://wa.me/917022019101?text=${waMessage}`;
+      const whatsappURL = `https://wa.me/916366225477?text=${waMessage}`;
       
       // Open WhatsApp in new tab
       window.open(whatsappURL, '_blank');
