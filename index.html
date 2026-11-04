@@ -40,6 +40,8 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="bg-pitch text-slate-100 font-body antialiased selection:bg-stone-200 selection:text-black">
+  <!-- Interactive Concert Follow-Spot Moving-Head Cursor Beam -->
+  <div id="spotlightCursorBeam" class="spotlight-cursor-beam"></div>
 
   <!-- =========================================================================
        1. NAVIGATION BAR
@@ -108,7 +110,7 @@
   <!-- =========================================================================
        2. HERO SECTION: THE GRAND STAGE (Canvas Volumetric Beams + Parallax)
        ========================================================================= -->
-  <section id="hero" class="parallax-section relative">
+  <section id="hero" class="parallax-section relative spotlight-stage">
     
     <!-- Parallax Stage Background (TemplateMo Engine) -->
     <div class="parallax-bg" data-speed="0.45" style="background-image: url('assets/images/280_Hero-Music-1.jpg');"></div>
@@ -143,9 +145,13 @@
           <span>Explore ExperienceWork</span>
           <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
         </a>
-        <button id="openShowreelBtn" class="w-full sm:w-auto px-6 py-4 rounded-full text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 border border-white/20 bg-white/[0.04] text-white hover:bg-white/10 hover:border-white/40 transition-all magnetic-target">
-          <i data-lucide="play" class="w-3.5 h-3.5 text-amber-300 fill-amber-300"></i>
-          <span>Watch 2026 Reel</span>
+        <button id="openShowreelBtn" class="showreel-ring-btn w-full sm:w-auto px-6 py-4 rounded-full text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2.5 border border-amber-400/40 bg-amber-500/[0.08] text-white hover:bg-amber-500/[0.18] hover:border-amber-400/70 transition-all magnetic-target relative group">
+          <div class="showreel-soundwave-ring"></div>
+          <div class="showreel-soundwave-ring"></div>
+          <span class="w-6 h-6 rounded-full bg-amber-400 text-black flex items-center justify-center group-hover:scale-110 transition-transform">
+            <i data-lucide="play" class="w-3 h-3 fill-black text-black ml-0.5"></i>
+          </span>
+          <span class="font-bold tracking-widest text-amber-200">Watch 2026 Reel</span>
         </button>
         <a href="https://wa.me/917022019101?text=Hi%20MIG%20Events,%20I%20would%20like%20to%20inquire%20about%20event%20production." target="_blank" class="w-full sm:w-auto btn-editorial-outline px-6 py-4 rounded-full text-xs font-mono uppercase tracking-wider flex items-center justify-center gap-2 magnetic-target">
           <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
@@ -319,7 +325,7 @@
   <!-- =========================================================================
        4. CAPABILITIES / PRODUCTION PILLARS
        ========================================================================= -->
-  <section id="capabilities" class="relative py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="capabilities" class="relative py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 spotlight-stage">
     
     <div class="max-w-3xl mb-16 gsap-reveal-title">
       <div class="inline-flex items-center gap-2 font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">
@@ -361,6 +367,19 @@
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Hybrid Webcasting & Broadcast Control</div>
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Delegate Flow & RFID Credentialing</div>
             </div>
+            <!-- Audio Reactive Frequency Spectrum -->
+            <div class="audio-spectrum-indicator" data-sound-type="corporate">
+              <div class="spectrum-header">
+                <span class="spectrum-label">SPEECH INTELLIGIBILITY</span>
+                <span class="spectrum-db font-mono">74.2 dB</span>
+              </div>
+              <div class="spectrum-bars">
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Corporate Solutions</span>
@@ -394,6 +413,19 @@
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Sangeet Concert-Grade Acoustics</div>
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Royal Floral & Ambient Lighting</div>
             </div>
+            <!-- Audio Reactive Frequency Spectrum -->
+            <div class="audio-spectrum-indicator" data-sound-type="wedding">
+              <div class="spectrum-header">
+                <span class="spectrum-label">ACOUSTIC HARMONICS</span>
+                <span class="spectrum-db font-mono">82.5 dB</span>
+              </div>
+              <div class="spectrum-bars">
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Wedding Production</span>
@@ -427,6 +459,19 @@
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Multi-Hall Audio-Visual Distribution</div>
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Delegate Engagement & Interactive Displays</div>
             </div>
+            <!-- Audio Reactive Frequency Spectrum -->
+            <div class="audio-spectrum-indicator" data-sound-type="corporate">
+              <div class="spectrum-header">
+                <span class="spectrum-label">MULTI-ZONE AV</span>
+                <span class="spectrum-db font-mono">68.8 dB</span>
+              </div>
+              <div class="spectrum-bars">
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>MICE Infrastructure</span>
@@ -460,6 +505,19 @@
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Intelligent Moving-Head Lighting Rigs</div>
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Certified Heavy Roof Truss Rigging</div>
             </div>
+            <!-- Audio Reactive Frequency Spectrum -->
+            <div class="audio-spectrum-indicator" data-sound-type="concert">
+              <div class="spectrum-header">
+                <span class="spectrum-label">SUB-BASS PROFILE</span>
+                <span class="spectrum-db font-mono">119.6 dB</span>
+              </div>
+              <div class="spectrum-bars">
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Concert Engineering</span>
@@ -493,6 +551,19 @@
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> LED Walls & Visual Display Panels</div>
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Architectural Ambience & Trussing</div>
             </div>
+            <!-- Audio Reactive Frequency Spectrum -->
+            <div class="audio-spectrum-indicator" data-sound-type="staging">
+              <div class="spectrum-header">
+                <span class="spectrum-label">TRUSS & RIGGING</span>
+                <span class="spectrum-db font-mono">88.0 dB</span>
+              </div>
+              <div class="spectrum-bars">
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Production Craft</span>
@@ -526,6 +597,19 @@
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Commercial Ad Shoots & Film Sets</div>
               <div class="flex items-center gap-2 text-stone-300"><span>&bull;</span> Red Carpet & VIP Protocol Security</div>
             </div>
+            <!-- Audio Reactive Frequency Spectrum -->
+            <div class="audio-spectrum-indicator" data-sound-type="corporate">
+              <div class="spectrum-header">
+                <span class="spectrum-label">BROADCAST MASTER</span>
+                <span class="spectrum-db font-mono">78.4 dB</span>
+              </div>
+              <div class="spectrum-bars">
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+                <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+              </div>
+            </div>
+          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Celebrity Desk</span>
@@ -765,19 +849,239 @@
   <!-- =========================================================================
        6. PARALLAX PHILOSOPHY MANIFESTO
        ========================================================================= -->
-  <section id="craft" class="parallax-section relative">
-    <div class="parallax-bg" data-speed="0.55" style="background-image: url('assets/images/852_KGP09547-scaled.jpg');"></div>
-    <div class="parallax-overlay-dark"></div>
+    <!-- =========================================================================
+       6. HORIZONTAL PINNED STAGE RIGGING & TRUSS BLUEPRINT WALKTHROUGH (GSAP PIN)
+       ========================================================================= -->
+  <section id="craft" class="blueprint-pin-section spotlight-stage">
+    <div class="blueprint-grid-overlay"></div>
+    
+    <!-- Blueprint Header Bar -->
+    <div class="blueprint-header-bar">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+        <span class="font-mono text-xs uppercase tracking-[0.25em] text-amber-300 font-bold">BLUEPRINT SCHEMATICS // 4-LAYER PRODUCTION ARCHITECTURE</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-6 font-mono text-[11px] text-stone-400">
+        <span>LAT: 12.9716° N</span>
+        <span>ELEV: 920M</span>
+        <span class="text-amber-400 font-bold">HORIZONTAL PIN ACTIVE</span>
+      </div>
+    </div>
 
-    <div class="parallax-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-36 text-center">
-      <blockquote class="font-display font-bold text-2xl sm:text-4xl lg:text-5xl leading-tight tracking-tight text-white mb-8 hero-title-shadow">
-        “We don't merely assemble stages. We engineer moments of awe that linger long after the spotlights dim.”
-      </blockquote>
-      <p class="font-mono text-xs text-stone-200 uppercase tracking-[0.25em]">
-        — MIG Events & Productions Desk // Bangalore
-      </p>
+    <!-- Pinned Horizontal Track Viewport -->
+    <div class="blueprint-track-container">
+      <div class="blueprint-horizontal-track">
+        
+        <!-- Station 00: Overview & Intro Stamp -->
+        <div class="blueprint-station-card justify-center text-left" style="width: clamp(320px, 35vw, 440px);">
+          <div class="blueprint-crosshair tl"></div><div class="blueprint-crosshair tr"></div>
+          <div class="blueprint-crosshair bl"></div><div class="blueprint-crosshair br"></div>
+          <div>
+            <span class="font-mono text-xs uppercase tracking-widest text-amber-400 block mb-3">STAGE SPEC 2026</span>
+            <h3 class="font-display font-black text-3xl sm:text-4xl uppercase text-white tracking-tight leading-none mb-4">
+              Structural Anatomy of Spectacle
+            </h3>
+            <p class="text-stone-300 text-xs sm:text-sm font-light leading-relaxed mb-6">
+              Scroll to inspect the 4 structural engineering disciplines required to host 10,000+ attendee concert and summit productions without single-point failure.
+            </p>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 text-amber-300 font-mono text-xs">
+              <span>Scroll Down to Pan Schematics</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station 01: Structural Aluminum Trussing -->
+        <div class="blueprint-station-card">
+          <div class="blueprint-crosshair tl"></div><div class="blueprint-crosshair tr"></div>
+          <div class="blueprint-crosshair bl"></div><div class="blueprint-crosshair br"></div>
+          <div class="blueprint-img-box">
+            <img src="assets/images/852_KGP09547-scaled.jpg" alt="Structural Trussing & Rigging" loading="lazy" />
+            <span class="absolute top-3 left-3 font-mono text-[10px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 backdrop-blur-md text-amber-300 border border-white/10">LAYER 01 // STRUCTURAL</span>
+          </div>
+          <div class="mt-4">
+            <div class="flex items-center justify-between mb-2 font-mono text-[11px]">
+              <span class="text-amber-400 font-bold">ALLOY EN AW-6082 T6</span>
+              <span class="text-stone-400">PAYLOAD: 12.5 TONS</span>
+            </div>
+            <h4 class="font-display font-bold text-xl uppercase text-white mb-2">German Hangars & Clear Spans</h4>
+            <p class="text-stone-300 text-xs leading-relaxed font-light mb-4">
+              Heavy-duty box trusses and German hangar frameworks engineered for 40-meter column-free indoor arena spans, rated for 110 km/h wind shear.
+            </p>
+            <div class="grid grid-cols-2 gap-2 font-mono text-[10px] text-stone-300 border-t border-white/10 pt-3">
+              <div>&bull; Eurotruss Certified Joints</div>
+              <div>&bull; Dual-Motor Rigging Hoists</div>
+              <div>&bull; Ground Support Towers</div>
+              <div>&bull; Load Cell Telemetry</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station 02: Arena Lighting Rig -->
+        <div class="blueprint-station-card">
+          <div class="blueprint-crosshair tl"></div><div class="blueprint-crosshair tr"></div>
+          <div class="blueprint-crosshair bl"></div><div class="blueprint-crosshair br"></div>
+          <div class="blueprint-img-box">
+            <img src="assets/images/732_DSC08613-scaled.jpg" alt="Arena Moving Head Lighting Grid" loading="lazy" />
+            <span class="absolute top-3 left-3 font-mono text-[10px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 backdrop-blur-md text-amber-300 border border-white/10">LAYER 02 // PHOTOMETRICS</span>
+          </div>
+          <div class="mt-4">
+            <div class="flex items-center justify-between mb-2 font-mono text-[11px]">
+              <span class="text-amber-400 font-bold">24 DMX UNIVERSES</span>
+              <span class="text-stone-400">ART-NET / sACN</span>
+            </div>
+            <h4 class="font-display font-bold text-xl uppercase text-white mb-2">Intelligent Moving-Head Grid</h4>
+            <p class="text-stone-300 text-xs leading-relaxed font-light mb-4">
+              Synchronized 350W Beam arrays, Martin Atomic strobes, and 30W solid-state RGB DMX lasers pre-programmed via GrandMA3 consoles for timecoded impact.
+            </p>
+            <div class="grid grid-cols-2 gap-2 font-mono text-[10px] text-stone-300 border-t border-white/10 pt-3">
+              <div>&bull; 96x Sharpies & Beam Moving Heads</div>
+              <div>&bull; Automated Cyber-Hoist Motion</div>
+              <div>&bull; Hazer & Low-Fog Diffusion</div>
+              <div>&bull; SMPTE Timecode Sync</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station 03: Curved P3 LED Screens -->
+        <div class="blueprint-station-card">
+          <div class="blueprint-crosshair tl"></div><div class="blueprint-crosshair tr"></div>
+          <div class="blueprint-crosshair bl"></div><div class="blueprint-crosshair br"></div>
+          <div class="blueprint-img-box">
+            <img src="assets/images/DSC04829-1024x683.jpg" alt="Curved High-Pitch LED Video Walls" loading="lazy" />
+            <span class="absolute top-3 left-3 font-mono text-[10px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 backdrop-blur-md text-amber-300 border border-white/10">LAYER 03 // OPTICS & VIDEO</span>
+          </div>
+          <div class="mt-4">
+            <div class="flex items-center justify-between mb-2 font-mono text-[11px]">
+              <span class="text-amber-400 font-bold">P3.9 CURVED HIGH-NIT</span>
+              <span class="text-stone-400">7,680Hz REFRESH</span>
+            </div>
+            <h4 class="font-display font-bold text-xl uppercase text-white mb-2">Curved MicroLED Video Canvas</h4>
+            <p class="text-stone-300 text-xs leading-relaxed font-light mb-4">
+              Ultra-high-definition seamless curved video facades running through Novastar MX40 Pro processors, delivering broadcast-safe flicker-free 4K visuals.
+            </p>
+            <div class="grid grid-cols-2 gap-2 font-mono text-[10px] text-stone-300 border-t border-white/10 pt-3">
+              <div>&bull; 4,500 Nits Daylight Calibrated</div>
+              <div>&bull; Low-Latency Genlock Processing</div>
+              <div>&bull; Custom Motion Graphics Engine</div>
+              <div>&bull; Redundant Fiber-Optic Runs</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station 04: Line Array Sound -->
+        <div class="blueprint-station-card">
+          <div class="blueprint-crosshair tl"></div><div class="blueprint-crosshair tr"></div>
+          <div class="blueprint-crosshair bl"></div><div class="blueprint-crosshair br"></div>
+          <div class="blueprint-img-box">
+            <img src="assets/images/280_Hero-Music-1.jpg" alt="L-Acoustics Stadium Line Array Sound" loading="lazy" />
+            <span class="absolute top-3 left-3 font-mono text-[10px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 backdrop-blur-md text-amber-300 border border-white/10">LAYER 04 // ACOUSTICS</span>
+          </div>
+          <div class="mt-4">
+            <div class="flex items-center justify-between mb-2 font-mono text-[11px]">
+              <span class="text-amber-400 font-bold">L-ACOUSTICS K2 RIG</span>
+              <span class="text-stone-400">122dB CONTINUOUS</span>
+            </div>
+            <h4 class="font-display font-bold text-xl uppercase text-white mb-2">3D Acoustically Modeled Audio</h4>
+            <p class="text-stone-300 text-xs leading-relaxed font-light mb-4">
+              Pan-European line array hangs modeled via 3D Soundvision software for uniform SPL coverage across 200 meters without high-frequency dropoff.
+            </p>
+            <div class="grid grid-cols-2 gap-2 font-mono text-[10px] text-stone-300 border-t border-white/10 pt-3">
+              <div>&bull; KS28 Cardioid Subwoofer Arrays</div>
+              <div>&bull; Time-Aligned Delay Towers</div>
+              <div>&bull; Digico Quantum 338 FOH Desk</div>
+              <div>&bull; Shure Axient Digital Wireless</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Station 05: The Manifesto Quote Finale -->
+        <div class="blueprint-station-card justify-center text-center" style="width: clamp(340px, 38vw, 480px); background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(15,15,20,0.9));">
+          <div class="blueprint-crosshair tl"></div><div class="blueprint-crosshair tr"></div>
+          <div class="blueprint-crosshair bl"></div><div class="blueprint-crosshair br"></div>
+          <div class="p-6">
+            <blockquote class="font-display font-bold text-xl sm:text-2xl lg:text-3xl leading-snug text-white mb-6">
+              "We don't merely assemble stages. We engineer moments of awe that linger long after the spotlights dim."
+            </blockquote>
+            <p class="font-mono text-xs text-amber-300 uppercase tracking-[0.25em] mb-8">
+              MIG Production Desk // Bangalore
+            </p>
+            <a href="#estimate" class="inline-flex items-center gap-2 btn-editorial-gold px-6 py-3.5 rounded-full text-xs font-mono uppercase tracking-wider magnetic-target">
+              <span>Commission Technical Rig</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
+
+  <!-- =========================================================================
+       6.5. BEFORE-AND-AFTER "PRODUCTION REVEAL" SLIDER (RAW GROUND ➔ SPECTACLE)
+       ========================================================================= -->
+  <section id="transformationSlider" class="reveal-section py-28 px-4 sm:px-6 lg:px-8 spotlight-stage">
+    <div class="max-w-7xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">
+        <span>Proof of Transformation</span>
+      </div>
+      <h2 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-white mb-4">
+        From Raw Ground to World-Class Spectacle
+      </h2>
+      <p class="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed">
+        Hover or drag the interactive lens divider across the frame to witness how MIG converts an empty ground into an illuminated 10,000-attendee arena.
+      </p>
+    </div>
+
+    <!-- Interactive Reveal Curtain -->
+    <div class="reveal-container" id="revealSlider">
+      
+      <!-- After Layer (Night Spectacle) -->
+      <div class="reveal-after-layer">
+        <img src="assets/images/186_CAM04990-scaled.jpg" alt="Finished Concert Arena Spectacle at Night" loading="lazy" />
+        <div class="reveal-tag tag-after">
+          <span>08:00 PM // FINISHED ARENA</span>
+        </div>
+      </div>
+
+      <!-- Before Layer (Daytime Raw Ground / Construction) -->
+      <div class="reveal-before-layer" id="revealBeforeLayer">
+        <img src="assets/images/193_CAM04176-scaled.jpg" alt="Raw Empty Venue Setup at 08:00 AM" loading="lazy" />
+        <div class="reveal-tag tag-before">
+          <span>08:00 AM // RAW VENUE SITE</span>
+        </div>
+      </div>
+
+      <!-- Handle Divider -->
+      <div class="reveal-handle" id="revealHandle">
+        <div class="reveal-handle-pill">
+          <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Transformation Telemetry Specs -->
+    <div class="max-w-4xl mx-auto mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono text-xs text-stone-300">
+      <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+        <span class="text-amber-400 font-bold block text-sm sm:text-base">14 HOURS</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-wider">Turnaround Execution</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+        <span class="text-amber-400 font-bold block text-sm sm:text-base">65 CREW</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-wider">Riggers & Engineers</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+        <span class="text-amber-400 font-bold block text-sm sm:text-base">250 kVA</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-wider">Synchronized Power</span>
+      </div>
+      <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+        <span class="text-emerald-400 font-bold block text-sm sm:text-base">0 INCIDENTS</span>
+        <span class="text-[10px] text-stone-400 uppercase tracking-wider">Certified Safety Rating</span>
+      </div>
+    </div>
+  </section>
+
 
   <!-- =========================================================================
        7. CLIENT & VENUE PARTNERS (Authoritative Clean Grid)

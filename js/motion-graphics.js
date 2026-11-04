@@ -646,4 +646,178 @@
     });
   }
 
+
+  // =========================================================================
+  // 8. Interactive Concert Spotlight / Beam Cursor
+  // =========================================================================
+  const spotlightBeam = document.getElementById('spotlightCursorBeam');
+  if (spotlightBeam && window.innerWidth > 992 && typeof gsap !== 'undefined') {
+    const setBeamX = gsap.quickTo(spotlightBeam, 'x', { duration: 0.25, ease: 'power2.out' });
+    const setBeamY = gsap.quickTo(spotlightBeam, 'y', { duration: 0.25, ease: 'power2.out' });
+
+    window.addEventListener('mousemove', (e) => {
+      document.body.classList.add('has-cursor-moved');
+      setBeamX(e.clientX);
+      setBeamY(e.clientY);
+    }, { passive: true });
+  }
+
+  const spotlightStages = document.querySelectorAll('.spotlight-stage');
+  spotlightStages.forEach((stage) => {
+    stage.addEventListener('mousemove', (e) => {
+      const rect = stage.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      stage.style.setProperty('--mouse-x', `${x}px`);
+      stage.style.setProperty('--mouse-y', `${y}px`);
+    }, { passive: true });
+  });
+
+  // =========================================================================
+  // 9. Live Sound Decibel / Frequency Bar Audio Reactive Hover
+  // =========================================================================
+  const audioCards = document.querySelectorAll('.editorial-card, .portfolio-item');
+  audioCards.forEach((card) => {
+    const indicator = card.querySelector('.audio-spectrum-indicator');
+    if (!indicator) return;
+    const bars = indicator.querySelectorAll('.s-bar');
+    const dbElement = indicator.querySelector('.spectrum-db');
+    const soundType = indicator.getAttribute('data-sound-type') || 'concert';
+    const baseDb = parseFloat(dbElement ? dbElement.textContent : '100');
+    let animInterval = null;
+
+    card.addEventListener('mouseenter', () => {
+      if (animInterval) clearInterval(animInterval);
+      animInterval = setInterval(() => {
+        if (dbElement) {
+          const jitter = (Math.random() * 1.6 - 0.8).toFixed(1);
+          const curDb = (baseDb + parseFloat(jitter)).toFixed(1);
+          dbElement.textContent = `${curDb} dB`;
+        }
+
+        bars.forEach((bar, idx) => {
+          let h = 4;
+          if (soundType === 'concert') {
+            if (idx < 5) h = Math.floor(Math.random() * 12 + 6);
+            else h = Math.floor(Math.random() * 8 + 3);
+          } else if (soundType === 'corporate') {
+            if (idx > 4) h = Math.floor(Math.random() * 13 + 4);
+            else h = Math.floor(Math.random() * 6 + 2);
+          } else if (soundType === 'wedding') {
+            h = Math.floor(Math.sin((Date.now() / 140) + idx * 0.6) * 6 + 9);
+          } else {
+            h = (idx % 2 === 0) ? Math.floor(Math.random() * 14 + 4) : 4;
+          }
+          bar.style.height = `${Math.max(2, h)}px`;
+        });
+      }, 85);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (animInterval) {
+        clearInterval(animInterval);
+        animInterval = null;
+      }
+      if (dbElement) dbElement.textContent = `${baseDb.toFixed(1)} dB`;
+      bars.forEach((bar) => {
+        bar.style.height = '4px';
+      });
+    });
+  });
+
+  // =========================================================================
+  // 10. Horizontal Pinned Stage Rigging Blueprint Walkthrough (GSAP Pin)
+  // =========================================================================
+  const craftBlueprint = document.getElementById('craft');
+  if (craftBlueprint && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const track = craftBlueprint.querySelector('.blueprint-horizontal-track');
+    if (track) {
+      const getScrollDistance = () => -(track.scrollWidth - window.innerWidth + 80);
+
+      gsap.to(track, {
+        x: getScrollDistance,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: craftBlueprint,
+          pin: true,
+          scrub: 0.8,
+          start: 'top top',
+          end: () => `+=${track.scrollWidth - window.innerWidth + 350}`,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+  }
+
+  // =========================================================================
+  // 11. Before-and-After "Production Reveal" Slider
+  // =========================================================================
+  const revealSlider = document.getElementById('revealSlider');
+  if (revealSlider) {
+    const setReveal = (clientX) => {
+      const rect = revealSlider.getBoundingClientRect();
+      let percent = ((clientX - rect.left) / rect.width) * 100;
+      percent = Math.max(5, Math.min(95, percent));
+      revealSlider.style.setProperty('--reveal-pos', `${percent.toFixed(2)}%`);
+    };
+
+    revealSlider.addEventListener('mousemove', (e) => {
+      setReveal(e.clientX);
+    });
+
+    revealSlider.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        setReveal(e.touches[0].clientX);
+      }
+    }, { passive: true });
+  }
+
+  // =========================================================================
+  // 12. Magnetic Kinetic Buttons & Rolling Odometer Counters
+  // =========================================================================
+  const magneticTargets = document.querySelectorAll('.magnetic-target');
+  magneticTargets.forEach((btn) => {
+    if (window.innerWidth <= 992 || typeof gsap === 'undefined') return;
+    const xTo = gsap.quickTo(btn, 'x', { duration: 0.35, ease: 'power2.out' });
+    const yTo = gsap.quickTo(btn, 'y', { duration: 0.35, ease: 'power2.out' });
+
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const deltaX = (e.clientX - centerX) * 0.35;
+      const deltaY = (e.clientY - centerY) * 0.35;
+      xTo(deltaX);
+      yTo(deltaY);
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      xTo(0);
+      yTo(0);
+    });
+  });
+
+  const statNumbers = document.querySelectorAll('.stat-number');
+  statNumbers.forEach((stat) => {
+    const targetVal = parseInt(stat.getAttribute('data-target') || '0', 10);
+    if (!targetVal || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    ScrollTrigger.create({
+      trigger: stat,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: targetVal,
+          duration: 2.2,
+          ease: 'power3.out',
+          onUpdate: () => {
+            stat.textContent = Math.floor(obj.val).toLocaleString();
+          }
+        });
+      }
+    });
+  });
+
 })();
