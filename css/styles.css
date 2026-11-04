@@ -1162,36 +1162,6 @@ body.has-cursor-moved .spotlight-cursor-beam {
 }
 
 /* =========================================================================
-   GOOD VS. GREAT INTERACTIVE SOUND & LIGHT SWITCHER
-   ========================================================================= */
-.gvg-toggle-btn {
-  cursor: pointer;
-  outline: none;
-  border: none;
-}
-
-.gvg-stage-display {
-  background-color: #060709;
-}
-
-.gvg-stage-display.mode-great #gvgStageFX {
-  background: radial-gradient(circle at 50% 30%, rgba(240, 75, 43, 0.15) 0%, rgba(56, 6, 38, 0.25) 50%, rgba(0, 0, 0, 0.8) 100%);
-}
-
-.gvg-stage-display.mode-standard #gvgStageFX {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.gvg-card {
-  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.gvg-card:hover {
-  transform: translateX(4px);
-  border-color: rgba(245, 158, 11, 0.35);
-}
-
-/* =========================================================================
    3D STAGE LAYER EXPLODER (ISOMETRIC SCHEMATICS)
    ========================================================================= */
 .stage-exploder-container {

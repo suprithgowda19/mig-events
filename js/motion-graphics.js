@@ -1172,33 +1172,8 @@
   }
 
 
-  // =========================================================================
-  // 14. Good vs. GREAT Interactive Sound & Light Switcher
-  // =========================================================================
-  const toggleStandardBtn = document.getElementById('toggleStandardBtn');
-  const toggleGreatBtn = document.getElementById('toggleGreatBtn');
-  const gvgStandardImg = document.getElementById('gvgStandardImg');
-  const gvgGreatImg = document.getElementById('gvgGreatImg');
-  const gvgModeBadge = document.getElementById('gvgModeBadge');
-  const gvgStageDisplay = document.querySelector('.gvg-stage-display');
-
-  const gvgSoundSpec = document.getElementById('gvgSoundSpec');
-  const gvgLightSpec = document.getElementById('gvgLightSpec');
-  const gvgPowerSpec = document.getElementById('gvgPowerSpec');
-
-  const gvgMetric1Title = document.getElementById('gvgMetric1Title');
-  const gvgMetric1Status = document.getElementById('gvgMetric1Status');
-  const gvgMetric1Desc = document.getElementById('gvgMetric1Desc');
-
-  const gvgMetric2Title = document.getElementById('gvgMetric2Title');
-  const gvgMetric2Status = document.getElementById('gvgMetric2Status');
-  const gvgMetric2Desc = document.getElementById('gvgMetric2Desc');
-
-  const gvgMetric3Title = document.getElementById('gvgMetric3Title');
-  const gvgMetric3Status = document.getElementById('gvgMetric3Status');
-  const gvgMetric3Desc = document.getElementById('gvgMetric3Desc');
-
-  function playToggleClickSound(isGreat) {
+    // Tactile Click Synthesizer for 3D Exploder & UI
+  function playTactileClickSound(isElevated) {
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;
@@ -1207,7 +1182,7 @@
       const gain = ctx.createGain();
       const now = ctx.currentTime;
 
-      if (isGreat) {
+      if (isElevated) {
         osc.frequency.setValueAtTime(220, now);
         osc.frequency.exponentialRampToValueAtTime(580, now + 0.12);
         gain.gain.setValueAtTime(0.18, now);
@@ -1225,114 +1200,6 @@
       osc.stop(now + 0.16);
     } catch (_) {}
   }
-
-  function setGoodVsGreatMode(mode) {
-    const isGreat = (mode === 'great');
-    playToggleClickSound(isGreat);
-
-    if (isGreat) {
-      // Buttons state
-      toggleGreatBtn.classList.add('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-500', 'text-black', 'shadow-lg');
-      toggleGreatBtn.classList.remove('text-stone-400');
-      toggleStandardBtn.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-500', 'text-black', 'shadow-lg');
-      toggleStandardBtn.classList.add('text-stone-400');
-
-      // Visuals
-      if (gvgGreatImg) gvgGreatImg.style.opacity = '1';
-      if (gvgStandardImg) gvgStandardImg.style.opacity = '0';
-      if (gvgStageDisplay) {
-        gvgStageDisplay.classList.add('mode-great');
-        gvgStageDisplay.classList.remove('mode-standard');
-      }
-
-      // Badge
-      if (gvgModeBadge) {
-        gvgModeBadge.className = 'font-mono text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-amber-400 text-black font-bold flex items-center gap-1.5 shadow-lg';
-        gvgModeBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-black animate-ping"></span>MODE: MAKE IT GREAT';
-      }
-
-      // HUD Telemetry
-      if (gvgSoundSpec) gvgSoundSpec.innerHTML = '<i data-lucide="volume-2" class="w-3.5 h-3.5"></i> L-Acoustics K2 Array (122dB)';
-      if (gvgLightSpec) gvgLightSpec.innerHTML = '<i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> GrandMA3 DMX Moving-Heads';
-      if (gvgPowerSpec) gvgPowerSpec.innerHTML = '<i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i> 250 kVA Synchronized Grid';
-
-      // Comparison Metrics Cards
-      if (gvgMetric1Title) gvgMetric1Title.textContent = 'L-Acoustics K2 Arena Array';
-      if (gvgMetric1Status) {
-        gvgMetric1Status.textContent = '122dB CALIBRATED';
-        gvgMetric1Status.className = 'text-amber-400 font-bold';
-      }
-      if (gvgMetric1Desc) gvgMetric1Desc.textContent = 'Soundvision 3D acoustic simulation ensuring continuous 122dB SPL across 200m without phase cancellation.';
-
-      if (gvgMetric2Title) gvgMetric2Title.textContent = '50m Curved 1.9mm MicroLED Wall';
-      if (gvgMetric2Status) {
-        gvgMetric2Status.textContent = '4K MICROLED + BEAMS';
-        gvgMetric2Status.className = 'text-amber-400 font-bold';
-      }
-      if (gvgMetric2Desc) gvgMetric2Desc.textContent = 'Tangerine & Deep Plum moving-head beam shafts, synchronized SMPTE timecode and broadcast-grade cameras.';
-
-      if (gvgMetric3Title) gvgMetric3Title.textContent = 'Dual 250 kVA Synchronized Power';
-      if (gvgMetric3Status) {
-        gvgMetric3Status.textContent = 'ZERO INCIDENT';
-        gvgMetric3Status.className = 'text-emerald-400 font-bold';
-      }
-      if (gvgMetric3Desc) gvgMetric3Desc.textContent = 'Automated instantaneous failover, EN AW-6082 T6 German hangar box trussing rated for 110 km/h wind shear.';
-
-    } else {
-      // Standard Event Mode
-      toggleStandardBtn.classList.add('active', 'bg-white/20', 'text-white', 'shadow-lg');
-      toggleStandardBtn.classList.remove('text-stone-400');
-      toggleGreatBtn.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'to-amber-500', 'text-black', 'shadow-lg');
-      toggleGreatBtn.classList.add('text-stone-400');
-
-      if (gvgGreatImg) gvgGreatImg.style.opacity = '0';
-      if (gvgStandardImg) gvgStandardImg.style.opacity = '1';
-      if (gvgStageDisplay) {
-        gvgStageDisplay.classList.add('mode-standard');
-        gvgStageDisplay.classList.remove('mode-great');
-      }
-
-      if (gvgModeBadge) {
-        gvgModeBadge.className = 'font-mono text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-stone-700 text-stone-200 font-medium flex items-center gap-1.5 shadow';
-        gvgModeBadge.innerHTML = '<span class="w-2 h-2 rounded-full bg-stone-400"></span>MODE: STANDARD VENDOR SETUP';
-      }
-
-      if (gvgSoundSpec) gvgSoundSpec.innerHTML = '<i data-lucide="volume-x" class="w-3.5 h-3.5"></i> Basic 2-Speaker Tripod PA (92dB)';
-      if (gvgLightSpec) gvgLightSpec.innerHTML = '<i data-lucide="zap-off" class="w-3.5 h-3.5 text-stone-400"></i> 4 Static Par Cans & Wash';
-      if (gvgPowerSpec) gvgPowerSpec.innerHTML = '<i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-500"></i> Single 5 kVA Domestic Line (No Backup)';
-
-      if (gvgMetric1Title) gvgMetric1Title.textContent = 'Generic 2-Speaker Tripod PA';
-      if (gvgMetric1Status) {
-        gvgMetric1Status.textContent = '92dB UNEVEN';
-        gvgMetric1Status.className = 'text-stone-400 font-bold';
-      }
-      if (gvgMetric1Desc) gvgMetric1Desc.textContent = 'High speech distortion at 30 meters with reverberant feedback echoes and uncalibrated coverage.';
-
-      if (gvgMetric2Title) gvgMetric2Title.textContent = 'Static Par Cans & Fabric Drop';
-      if (gvgMetric2Status) {
-        gvgMetric2Status.textContent = 'FLAT LIGHTING';
-        gvgMetric2Status.className = 'text-stone-400 font-bold';
-      }
-      if (gvgMetric2Desc) gvgMetric2Desc.textContent = 'Monochrome flat wash with 3,000 ANSI lumen front projector washed out by daylight glare.';
-
-      if (gvgMetric3Title) gvgMetric3Title.textContent = 'Single Domestic Power Feed';
-      if (gvgMetric3Status) {
-        gvgMetric3Status.textContent = 'ZERO REDUNDANCY';
-        gvgMetric3Status.className = 'text-rose-400 font-bold';
-      }
-      if (gvgMetric3Desc) gvgMetric3Desc.textContent = 'Single point of failure with no automatic transfer switch or certified wind-load structural staging.';
-    }
-
-    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-      window.lucide.createIcons();
-    }
-  }
-
-  if (toggleStandardBtn && toggleGreatBtn) {
-    toggleStandardBtn.addEventListener('click', () => setGoodVsGreatMode('standard'));
-    toggleGreatBtn.addEventListener('click', () => setGoodVsGreatMode('great'));
-  }
-
 
   // =========================================================================
   // 15. The "M · I · G" Hero Acronym Expansion Hover / Scroll Effect
@@ -1386,7 +1253,7 @@
         isExploded = !isExploded;
         stageExploderContainer.classList.toggle('is-exploded', isExploded);
         toggle3dExplodeBtn.textContent = isExploded ? '⚡ COLLAPSE STACK' : '⚡ EXPLODE 3D STACK';
-        playToggleClickSound(isExploded);
+        playTactileClickSound(isExploded);
       });
     }
 
