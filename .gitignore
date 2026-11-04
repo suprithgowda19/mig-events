@@ -12,6 +12,9 @@ __pycache__/
 env/
 venv/
 
+# Temporary development & scratch scripts
+scripts/
+
 # Editor files
 .vscode/
 .idea/
