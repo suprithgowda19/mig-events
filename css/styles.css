@@ -481,8 +481,8 @@ h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.42;
-  filter: contrast(1.15) brightness(0.85);
+  opacity: 0.70; /* Was 0.42 - brighter & richer */
+  filter: contrast(1.1) brightness(0.9);
   transform: scale(1.04);
   transition: transform 0.8s ease-out;
 }
@@ -614,6 +614,7 @@ h4 {
   margin: 0;
   white-space: nowrap;
   user-select: none;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
 }
 
 /* Bottom Rail Bar & Progress */
