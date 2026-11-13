@@ -551,7 +551,7 @@ h4 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: clamp(0.85rem, 1.2vw, 1.05rem);
   text-transform: uppercase;
@@ -632,7 +632,7 @@ h4 {
 .snap-giant-text {
   height: clamp(4.5rem, 14vw, 11rem);
   line-height: clamp(4.5rem, 14vw, 11rem);
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: clamp(3.2rem, 11.5vw, 10rem);
   text-transform: uppercase;
@@ -984,7 +984,7 @@ body.has-cursor-moved .spotlight-cursor-beam {
   transform: translateX(-50%);
   z-index: 20;
   pointer-events: none;
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.8);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
 }
 
 .reveal-handle-pill {
@@ -997,7 +997,7 @@ body.has-cursor-moved .spotlight-cursor-beam {
   border-radius: 50%;
   background: #000;
   border: 2px solid #f59e0b;
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1122,7 +1122,7 @@ body.has-cursor-moved .spotlight-cursor-beam {
 .reveal-sound-btn.is-active {
   background: rgba(245, 158, 11, 0.25);
   border-color: #f59e0b;
-  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .reveal-sound-btn.is-active .sound-status-text {
@@ -1145,11 +1145,11 @@ body.has-cursor-moved .spotlight-cursor-beam {
 
 @keyframes handle-glow-pulse {
   from {
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+    /* clean ring without chromatic halo */
     transform: translate(-50%, -50%) scale(1);
   }
   to {
-    box-shadow: 0 0 30px rgba(245, 158, 11, 0.9);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
     transform: translate(-50%, -50%) scale(1.12);
   }
 }
@@ -1304,5 +1304,5 @@ body.has-cursor-moved .spotlight-cursor-beam {
 
 .editorial-card:hover {
   border-color: rgba(223, 202, 171, 0.32);
-  box-shadow: 0 25px 50px -12px rgba(56, 6, 38, 0.35), 0 0 25px rgba(223, 202, 171, 0.08);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
 }
