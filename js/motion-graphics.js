@@ -339,6 +339,27 @@ window.MIGAudio = {
       });
     });
 
+    // grandMA3 DMX Live Desk Controls Hook
+    let dmxHazeMultiplier = 1.0;
+    let dmxSpreadMultiplier = 1.0;
+    let dmxLuxMultiplier = 1.0;
+
+    window.MIGStageControl = {
+      setHaze: function(val) {
+        dmxHazeMultiplier = Math.max(0.2, val / 50);
+      },
+      setSpread: function(val) {
+        dmxSpreadMultiplier = Math.max(0.3, val / 35);
+      },
+      setLux: function(val) {
+        dmxLuxMultiplier = Math.max(0.2, val / 85);
+        const heroOverlay = document.querySelector('.parallax-overlay');
+        if (heroOverlay) {
+          heroOverlay.style.opacity = Math.max(0.35, 1.0 - (val / 100) * 0.4);
+        }
+      }
+    };
+
     let time = 0;
 
     function renderStageLighting() {
@@ -365,7 +386,7 @@ window.MIGAudio = {
           targetY = startY + Math.cos(currentAngle) * (height * 1.2);
         }
 
-        const beamSpread = width * 0.28;
+        const beamSpread = width * 0.28 * dmxSpreadMultiplier;
 
         ctx.save();
         ctx.beginPath();

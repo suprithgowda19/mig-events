@@ -353,6 +353,13 @@
         ? techRequirements.map(t => `%0A   • ${encodeURIComponent(t)}`).join('')
         : '%0A   • Turnkey Technical Rigging & Production';
 
+      const spec = wizardData.calculatedSpec || {
+        truss: '160m Eurotruss Grid',
+        power: '250 kVA Synchronized',
+        audio: '122dB K2 + KS28 Subs',
+        time: '36h Build / 8h Out'
+      };
+
       const waMessage = `*MIG PRODUCTION BLUEPRINT SPECIFICATION*%0A` +
         `-----------------------------------------%0A` +
         `👤 *Technical Director / Contact:* ${encodeURIComponent(wizardData.name)}%0A` +
@@ -362,6 +369,12 @@
         `🎯 *Production Scope:* ${encodeURIComponent(wizardData.type)}%0A` +
         `👥 *Audience Scale:* ${encodeURIComponent(wizardData.scale)}%0A%0A` +
         `⚙️ *REQUIRED INFRASTRUCTURE:*${techText}%0A` +
+        `-----------------------------------------%0A` +
+        `📐 *CALCULATED RIGGING FEASIBILITY:*%0A` +
+        `   • Truss Grid: ${encodeURIComponent(spec.truss)}%0A` +
+        `   • Power Draw: ${encodeURIComponent(spec.power)}%0A` +
+        `   • Audio Coverage: ${encodeURIComponent(spec.audio)}%0A` +
+        `   • Setup Window: ${encodeURIComponent(spec.time)}%0A` +
         `-----------------------------------------%0A` +
         `_Transmitted via MIG Events & Productions Operations Desk._`;
 
@@ -427,5 +440,154 @@
       }
     });
   }
+
+
+  // =========================================================================
+  // 10. GOLD STANDARD: HERO WORD-SPLIT REVEAL
+  // =========================================================================
+  setTimeout(() => {
+    const heroH1 = document.getElementById('heroHeadline');
+    if (heroH1) {
+      heroH1.classList.add('hero-revealed');
+    }
+  }, 350);
+
+  // =========================================================================
+  // 11. GOLD STANDARD: grandMA3 DMX LIVE DESK SLIDERS
+  // =========================================================================
+  const faderHaze = document.getElementById('dmxFaderHaze');
+  const faderSpread = document.getElementById('dmxFaderSpread');
+  const faderLux = document.getElementById('dmxFaderLux');
+  const faderSPL = document.getElementById('dmxFaderSPL');
+  const resetDmxBtn = document.getElementById('resetDmxBtn');
+
+  const valHaze = document.getElementById('valDmxHaze');
+  const valSpread = document.getElementById('valDmxSpread');
+  const valLux = document.getElementById('valDmxLux');
+  const valSPL = document.getElementById('valDmxSPL');
+
+  if (faderHaze && valHaze) {
+    faderHaze.addEventListener('input', (e) => {
+      valHaze.textContent = `${e.target.value}%`;
+      if (window.MIGAudio) window.MIGAudio.playClickTick(600 + parseInt(e.target.value) * 4);
+      if (window.MIGStageControl) window.MIGStageControl.setHaze(parseInt(e.target.value));
+    });
+  }
+
+  if (faderSpread && valSpread) {
+    faderSpread.addEventListener('input', (e) => {
+      valSpread.textContent = `${e.target.value}°`;
+      if (window.MIGAudio) window.MIGAudio.playClickTick(700 + parseInt(e.target.value) * 5);
+      if (window.MIGStageControl) window.MIGStageControl.setSpread(parseInt(e.target.value));
+    });
+  }
+
+  if (faderLux && valLux) {
+    faderLux.addEventListener('input', (e) => {
+      valLux.textContent = `${e.target.value}%`;
+      if (window.MIGAudio) window.MIGAudio.playClickTick(800 + parseInt(e.target.value) * 3);
+      if (window.MIGStageControl) window.MIGStageControl.setLux(parseInt(e.target.value));
+    });
+  }
+
+  if (faderSPL && valSPL) {
+    faderSPL.addEventListener('input', (e) => {
+      valSPL.textContent = `${e.target.value}dB`;
+      if (window.MIGAudio) window.MIGAudio.playClickTick(400 + parseInt(e.target.value) * 6);
+      // Accelerate frequency spectrum bars on page
+      document.querySelectorAll('.s-bar').forEach(b => {
+        const speed = Math.max(0.2, 1.2 - (parseInt(e.target.value) - 80) / 60);
+        b.style.animationDuration = `${speed}s`;
+      });
+    });
+  }
+
+  if (resetDmxBtn) {
+    resetDmxBtn.addEventListener('click', () => {
+      if (faderHaze) { faderHaze.value = 50; valHaze.textContent = '50%'; }
+      if (faderSpread) { faderSpread.value = 35; valSpread.textContent = '35°'; }
+      if (faderLux) { faderLux.value = 85; valLux.textContent = '85%'; }
+      if (faderSPL) { faderSPL.value = 115; valSPL.textContent = '115dB'; }
+      if (window.MIGAudio) window.MIGAudio.playClickTick(950);
+      if (window.MIGStageControl) {
+        window.MIGStageControl.setHaze(50);
+        window.MIGStageControl.setSpread(35);
+        window.MIGStageControl.setLux(85);
+      }
+    });
+  }
+
+  // =========================================================================
+  // 12. GOLD STANDARD: DYNAMIC RIGGING FEASIBILITY HUD CALCULATOR
+  // =========================================================================
+  const feasibilityMatrix = {
+    'corporate': {
+      'small': { truss: '40m Architectural Truss', power: '65 kVA Silent Mains', audio: '74dB Speech-Calibrated', time: '12h Build / 4h Out' },
+      'medium': { truss: '80m Eurotruss Box Rig', power: '125 kVA Synchronized', audio: '82dB Keynote Array', time: '18h Build / 6h Out' },
+      'large': { truss: '140m Clear-Span Rigging', power: '180 kVA Dual-Grid', audio: '96dB Arena Relay Array', time: '28h Build / 8h Out' },
+      'massive': { truss: '220m Stadium Truss Grid', power: '250 kVA Twin Industrial', audio: '108dB Multi-Zone System', time: '40h Build / 10h Out' }
+    },
+    'wedding': {
+      'small': { truss: 'Custom Mandap Box Truss', power: '50 kVA Regulated Unit', audio: '80dB Acoustic Harmonics', time: '16h Build / 6h Out' },
+      'medium': { truss: 'Thematic Glasshouse Frame', power: '125 kVA Dedicated Unit', audio: '88dB Sangeet Array', time: '24h Build / 8h Out' },
+      'large': { truss: '40m Palace Clear-Span Rig', power: '180 kVA Synchronized', audio: '98dB Concert Stage Rig', time: '36h Build / 10h Out' },
+      'massive': { truss: 'German Hangar Luxury Dome', power: '250 kVA Industrial Grid', audio: '110dB Royal Sangeet Rig', time: '48h Build / 12h Out' }
+    },
+    'concert': {
+      'small': { truss: '60m Heavy Stage Truss', power: '125 kVA Clean Supply', audio: '105dB Club Tour Array', time: '18h Build / 6h Out' },
+      'medium': { truss: '100m Arena Box Grid (8T)', power: '180 kVA Dual Generator', audio: '115dB L-Acoustics Rig', time: '26h Build / 8h Out' },
+      'large': { truss: '160m Eurotruss Grid (14T)', power: '250 kVA Synchronized', audio: '122dB K2 + KS28 Subs', time: '36h Build / 8h Out' },
+      'massive': { truss: '280m Stadium Cyber-Hoist', power: '350 kVA Multi-Phase Grid', audio: '128dB Arena Line-Array', time: '48h Build / 12h Out' }
+    },
+    'celebrity': {
+      'small': { truss: 'Red Carpet Studio Truss', power: '45 kVA Low-Noise', audio: 'Direct Broadcast Feed', time: '10h Build / 4h Out' },
+      'medium': { truss: 'Studio Soundstage Grid', power: '100 kVA Mobile Unit', audio: 'Multi-Zone Media Audio', time: '16h Build / 6h Out' },
+      'large': { truss: 'Curved VIP Media Pavilion', power: '160 kVA Regulated Grid', audio: 'Broadcast Live Matrix', time: '24h Build / 8h Out' },
+      'massive': { truss: 'Stadium VIP Compound Rig', power: '220 kVA Industrial Unit', audio: 'Arena Media Relay', time: '36h Build / 10h Out' }
+    }
+  };
+
+  function updateFeasibilityHUD() {
+    const scopeTag = document.getElementById('hudLiveScopeTag');
+    const trussVal = document.getElementById('hudTrussVal');
+    const powerVal = document.getElementById('hudPowerVal');
+    const audioVal = document.getElementById('hudAudioVal');
+    const timeVal = document.getElementById('hudTimeVal');
+
+    if (!scopeTag || !trussVal) return;
+
+    let typeKey = 'concert';
+    const typeStr = (wizardData.type || '').toLowerCase();
+    if (typeStr.includes('corporate') || typeStr.includes('summit')) typeKey = 'corporate';
+    else if (typeStr.includes('wedding')) typeKey = 'wedding';
+    else if (typeStr.includes('celebrity') || typeStr.includes('ad film')) typeKey = 'celebrity';
+
+    let scaleKey = 'large';
+    const scaleStr = (wizardData.scale || '').toLowerCase();
+    if (scaleStr.includes('under 100') || scaleStr.includes('intimate')) scaleKey = 'small';
+    else if (scaleStr.includes('100 - 500') || scaleStr.includes('medium')) scaleKey = 'medium';
+    else if (scaleStr.includes('500 - 2,000') || scaleStr.includes('large')) scaleKey = 'large';
+    else if (scaleStr.includes('2,000') || scaleStr.includes('mega') || scaleStr.includes('arena')) scaleKey = 'massive';
+
+    const spec = (feasibilityMatrix[typeKey] && feasibilityMatrix[typeKey][scaleKey]) 
+      ? feasibilityMatrix[typeKey][scaleKey] 
+      : feasibilityMatrix['concert']['large'];
+
+    scopeTag.textContent = `SCOPE: ${typeKey.toUpperCase()} // ${scaleKey.toUpperCase()}`;
+    trussVal.textContent = spec.truss;
+    powerVal.textContent = spec.power;
+    audioVal.textContent = spec.audio;
+    timeVal.textContent = spec.time;
+
+    // Store in wizardData for WhatsApp compile
+    wizardData.calculatedSpec = spec;
+  }
+
+  // Hook HUD into wizard button clicks
+  document.querySelectorAll('.wizard-type-btn, .wizard-scale-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(updateFeasibilityHUD, 50);
+    });
+  });
 
 })();
