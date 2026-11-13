@@ -1432,11 +1432,6 @@ html[data-theme="gala"] body {
   }
 }
 
-/* 3. Live Telemetry Bar Header Spacing */
-#hero {
-  padding-top: 4rem;
-}
-
 /* 4. Procedural Audio Equalizer Bar Animation */
 @keyframes eq-pulse-1 {
   0%, 100% { height: 4px; }

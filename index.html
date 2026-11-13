@@ -67,109 +67,64 @@
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Logo & Live Engine Status -->
-      <a href="#hero" class="flex items-center gap-4 group">
-        <img src="assets/images/1097_cropped-mig.png" alt="MIG Events Logo" class="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+      <!-- Clean Minimal Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 shrink-0 group">
+        <img src="assets/images/1097_cropped-mig.png" alt="MIG Events Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         <div class="flex flex-col">
           <span class="font-display font-extrabold tracking-wider text-base sm:text-lg text-white group-hover:text-amber-200 transition-colors">MIG EVENTS</span>
-          <span class="font-mono text-[11px] tracking-[0.2em] text-stone-300 uppercase">PRODUCTIONS // 2026</span>
-        </div>
-
-        <!-- Live Audio Waveform Micro-Visualizer & Signature Trigger -->
-        <div class="hidden lg:flex items-center gap-2 ml-4">
-          <div class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]" title="Concert Sound Engine Active">
-            <div id="audioVisualizer" class="flex items-center gap-[2px] h-3.5"></div>
-            <span class="font-mono text-[11px] text-stone-300 tracking-wider ml-2 uppercase">AUDIO_ENGINE</span>
-          </div>
-
-          <!-- The "Make It Great" Audio Signature (Easter Egg) -->
-          <button id="migAudioSignatureBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-amber-400/40 bg-amber-500/[0.08] hover:bg-amber-500/[0.22] hover:border-amber-400 text-amber-200 transition-all font-mono text-[11px] tracking-widest uppercase cursor-pointer group" title="Play MIG Sound Signature (Sub-Bass + Arena Crack)">
-            <span class="w-2 h-2 rounded-full bg-amber-400 "></span>
-            <i data-lucide="play" class="w-2.5 h-2.5 fill-amber-300 text-amber-300 ml-0.5"></i>
-            <span id="migSigBtnText">SOUND SIGNATURE</span>
-          </button>
+          <span class="font-mono text-[11px] tracking-[0.2em] text-stone-400 uppercase">PRODUCTIONS</span>
         </div>
       </a>
 
-      <!-- Navigation Links -->
-      <div class="hidden md:flex items-center gap-8 text-xs font-medium tracking-widest uppercase text-stone-300">
+      <!-- Clean Spaced Navigation Links -->
+      <div class="hidden lg:flex items-center gap-8 text-xs font-medium tracking-widest uppercase text-stone-300">
         <a href="#hero" class="hover:text-white transition-colors">Experience</a>
         <a href="#capabilities" class="hover:text-white transition-colors">Capabilities</a>
-        <a href="#portfolio" class="hover:text-white transition-colors">ExperienceWork</a>
+        <a href="#portfolio" class="hover:text-white transition-colors">Work</a>
+        <a href="#craft" class="hover:text-white transition-colors">Blueprint</a>
+        <a href="#transformationSlider" class="hover:text-white transition-colors">Transformation</a>
         <a href="#reviews" class="hover:text-white transition-colors">Praise</a>
-        <a href="#estimate" class="hover:text-white transition-colors">Inquiry</a>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="hidden md:flex items-center gap-3">
-        <!-- Procedural Web Audio Haptic Sound Engine Toggle -->
-        <button id="globalAudioToggleBtn" type="button" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.04] hover:bg-white/[0.1] text-stone-300 hover:text-white transition-all font-mono text-[11px] tracking-wider uppercase cursor-pointer" title="Toggle Procedural Haptic Audio Feedback" aria-label="Toggle Procedural Audio">
-          <i data-lucide="volume-x" class="w-3.5 h-3.5 audio-icon-muted"></i>
+      <!-- Clean Action Buttons -->
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <button id="globalAudioToggleBtn" type="button" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.04] hover:bg-white/[0.1] text-stone-300 hover:text-white transition-all font-mono text-[11px] tracking-wider uppercase cursor-pointer" title="Toggle Procedural Audio" aria-label="Toggle Audio">
+          <i data-lucide="volume-x" class="w-3.5 h-3.5 audio-icon-muted text-stone-400"></i>
           <i data-lucide="volume-2" class="w-3.5 h-3.5 audio-icon-active text-amber-400 hidden"></i>
-          <div class="audio-equalizer-bars flex items-end gap-[2px] h-3">
-            <span class="eq-bar w-[2px] h-1.5 bg-stone-400 rounded-full"></span>
-            <span class="eq-bar w-[2px] h-3 bg-stone-400 rounded-full"></span>
-            <span class="eq-bar w-[2px] h-2 bg-stone-400 rounded-full"></span>
-          </div>
-          <span class="audio-state-label text-stone-300 font-bold">AUDIO: OFF</span>
+          <span class="audio-state-label text-stone-300 font-bold">SOUND: OFF</span>
         </button>
 
-        <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-300 hover:text-white hover:border-white/30 transition-all magnetic-target" title="WhatsApp enquiry">
+        <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-stone-300 hover:text-white hover:border-white/30 transition-all magnetic-target" title="WhatsApp desk">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
         </a>
-        <a href="#estimate" class="btn-editorial-gold px-6 py-2.5 rounded-full text-xs uppercase font-display tracking-wider magnetic-target">
+        <a href="#estimate" class="btn-editorial-gold px-5 py-2.5 rounded-full text-xs uppercase font-display tracking-wider font-bold magnetic-target whitespace-nowrap">
           Plan Production
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="navToggle" class="md:hidden text-stone-300 hover:text-white p-2">
+      <button id="navToggle" class="lg:hidden text-stone-300 hover:text-white p-2" aria-label="Toggle Menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
 
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden bg-pitch/95 border-t border-b border-white/10 px-6 py-8 space-y-4">
+    <div id="mobileMenu" class="hidden lg:hidden bg-pitch/95 border-t border-b border-white/10 px-6 py-8 space-y-4">
       <a href="#hero" class="block text-stone-300 hover:text-white font-medium text-sm">Experience</a>
       <a href="#capabilities" class="block text-stone-300 hover:text-white font-medium text-sm">Capabilities</a>
-      <a href="#portfolio" class="block text-stone-300 hover:text-white font-medium text-sm">ExperienceWork</a>
+      <a href="#portfolio" class="block text-stone-300 hover:text-white font-medium text-sm">Work</a>
+      <a href="#craft" class="block text-stone-300 hover:text-white font-medium text-sm">Blueprint</a>
+      <a href="#transformationSlider" class="block text-stone-300 hover:text-white font-medium text-sm">Transformation</a>
       <a href="#reviews" class="block text-stone-300 hover:text-white font-medium text-sm">Praise</a>
-      <a href="#estimate" class="block text-stone-300 hover:text-white font-medium text-sm">Get Estimate</a>
+      <a href="#estimate" class="block text-stone-300 hover:text-white font-medium text-sm">Commission Spec</a>
       <div class="pt-2">
-        <a href="#estimate" class="block w-full text-center btn-editorial-gold py-3 rounded-xl text-xs uppercase tracking-wider font-display">
+        <a href="#estimate" class="block w-full text-center btn-editorial-gold py-3 rounded-xl text-xs uppercase tracking-wider font-display font-bold">
           Plan Production
         </a>
       </div>
     </div>
   </nav>
-
-  <!-- =========================================================================
-       1.5. TACTICAL "LIVE DECK" PRODUCTION TELEMETRY BAR (TAIT TOWERS BENCHMARK)
-       ========================================================================= -->
-  <aside id="liveTelemetryBar" aria-label="Live Operational Telemetry" class="fixed top-20 left-0 w-full z-40 bg-[#0E1015]/95 border-b border-white/10 backdrop-blur-md py-2 px-4 sm:px-8 text-xs font-mono transition-all duration-300">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 text-stone-300">
-      <div class="flex items-center gap-2.5">
-        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          LIVE OPS
-        </span>
-        <span class="text-white font-bold tracking-wider text-[11px] sm:text-xs">OPERATIONS DECK // BANGALORE HQ</span>
-      </div>
-      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[11px] tracking-wider text-stone-300">
-        <div><span class="text-stone-400">ACTIVE CREWS:</span> <span class="text-amber-400 font-bold">4 PAN-INDIA</span></div>
-        <span class="text-white/20 hidden sm:inline">|</span>
-        <div><span class="text-stone-400">SAFETY RECORD:</span> <span class="text-emerald-400 font-bold">100% ZERO-INCIDENT</span></div>
-        <span class="text-white/20 hidden sm:inline">|</span>
-        <div><span class="text-stone-400">NEXT ROLLOUT:</span> <span class="text-white font-bold">T-48H HYDERABAD SUMMIT</span></div>
-      </div>
-      <div class="hidden lg:flex items-center gap-2 text-[11px] text-amber-300/80">
-        <span>LAT: 12.9716° N</span>
-        <span>&bull;</span>
-        <span>GRID: 250 kVA SYNC</span>
-      </div>
-    </div>
-  </aside>
 
   <!-- =========================================================================
        2. HERO SECTION: THE GRAND STAGE (Canvas Volumetric Beams + Parallax)
@@ -539,7 +494,6 @@
               </div>
             </div>
           </div>
-          </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Corporate Solutions</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -584,7 +538,6 @@
                 <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
               </div>
             </div>
-          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Wedding Production</span>
@@ -631,7 +584,6 @@
               </div>
             </div>
           </div>
-          </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>MICE Infrastructure</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -676,7 +628,6 @@
                 <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
               </div>
             </div>
-          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Concert Engineering</span>
@@ -723,7 +674,6 @@
               </div>
             </div>
           </div>
-          </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Production Craft</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -768,7 +718,6 @@
                 <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
               </div>
             </div>
-          </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-stone-400 group-hover:text-amber-300 font-mono uppercase tracking-wider transition-colors">
             <span>Celebrity Desk</span>
@@ -1081,7 +1030,7 @@
                   <span class="absolute top-2 left-2 font-mono text-[11px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 text-amber-300 border border-amber-400/30">
                     01. STRUCTURAL RIGGING
                   </span>
-                  <span class="absolute bottom-2 left-2 font-mono text-[8px] text-stone-300">
+                  <span class="absolute bottom-2 left-2 font-mono text-[11px] text-stone-300">
                     40m Clear-Span Truss &bull; EN AW-6082 T6 Alloy
                   </span>
                 </div>
@@ -1093,7 +1042,7 @@
                   <span class="absolute top-2 left-2 font-mono text-[11px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 text-amber-300 border border-amber-400/30">
                     02. ACOUSTIC &amp; POWER INFRASTRUCTURE
                   </span>
-                  <span class="absolute bottom-2 left-2 font-mono text-[8px] text-stone-300">
+                  <span class="absolute bottom-2 left-2 font-mono text-[11px] text-stone-300">
                     L-Acoustics K2 Arrays &bull; 250 kVA Synchronized Grid
                   </span>
                 </div>
@@ -1105,7 +1054,7 @@
                   <span class="absolute top-2 left-2 font-mono text-[11px] tracking-wider uppercase px-2.5 py-1 rounded bg-black/80 text-white border border-white/20">
                     03. AESTHETIC REFINEMENT
                   </span>
-                  <span class="absolute bottom-2 left-2 font-mono text-[8px] text-amber-200">
+                  <span class="absolute bottom-2 left-2 font-mono text-[11px] text-amber-200">
                     Curved MicroLED Walls &bull; Tangerine &amp; Plum Beams
                   </span>
                 </div>
@@ -1902,30 +1851,11 @@
     </div>
   </div>
 
-  <!-- Floating Direct WhatsApp Pill (Left Aligned to avoid dock overlap) -->
-  <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="fixed bottom-6 left-6 z-40 bg-white hover:bg-stone-200 text-black px-5 py-3 rounded-full flex items-center gap-2.5 shadow-2xl font-mono font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105" title="Chat on WhatsApp">
+  <!-- Floating Direct WhatsApp Pill (Bottom-Right, Elegant and Unobtrusive) -->
+  <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="fixed bottom-6 right-6 z-40 bg-white hover:bg-stone-200 text-black px-5 py-3 rounded-full flex items-center gap-2.5 shadow-2xl font-mono font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105" title="Chat on WhatsApp">
     <i data-lucide="message-circle" class="w-4 h-4 fill-black"></i>
     <span class="hidden sm:inline">WhatsApp Desk</span>
   </a>
-
-  <!-- =========================================================================
-       STAGE LIGHTING DIRECTOR ATMOSPHERE DOCK (MOMENT FACTORY BENCHMARK)
-       ========================================================================= -->
-  <aside id="stageAtmosphereDock" aria-label="Stage Atmosphere Presets" class="fixed bottom-6 right-6 z-40 hidden sm:flex items-center gap-1.5 p-1.5 rounded-full bg-[#0E1015]/90 border border-white/15 backdrop-blur-xl shadow-2xl transition-all duration-300">
-    <div class="flex items-center gap-1.5 pl-3 pr-2 text-stone-300 font-mono text-[11px] font-bold tracking-wider uppercase border-r border-white/10">
-      <i data-lucide="sliders" class="w-3.5 h-3.5 text-amber-400"></i>
-      <span class="hidden lg:inline">STAGE AMBIENCE</span>
-    </div>
-    <button type="button" class="theme-preset-btn active px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all" data-preset="concert">
-      <span>⚡ Arena</span>
-    </button>
-    <button type="button" class="theme-preset-btn px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all" data-preset="summit">
-      <span>💼 Summit</span>
-    </button>
-    <button type="button" class="theme-preset-btn px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all" data-preset="gala">
-      <span>✨ Gala</span>
-    </button>
-  </aside>
 
   <!-- Initialize Lucide Icons & Custom Scripts -->
   <script>
