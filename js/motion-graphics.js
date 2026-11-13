@@ -1,3 +1,110 @@
+// =========================================================================
+// 0. Procedural Web Audio Sound Engine (Zero External Audio Files)
+// =========================================================================
+window.MIGAudio = {
+  ctx: null,
+  isMuted: true, // Default muted per prompt and browser autoplay policies
+  init() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) this.ctx = new AudioCtx();
+    }
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+  },
+  toggleMute() {
+    this.init();
+    this.isMuted = !this.isMuted;
+    this.updateUI();
+    if (!this.isMuted) {
+      this.playClickTick(700);
+    }
+    return !this.isMuted;
+  },
+  updateUI() {
+    const toggleBtn = document.getElementById('globalAudioToggleBtn');
+    if (!toggleBtn) return;
+    const mutedIcon = toggleBtn.querySelector('.audio-icon-muted');
+    const activeIcon = toggleBtn.querySelector('.audio-icon-active');
+    const stateLabel = toggleBtn.querySelector('.audio-state-label');
+    
+    if (this.isMuted) {
+      mutedIcon?.classList.remove('hidden');
+      activeIcon?.classList.add('hidden');
+      if (stateLabel) stateLabel.textContent = 'AUDIO: OFF';
+      toggleBtn.classList.remove('is-active', 'border-amber-400', 'bg-amber-500/15');
+    } else {
+      mutedIcon?.classList.add('hidden');
+      activeIcon?.classList.remove('hidden');
+      if (stateLabel) stateLabel.textContent = 'AUDIO: ON';
+      toggleBtn.classList.add('is-active', 'border-amber-400', 'bg-amber-500/15');
+    }
+  },
+  playClickTick(freq = 800) {
+    if (this.isMuted) return;
+    try {
+      this.init();
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now);
+      gain.gain.setValueAtTime(0.09, now);
+      gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.04);
+    } catch (e) {}
+  },
+  playHum(freq = 60, duration = 0.8) {
+    if (this.isMuted) return;
+    try {
+      this.init();
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const filter = this.ctx.createBiquadFilter();
+      const gain = this.ctx.createGain();
+      
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.6, now + duration);
+      
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(200, now);
+      
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.linearRampToValueAtTime(0.12, now + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+      
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + duration + 0.05);
+    } catch (e) {}
+  },
+  playChime(freq = 528, duration = 1.0) {
+    if (this.isMuted) return;
+    try {
+      this.init();
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.25, now + duration);
+      gain.gain.setValueAtTime(0.09, now);
+      gain.exponentialRampToValueAtTime(0.0001, now + duration);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + duration + 0.05);
+    } catch (e) {}
+  }
+};
+
 /**
  * MIG EVENTS & PRODUCTIONS - ADVANCED MOTION GRAPHICS & TACTILE 3D CARD ENGINE
  * Open-Source Motion Patterns:
@@ -159,11 +266,78 @@
       });
     }
 
+    const atmospherePresets = {
+      concert: {
+        spotlights: [
+          { originX: 0.18, baseAngle: 0.35, speed: 0.009, color: 'rgba(240, 75, 43, ', maxAlpha: 0.15 },
+          { originX: 0.50, baseAngle: 0.0, speed: 0.012, color: 'rgba(0, 240, 255, ', maxAlpha: 0.18, trackMouse: true },
+          { originX: 0.82, baseAngle: -0.35, speed: 0.009, color: 'rgba(240, 75, 43, ', maxAlpha: 0.15 }
+        ],
+        particleColor: 'rgba(240, 75, 43, '
+      },
+      summit: {
+        spotlights: [
+          { originX: 0.22, baseAngle: 0.08, speed: 0.004, color: 'rgba(56, 189, 248, ', maxAlpha: 0.12 },
+          { originX: 0.50, baseAngle: 0.0, speed: 0.006, color: 'rgba(255, 255, 255, ', maxAlpha: 0.18, trackMouse: true },
+          { originX: 0.78, baseAngle: -0.08, speed: 0.004, color: 'rgba(56, 189, 248, ', maxAlpha: 0.12 }
+        ],
+        particleColor: 'rgba(255, 255, 255, '
+      },
+      gala: {
+        spotlights: [
+          { originX: 0.15, baseAngle: 0.25, speed: 0.006, color: 'rgba(223, 202, 171, ', maxAlpha: 0.15 },
+          { originX: 0.50, baseAngle: 0.0, speed: 0.008, color: 'rgba(245, 200, 140, ', maxAlpha: 0.16, trackMouse: true },
+          { originX: 0.85, baseAngle: -0.25, speed: 0.006, color: 'rgba(223, 202, 171, ', maxAlpha: 0.15 }
+        ],
+        particleColor: 'rgba(223, 202, 171, '
+      }
+    };
+
+    let currentPreset = 'concert';
     const spotlights = [
-      { originX: 0.18, angle: 0.3, baseAngle: 0.35, speed: 0.008, color: 'rgba(212, 178, 140, ', maxAlpha: 0.12 },
-      { originX: 0.50, angle: 0,   baseAngle: 0.0,  speed: 0.012, color: 'rgba(230, 215, 195, ', maxAlpha: 0.16, trackMouse: true },
-      { originX: 0.82, angle: -0.3,baseAngle: -0.35,speed: 0.009, color: 'rgba(212, 178, 140, ', maxAlpha: 0.12 }
+      { originX: 0.18, angle: 0.3, baseAngle: 0.35, speed: 0.009, color: 'rgba(240, 75, 43, ', maxAlpha: 0.15 },
+      { originX: 0.50, angle: 0,   baseAngle: 0.0,  speed: 0.012, color: 'rgba(0, 240, 255, ', maxAlpha: 0.18, trackMouse: true },
+      { originX: 0.82, angle: -0.3,baseAngle: -0.35,speed: 0.009, color: 'rgba(240, 75, 43, ', maxAlpha: 0.15 }
     ];
+
+    function setStageAtmosphere(presetKey) {
+      const preset = atmospherePresets[presetKey];
+      if (!preset) return;
+      currentPreset = presetKey;
+      document.documentElement.setAttribute('data-theme', presetKey);
+
+      spotlights.forEach((spot, idx) => {
+        const targetConfig = preset.spotlights[idx];
+        if (targetConfig) {
+          spot.color = targetConfig.color;
+          spot.maxAlpha = targetConfig.maxAlpha;
+          spot.baseAngle = targetConfig.baseAngle;
+          spot.speed = targetConfig.speed;
+        }
+      });
+
+      document.querySelectorAll('.theme-preset-btn').forEach(btn => {
+        if (btn.getAttribute('data-preset') === presetKey) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      if (window.MIGAudio) {
+        if (presetKey === 'concert') window.MIGAudio.playHum(60, 0.8);
+        else if (presetKey === 'summit') window.MIGAudio.playClickTick(950);
+        else if (presetKey === 'gala') window.MIGAudio.playChime(528, 1.2);
+      }
+    }
+
+    // Attach preset click handlers
+    document.querySelectorAll('.theme-preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const presetKey = btn.getAttribute('data-preset');
+        setStageAtmosphere(presetKey);
+      });
+    });
 
     let time = 0;
 
@@ -648,20 +822,87 @@
 
 
   // =========================================================================
-  // 8. Interactive Concert Spotlight / Beam Cursor
+  // 8. Contextual Magnetic Reticle Cursor (We Are Royale / TAIT Benchmark)
   // =========================================================================
-  const spotlightBeam = document.getElementById('spotlightCursorBeam');
-  if (spotlightBeam && window.innerWidth > 992 && typeof gsap !== 'undefined') {
-    const setBeamX = gsap.quickTo(spotlightBeam, 'x', { duration: 0.25, ease: 'power2.out' });
-    const setBeamY = gsap.quickTo(spotlightBeam, 'y', { duration: 0.25, ease: 'power2.out' });
+  const reticleCursor = document.getElementById('reticleCursor');
+  if (reticleCursor && !isMobile) {
+    const dot = reticleCursor.querySelector('.reticle-dot');
+    const ring = reticleCursor.querySelector('.reticle-ring');
+    const label = reticleCursor.querySelector('.reticle-label');
+
+    let mouseX = window.innerWidth * 0.5;
+    let mouseY = window.innerHeight * 0.5;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    let isHoveringMagnetic = false;
+    let magneticTarget = null;
 
     window.addEventListener('mousemove', (e) => {
-      document.body.classList.add('has-cursor-moved');
-      setBeamX(e.clientX);
-      setBeamY(e.clientY);
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      reticleCursor.style.opacity = '1';
+
+      if (dot) {
+        dot.style.left = `${mouseX}px`;
+        dot.style.top = `${mouseY}px`;
+      }
     }, { passive: true });
+
+    // Smooth momentum spring loop for outer ring
+    function animateReticle() {
+      let targetX = mouseX;
+      let targetY = mouseY;
+
+      if (isHoveringMagnetic && magneticTarget) {
+        const rect = magneticTarget.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        // Subtle magnetic pull (35% toward target center)
+        targetX = mouseX + (centerX - mouseX) * 0.35;
+        targetY = mouseY + (centerY - mouseY) * 0.35;
+      }
+
+      ringX += (targetX - ringX) * 0.20;
+      ringY += (targetY - ringY) * 0.20;
+
+      if (ring) {
+        ring.style.left = `${ringX.toFixed(1)}px`;
+        ring.style.top = `${ringY.toFixed(1)}px`;
+      }
+
+      requestAnimationFrame(animateReticle);
+    }
+    requestAnimationFrame(animateReticle);
+
+    // Bind magnetic elements
+    document.querySelectorAll('.magnetic-target, a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        isHoveringMagnetic = true;
+        magneticTarget = el;
+        reticleCursor.classList.add('is-magnetic');
+      });
+      el.addEventListener('mouseleave', () => {
+        isHoveringMagnetic = false;
+        magneticTarget = null;
+        reticleCursor.classList.remove('is-magnetic');
+      });
+    });
+
+    // Bind action capsule targets (data-cursor)
+    document.querySelectorAll('[data-cursor]').forEach(el => {
+      const cursorText = el.getAttribute('data-cursor');
+      el.addEventListener('mouseenter', () => {
+        if (label) label.textContent = cursorText;
+        reticleCursor.classList.add('has-label');
+      });
+      el.addEventListener('mouseleave', () => {
+        reticleCursor.classList.remove('has-label');
+        if (label) label.textContent = '';
+      });
+    });
   }
 
+  // Preserve stage mouse coordinates for card radial lighting
   const spotlightStages = document.querySelectorAll('.spotlight-stage');
   spotlightStages.forEach((stage) => {
     stage.addEventListener('mousemove', (e) => {
@@ -672,6 +913,14 @@
       stage.style.setProperty('--mouse-y', `${y}px`);
     }, { passive: true });
   });
+
+  // Attach global audio toggle in navbar
+  const globalAudioToggle = document.getElementById('globalAudioToggleBtn');
+  if (globalAudioToggle && window.MIGAudio) {
+    globalAudioToggle.addEventListener('click', () => {
+      window.MIGAudio.toggleMute();
+    });
+  }
 
   // =========================================================================
   // 9. Live Sound Decibel / Frequency Bar Audio Reactive Hover

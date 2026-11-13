@@ -51,6 +51,13 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="bg-pitch text-slate-100 font-body antialiased selection:bg-stone-200 selection:text-black">
+  <!-- Contextual Magnetic Reticle Cursor (We Are Royale / TAIT benchmark) -->
+  <div id="reticleCursor" class="reticle-cursor pointer-events-none fixed top-0 left-0 z-[99999] opacity-0 transition-opacity duration-300">
+    <div class="reticle-dot w-2 h-2 rounded-full bg-amber-400 fixed -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <div class="reticle-ring fixed -translate-x-1/2 -translate-y-1/2 rounded-full border border-amber-400/70 flex items-center justify-center pointer-events-none transition-all duration-150">
+      <span class="reticle-label font-mono text-[11px] font-bold tracking-widest text-white uppercase opacity-0 transition-opacity whitespace-nowrap px-2"></span>
+    </div>
+  </div>
   <!-- Interactive Concert Follow-Spot Moving-Head Cursor Beam -->
   <div id="spotlightCursorBeam" class="spotlight-cursor-beam"></div>
 
@@ -94,7 +101,19 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Procedural Web Audio Haptic Sound Engine Toggle -->
+        <button id="globalAudioToggleBtn" type="button" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/[0.04] hover:bg-white/[0.1] text-stone-300 hover:text-white transition-all font-mono text-[11px] tracking-wider uppercase cursor-pointer" title="Toggle Procedural Haptic Audio Feedback" aria-label="Toggle Procedural Audio">
+          <i data-lucide="volume-x" class="w-3.5 h-3.5 audio-icon-muted"></i>
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 audio-icon-active text-amber-400 hidden"></i>
+          <div class="audio-equalizer-bars flex items-end gap-[2px] h-3">
+            <span class="eq-bar w-[2px] h-1.5 bg-stone-400 rounded-full"></span>
+            <span class="eq-bar w-[2px] h-3 bg-stone-400 rounded-full"></span>
+            <span class="eq-bar w-[2px] h-2 bg-stone-400 rounded-full"></span>
+          </div>
+          <span class="audio-state-label text-stone-300 font-bold">AUDIO: OFF</span>
+        </button>
+
         <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-300 hover:text-white hover:border-white/30 transition-all magnetic-target" title="WhatsApp enquiry">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
         </a>
@@ -126,6 +145,33 @@
   </nav>
 
   <!-- =========================================================================
+       1.5. TACTICAL "LIVE DECK" PRODUCTION TELEMETRY BAR (TAIT TOWERS BENCHMARK)
+       ========================================================================= -->
+  <aside id="liveTelemetryBar" aria-label="Live Operational Telemetry" class="fixed top-20 left-0 w-full z-40 bg-[#0E1015]/95 border-b border-white/10 backdrop-blur-md py-2 px-4 sm:px-8 text-xs font-mono transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5 text-stone-300">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          LIVE OPS
+        </span>
+        <span class="text-white font-bold tracking-wider text-[11px] sm:text-xs">OPERATIONS DECK // BANGALORE HQ</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[11px] tracking-wider text-stone-300">
+        <div><span class="text-stone-400">ACTIVE CREWS:</span> <span class="text-amber-400 font-bold">4 PAN-INDIA</span></div>
+        <span class="text-white/20 hidden sm:inline">|</span>
+        <div><span class="text-stone-400">SAFETY RECORD:</span> <span class="text-emerald-400 font-bold">100% ZERO-INCIDENT</span></div>
+        <span class="text-white/20 hidden sm:inline">|</span>
+        <div><span class="text-stone-400">NEXT ROLLOUT:</span> <span class="text-white font-bold">T-48H HYDERABAD SUMMIT</span></div>
+      </div>
+      <div class="hidden lg:flex items-center gap-2 text-[11px] text-amber-300/80">
+        <span>LAT: 12.9716° N</span>
+        <span>&bull;</span>
+        <span>GRID: 250 kVA SYNC</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
        2. HERO SECTION: THE GRAND STAGE (Canvas Volumetric Beams + Parallax)
        ========================================================================= -->
   <section id="hero" class="parallax-section relative spotlight-stage">
@@ -152,7 +198,7 @@
         <span class="hero-headline-word inline-block text-stone-200">MEETS SPECTACLE.</span>
       </h1>
 
-      <p class="max-w-2xl mx-auto text-sm sm:text-lg text-stone-200 font-light leading-relaxed mb-10 hero-sub-element">
+      <p class="max-w-2xl mx-auto text-sm sm:text-lg text-white font-medium leading-relaxed mb-10 hero-sub-element">
         Creating exceptional experiences through innovative event solutions, strategic planning, and precision execution.<br class="hidden sm:inline" />
         From intimate gatherings to large-scale corporate events, we make every moment meaningful.
       </p>
@@ -776,7 +822,7 @@
         
         <!-- Item 1: Arena Concert (Slide from Left) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-left" data-category="concerts">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/280_Hero-Music-1.jpg" data-title="Live Shows & Concerts">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/280_Hero-Music-1.jpg" data-title="Live Shows & Concerts" data-cursor="VIEW BLUEPRINT" data-footfall="12,000+ ATTENDEES" data-venue="Bangalore Palace Grounds" data-truss="40m Clear-Span Eurotruss Rigging Grid (12.5T Payload)" data-audio="120dB SPL L-Acoustics K2 Array with Cardioid KS28 Subs" data-power="250 kVA Synchronized Dual-Generator Grid" data-video="Curved 1.9mm MicroLED 4K Video Canvas">
             <div class="jitter-sheen"></div>
             <img src="assets/images/280_Hero-Music-1.jpg" alt="Concert Stage" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -796,7 +842,7 @@
 
         <!-- Item 2: Corporate Leadership Summit (Drops from Top) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="corporate">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="corporate" data-img="assets/images/326_Corporate-Hero.webp" data-title="Corporate Events">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="corporate" data-img="assets/images/326_Corporate-Hero.webp" data-title="Corporate Events" data-cursor="VIEW BLUEPRINT" data-footfall="2,500 DELEGATES" data-venue="Sheraton Grand Convention Center" data-truss="Heavy Column-Free Architectural Trussing (Eurotruss)" data-audio="Speech-Intelligibility Calibrated Line Array (74.2dB)" data-power="180 kVA Dual Redundant Power Distribution" data-video="50m Seamless Curved P1.9 Keynote Screen">
             <div class="jitter-sheen"></div>
             <img src="assets/images/326_Corporate-Hero.webp" alt="Corporate Summit" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -816,7 +862,7 @@
 
         <!-- Item 3: Luxury Royal Wedding (Slide from Right) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-right" data-category="weddings">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/284_wedding-hero.webp" data-title="Weddings & Engagements">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/284_wedding-hero.webp" data-title="Weddings & Engagements" data-cursor="VIEW BLUEPRINT" data-footfall="1,800 GUESTS" data-venue="The Leela Palace, Bengaluru" data-truss="Custom Thematic Mandap Box Truss Canopy" data-audio="Concert-Grade Acoustic System for Sangeet Night" data-power="150 kVA Dedicated Regulated Event Mains" data-video="Curved Ambient LED Backdrop with 96x Moving Beams">
             <div class="jitter-sheen"></div>
             <img src="assets/images/284_wedding-hero.webp" alt="Wedding Setup" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -836,7 +882,7 @@
 
         <!-- Item 4: German Hangar Fabrication (Drops from Top) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="concerts">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/719_SDR04401-scaled.jpg" data-title="Event Production">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/719_SDR04401-scaled.jpg" data-title="Event Production" data-cursor="VIEW BLUEPRINT" data-footfall="10,000+ ATTENDEES" data-venue="Manpho Convention Grounds" data-truss="40m German Hangar Clear-Span Pavilion (110 km/h Wind Shear)" data-audio="Time-Aligned Multi-Zone Delay Towers (200m Throw)" data-power="300 kVA Twin Synchronized Industrial Units" data-video="Daylight-Calibrated 4,500 Nits Outdoor LED Facade">
             <div class="jitter-sheen"></div>
             <img src="assets/images/719_SDR04401-scaled.jpg" alt="German Hangar" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -856,7 +902,7 @@
 
         <!-- Item 5: Sangeet Night Concert (Rises from Bottom) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-rise-bottom" data-category="weddings">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/845_DSC04891-scaled.jpg" data-title="Wedding Celebration">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/845_DSC04891-scaled.jpg" data-title="Wedding Celebration" data-cursor="VIEW BLUEPRINT" data-footfall="1,200 GUESTS" data-venue="JW Marriott Hotel" data-truss="Intelligent Moving-Head DMX Truss Arch" data-audio="Cardioid Subwoofer System with Low Stage Spill" data-power="125 kVA Clean Regulated Supply" data-video="High-Pitch Dynamic LED Riser Displays">
             <div class="jitter-sheen"></div>
             <img src="assets/images/845_DSC04891-scaled.jpg" alt="Sangeet Night" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -876,7 +922,7 @@
 
         <!-- Item 6: Celebrity PR & Film Launch (Drops from Top) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="celebrity">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="celebrity" data-img="assets/images/785_RFP01274-scaled.jpg" data-title="Ad Films & Celebrity PR">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="celebrity" data-img="assets/images/785_RFP01274-scaled.jpg" data-title="Ad Films & Celebrity PR" data-cursor="VIEW BLUEPRINT" data-footfall="800 VIPS &amp; 40+ MEDIA" data-venue="ITC Gardenia" data-truss="Red Carpet Studio Rig &amp; Continuous Media Wash" data-audio="Direct Broadcast Multi-Feed Distribution" data-power="100 kVA Mobile Low-Noise Generator" data-video="Curved Step-and-Repeat Media Display">
             <div class="jitter-sheen"></div>
             <img src="assets/images/785_RFP01274-scaled.jpg" alt="Celebrity Event" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -896,7 +942,7 @@
 
         <!-- Item 7: Corporate Award Honors (Slide from Left) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-left" data-category="corporate">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="corporate" data-img="assets/images/732_DSC08613-scaled.jpg" data-title="Corporate Event">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="corporate" data-img="assets/images/732_DSC08613-scaled.jpg" data-title="Corporate Event" data-cursor="VIEW BLUEPRINT" data-footfall="1,500 DELEGATES" data-venue="Sheraton Grand Ballroom" data-truss="Ceiling-Hung Automated Cyber-Hoist Motor Rig" data-audio="Full-Bandwidth Keynote &amp; Orchestra Array" data-power="160 kVA Synchronized Mains" data-video="Seamless 4K Center Display with Dual Relays">
             <div class="jitter-sheen"></div>
             <img src="assets/images/732_DSC08613-scaled.jpg" alt="Awards Night" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -916,7 +962,7 @@
 
         <!-- Item 8: Electronic Music Showcase (Drops from Top) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-fall-top" data-category="concerts">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/851_KGP07594-scaled.jpg" data-title="Live Entertainment">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="concerts" data-img="assets/images/851_KGP07594-scaled.jpg" data-title="Live Entertainment" data-cursor="VIEW BLUEPRINT" data-footfall="8,000 FANS" data-venue="Manpho Grounds" data-truss="Heavy Arena Box Truss with 30W RGB Lasers" data-audio="125dB Festival Rig with 18x KS28 Subwoofers" data-power="250 kVA Industrial Load Grid" data-video="Ultra-Wide DJ Riser Video Matrix">
             <div class="jitter-sheen"></div>
             <img src="assets/images/851_KGP07594-scaled.jpg" alt="Concert Stage" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -936,7 +982,7 @@
 
         <!-- Item 9: Glasshouse Wedding Reception (Slide from Right) -->
         <div class="gallery-item-wrap motion-card-wrapper motion-slide-right" data-category="weddings">
-          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/596_50-Creative-Wedding-Home-Decor-Ideas-for-Intimate-Pre-Wedding-Events.jpg" data-title="Wedding Décor">
+          <div class="gallery-card group relative rounded-2xl cursor-pointer h-full overflow-hidden" data-category="weddings" data-img="assets/images/596_50-Creative-Wedding-Home-Decor-Ideas-for-Intimate-Pre-Wedding-Events.jpg" data-title="Wedding Décor" data-cursor="VIEW BLUEPRINT" data-footfall="1,000 GUESTS" data-venue="The Leela Palace Courtyard" data-truss="Architectural Clear-Span Glasshouse Framework" data-audio="Warm Multi-Zone Acoustic Coverage" data-power="120 kVA Whisper-Quiet Generator" data-video="Chandelier Matrix with Dimmable Warm Uplighting">
             <div class="jitter-sheen"></div>
             <img src="assets/images/596_50-Creative-Wedding-Home-Decor-Ideas-for-Intimate-Pre-Wedding-Events.jpg" alt="Wedding Reception" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="p-6">
@@ -1025,7 +1071,7 @@
             </p>
 
             <!-- 3D Interactive Viewport -->
-            <div id="stageExploderContainer" class="stage-exploder-container my-3">
+            <div id="stageExploderContainer" data-cursor="EXPLODE 3D" class="stage-exploder-container my-3">
               <div id="stageExploderViewport" class="stage-exploder-viewport">
                 
                 <!-- Plane 1: Structural Rigging (Bottom) -->
@@ -1218,7 +1264,7 @@
     </div>
 
     <!-- Interactive Reveal Curtain -->
-    <div class="reveal-container" id="revealSlider">
+    <div class="reveal-container" id="revealSlider" data-cursor="DRAG ARENA">
       
       <!-- Audio Foley Sound Toggle Pill (Bottom-Right so tags stay clear) -->
       <button id="revealAudioToggle" class="reveal-sound-btn" aria-label="Toggle Arena Ambience Sound">
@@ -1612,15 +1658,48 @@
                 <label class="block font-mono text-[11px] uppercase tracking-wider text-stone-300 mb-2">Approximate Date</label>
                 <input type="text" id="wizDate" placeholder="e.g. Nov 2026 / Q1 2027" class="w-full bg-pitch border border-white/10 rounded-xl px-4 py-3 text-white text-base sm:text-sm focus:border-white focus:outline-none" />
               </div>
+
+              <!-- Technical Infrastructure Options (TAIT / Superfly Blueprint Engine) -->
+              <div class="col-span-1 sm:col-span-2 pt-2">
+                <label class="block font-mono text-[11px] uppercase tracking-wider text-amber-300 font-bold mb-3">
+                  Technical Infrastructure Requirements:
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-stone-300">
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400/50 cursor-pointer transition-colors">
+                    <input type="checkbox" name="tech_need" value="German Hangar Pavilion" class="rounded text-amber-400 focus:ring-0 bg-transparent border-white/20" checked>
+                    <span>German Hangar Clear-Span Pavilion</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400/50 cursor-pointer transition-colors">
+                    <input type="checkbox" name="tech_need" value="120dB Line-Array System" class="rounded text-amber-400 focus:ring-0 bg-transparent border-white/20" checked>
+                    <span>120dB Arena Line-Array Audio</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400/50 cursor-pointer transition-colors">
+                    <input type="checkbox" name="tech_need" value="Curved 4K MicroLED Wall" class="rounded text-amber-400 focus:ring-0 bg-transparent border-white/20" checked>
+                    <span>Curved 4K MicroLED Video Canvas</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400/50 cursor-pointer transition-colors">
+                    <input type="checkbox" name="tech_need" value="Moving-Head Laser Rig" class="rounded text-amber-400 focus:ring-0 bg-transparent border-white/20">
+                    <span>Moving-Head &amp; Laser DMX Rig</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400/50 cursor-pointer transition-colors">
+                    <input type="checkbox" name="tech_need" value="250 kVA Synchronized Grid" class="rounded text-amber-400 focus:ring-0 bg-transparent border-white/20">
+                    <span>250 kVA Synchronized Power Grid</span>
+                  </label>
+                  <label class="flex items-center gap-2.5 p-3 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400/50 cursor-pointer transition-colors">
+                    <input type="checkbox" name="tech_need" value="Celebrity Liaison & PR" class="rounded text-amber-400 focus:ring-0 bg-transparent border-white/20">
+                    <span>Celebrity Artist Booking &amp; PR</span>
+                  </label>
+                </div>
+              </div>
             </div>
 
-            <div class="pt-6 flex justify-between items-center">
-              <button type="button" id="backToStep2" class="btn-editorial-outline px-6 py-3 rounded-full text-xs uppercase tracking-wider font-mono">
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+              <button type="button" id="backToStep2" class="btn-editorial-outline px-6 py-3 rounded-full text-xs uppercase tracking-wider font-mono w-full sm:w-auto">
                 Back
               </button>
-              <button type="submit" class="btn-editorial-gold px-8 py-3.5 rounded-full text-xs uppercase tracking-wider font-display flex items-center gap-2 magnetic-target">
-                <i data-lucide="send" class="w-4 h-4"></i>
-                <span>Get Instant WhatsApp Scope & Quote</span>
+              <button type="submit" id="transmitBlueprintBtn" class="btn-editorial-gold px-8 py-4 rounded-full text-xs uppercase tracking-wider font-display font-bold flex items-center justify-center gap-2.5 magnetic-target shadow-2xl w-full sm:w-auto">
+                <i data-lucide="send" class="w-4 h-4 text-emerald-400"></i>
+                <span>Transmit Specifications to Technical Director</span>
               </button>
             </div>
           </div>
@@ -1737,26 +1816,116 @@
   </footer>
 
   <!-- =========================================================================
-       11. FULLSCREEN LIGHTBOX MODAL
+       11. "BLUEPRINT TO SPECTACLE" CASE STUDY DOSSIER MODAL (TAIT TOWERS BENCHMARK)
        ========================================================================= -->
-  <div id="lightboxModal" class="lightbox-modal fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
-    <button id="lightboxClose" class="absolute top-6 right-6 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-white transition-colors">
-      <i data-lucide="x" class="w-6 h-6"></i>
-    </button>
-    <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
-      <img id="lightboxImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Enlarged view" class="max-h-[75vh] w-auto max-w-full rounded-2xl object-contain border border-white/10 shadow-2xl" />
-      <div class="mt-6 text-center">
-        <span id="lightboxTag" class="tag-badge"></span>
-        <h3 id="lightboxTitle" class="font-display font-bold text-xl text-white mt-2"></h3>
+  <div id="lightboxModal" class="lightbox-modal fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-5xl max-h-[92vh] bg-[#0E1015] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col">
+      
+      <!-- Top Dossier Telemetry Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/50">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span class="font-mono text-xs uppercase tracking-widest text-emerald-400 font-bold">CASE STUDY DOSSIER // TECHNICAL AUDIT</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <!-- Tab Switcher -->
+          <div class="inline-flex rounded-full bg-white/[0.06] p-1 border border-white/10 font-mono text-xs">
+            <button type="button" id="caseTabSpectacle" class="px-3 py-1 rounded-full bg-white text-black font-bold uppercase transition-all">01 Spectacle</button>
+            <button type="button" id="caseTabBlueprint" class="px-3 py-1 rounded-full text-stone-300 hover:text-white uppercase transition-all">02 Blueprint Rig</button>
+          </div>
+          <button id="lightboxClose" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-white transition-colors" aria-label="Close Case Study">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
+
+      <!-- Modal Body Scrollable Area -->
+      <div class="overflow-y-auto p-6 sm:p-8 flex-1">
+        
+        <!-- Tab View 1: The Live Spectacle -->
+        <div id="caseViewSpectacle" class="space-y-6">
+          <div class="relative w-full h-[52vh] max-h-[500px] rounded-2xl overflow-hidden border border-white/10 bg-black">
+            <img id="lightboxImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Case Study Production" class="w-full h-full object-cover" />
+            <div class="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 gap-2">
+              <div>
+                <span id="lightboxTag" class="font-mono text-[11px] text-amber-300 uppercase tracking-widest font-bold"></span>
+                <h3 id="lightboxTitle" class="font-display font-black text-xl sm:text-2xl text-white uppercase tracking-tight"></h3>
+              </div>
+              <span id="caseModalFootfall" class="font-mono text-xs text-stone-300 border border-white/15 px-3 py-1 rounded-full w-fit">12,000+ ATTENDEES</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab View 2: The TAIT Engineering Blueprint -->
+        <div id="caseViewBlueprint" class="space-y-6 hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Spec Card 1: Rigging -->
+            <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10">
+              <span class="font-mono text-[11px] text-amber-400 uppercase tracking-widest block mb-1">01 // STRUCTURAL RIGGING GRID</span>
+              <h4 id="caseBlueprintTruss" class="font-display font-bold text-lg text-white mb-2">40m Eurotruss Ground Support Grid</h4>
+              <p class="text-stone-300 text-xs leading-relaxed font-light">Rated for 12.5 metric ton suspended line-arrays and moving lights, certified for 110 km/h wind shear load.</p>
+            </div>
+            <!-- Spec Card 2: Acoustics -->
+            <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10">
+              <span class="font-mono text-[11px] text-amber-400 uppercase tracking-widest block mb-1">02 // ACOUSTIC CALIBRATION</span>
+              <h4 id="caseBlueprintAudio" class="font-display font-bold text-lg text-white mb-2">120dB SPL Continuous Array</h4>
+              <p class="text-stone-300 text-xs leading-relaxed font-light">3D Soundvision modeled delay hangs with cardioid KS28 sub-arrays delivering uniform coverage with zero phase loss.</p>
+            </div>
+            <!-- Spec Card 3: Power -->
+            <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10">
+              <span class="font-mono text-[11px] text-amber-400 uppercase tracking-widest block mb-1">03 // POWER INFRASTRUCTURE</span>
+              <h4 id="caseBlueprintPower" class="font-display font-bold text-lg text-white mb-2">250 kVA Synchronized Dual Grid</h4>
+              <p class="text-stone-300 text-xs leading-relaxed font-light">Twin generator lock with automatic transfer switch (0ms glitch-free failover) powering audio and visual grids on isolated neutrals.</p>
+            </div>
+            <!-- Spec Card 4: Video & Lighting -->
+            <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/10">
+              <span class="font-mono text-[11px] text-amber-400 uppercase tracking-widest block mb-1">04 // PHOTOMETRICS & VIDEO</span>
+              <h4 id="caseBlueprintVideo" class="font-display font-bold text-lg text-white mb-2">Curved 1.9mm MicroLED Canvas</h4>
+              <p class="text-stone-300 text-xs leading-relaxed font-light">7,680Hz ultra-high refresh curved video facade driven by Novastar MX40 Pro with 96x timecoded DMX beam fixtures.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 sm:p-6 border-t border-white/10 bg-black/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="font-mono text-xs text-stone-400">
+          LOCATION: <span id="caseModalVenue" class="text-white font-bold">Bangalore Palace Grounds</span>
+        </div>
+        <a href="#estimate" id="caseModalCta" class="btn-editorial-gold px-6 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider font-bold flex items-center gap-2">
+          <span>Commission Equivalent Spec</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
     </div>
   </div>
 
-  <!-- Floating Direct WhatsApp Pill -->
-  <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="fixed bottom-6 right-6 z-40 bg-white hover:bg-stone-200 text-black px-5 py-3 rounded-full flex items-center gap-2.5 shadow-2xl font-mono font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105" title="Chat on WhatsApp">
+  <!-- Floating Direct WhatsApp Pill (Left Aligned to avoid dock overlap) -->
+  <a href="https://wa.me/916366225477?text=Hi%2C%20I%20have%20an%20event%20enquiry." target="_blank" class="fixed bottom-6 left-6 z-40 bg-white hover:bg-stone-200 text-black px-5 py-3 rounded-full flex items-center gap-2.5 shadow-2xl font-mono font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105" title="Chat on WhatsApp">
     <i data-lucide="message-circle" class="w-4 h-4 fill-black"></i>
     <span class="hidden sm:inline">WhatsApp Desk</span>
   </a>
+
+  <!-- =========================================================================
+       STAGE LIGHTING DIRECTOR ATMOSPHERE DOCK (MOMENT FACTORY BENCHMARK)
+       ========================================================================= -->
+  <aside id="stageAtmosphereDock" aria-label="Stage Atmosphere Presets" class="fixed bottom-6 right-6 z-40 hidden sm:flex items-center gap-1.5 p-1.5 rounded-full bg-[#0E1015]/90 border border-white/15 backdrop-blur-xl shadow-2xl transition-all duration-300">
+    <div class="flex items-center gap-1.5 pl-3 pr-2 text-stone-300 font-mono text-[11px] font-bold tracking-wider uppercase border-r border-white/10">
+      <i data-lucide="sliders" class="w-3.5 h-3.5 text-amber-400"></i>
+      <span class="hidden lg:inline">STAGE AMBIENCE</span>
+    </div>
+    <button type="button" class="theme-preset-btn active px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all" data-preset="concert">
+      <span>⚡ Arena</span>
+    </button>
+    <button type="button" class="theme-preset-btn px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all" data-preset="summit">
+      <span>💼 Summit</span>
+    </button>
+    <button type="button" class="theme-preset-btn px-3 py-1.5 rounded-full font-mono text-[11px] uppercase tracking-wider transition-all" data-preset="gala">
+      <span>✨ Gala</span>
+    </button>
+  </aside>
 
   <!-- Initialize Lucide Icons & Custom Scripts -->
   <script>

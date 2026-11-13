@@ -169,31 +169,85 @@
   });
 
   // =========================================================================
-  // 5. Fullscreen Lightbox Modal
+  // 5. "Blueprint to Spectacle" Case Study Dossier Modal (TAIT Towers Benchmark)
   // =========================================================================
   const lightbox = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxTitle = document.getElementById('lightboxTitle');
   const lightboxTag = document.getElementById('lightboxTag');
   const lightboxClose = document.getElementById('lightboxClose');
+  const caseModalFootfall = document.getElementById('caseModalFootfall');
+  const caseModalVenue = document.getElementById('caseModalVenue');
+  const caseBlueprintTruss = document.getElementById('caseBlueprintTruss');
+  const caseBlueprintAudio = document.getElementById('caseBlueprintAudio');
+  const caseBlueprintPower = document.getElementById('caseBlueprintPower');
+  const caseBlueprintVideo = document.getElementById('caseBlueprintVideo');
+  const caseTabSpectacle = document.getElementById('caseTabSpectacle');
+  const caseTabBlueprint = document.getElementById('caseTabBlueprint');
+  const caseViewSpectacle = document.getElementById('caseViewSpectacle');
+  const caseViewBlueprint = document.getElementById('caseViewBlueprint');
+  const caseModalCta = document.getElementById('caseModalCta');
 
-  document.querySelectorAll('.open-lightbox').forEach(trigger => {
+  // Tab switching inside case study modal
+  if (caseTabSpectacle && caseTabBlueprint && caseViewSpectacle && caseViewBlueprint) {
+    caseTabSpectacle.addEventListener('click', () => {
+      caseViewSpectacle.classList.remove('hidden');
+      caseViewBlueprint.classList.add('hidden');
+      caseTabSpectacle.className = 'px-3 py-1 rounded-full bg-white text-black font-bold uppercase transition-all';
+      caseTabBlueprint.className = 'px-3 py-1 rounded-full text-stone-300 hover:text-white uppercase transition-all';
+      if (window.MIGAudio) window.MIGAudio.playClickTick(750);
+    });
+
+    caseTabBlueprint.addEventListener('click', () => {
+      caseViewBlueprint.classList.remove('hidden');
+      caseViewSpectacle.classList.add('hidden');
+      caseTabBlueprint.className = 'px-3 py-1 rounded-full bg-white text-black font-bold uppercase transition-all';
+      caseTabSpectacle.className = 'px-3 py-1 rounded-full text-stone-300 hover:text-white uppercase transition-all';
+      if (window.MIGAudio) window.MIGAudio.playClickTick(900);
+    });
+  }
+
+  // Open Case Study on card click or trigger
+  document.querySelectorAll('.open-lightbox, .gallery-card').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
-      const card = trigger.closest('.gallery-card');
-      const imgSrc = card.getAttribute('data-img');
-      const title = card.getAttribute('data-title');
-      const category = card.getAttribute('data-category');
+      const card = trigger.classList.contains('gallery-card') ? trigger : trigger.closest('.gallery-card');
+      if (!card || !lightbox) return;
 
-      lightboxImg.src = imgSrc;
-      lightboxTitle.innerText = title;
-      lightboxTag.innerText = category.toUpperCase();
+      const imgSrc = card.getAttribute('data-img') || '';
+      const title = card.getAttribute('data-title') || 'Production Spectacle';
+      const category = card.getAttribute('data-category') || 'CONCERTS';
+      const footfall = card.getAttribute('data-footfall') || '10,000+ ATTENDEES';
+      const venue = card.getAttribute('data-venue') || 'Bangalore Palace Grounds';
+      const truss = card.getAttribute('data-truss') || '40m Clear-Span Eurotruss Rigging Grid (12.5T Payload)';
+      const audio = card.getAttribute('data-audio') || '120dB SPL L-Acoustics K2 Array with Cardioid KS28 Subs';
+      const power = card.getAttribute('data-power') || '250 kVA Synchronized Dual-Generator Grid';
+      const video = card.getAttribute('data-video') || 'Curved 1.9mm MicroLED 4K Video Canvas';
+
+      if (lightboxImg) lightboxImg.src = imgSrc;
+      if (lightboxTitle) lightboxTitle.innerText = title;
+      if (lightboxTag) lightboxTag.innerText = category.toUpperCase();
+      if (caseModalFootfall) caseModalFootfall.innerText = footfall;
+      if (caseModalVenue) caseModalVenue.innerText = venue;
+      if (caseBlueprintTruss) caseBlueprintTruss.innerText = truss;
+      if (caseBlueprintAudio) caseBlueprintAudio.innerText = audio;
+      if (caseBlueprintPower) caseBlueprintPower.innerText = power;
+      if (caseBlueprintVideo) caseBlueprintVideo.innerText = video;
+
+      // Reset to spectacle view on open
+      if (caseTabSpectacle) caseTabSpectacle.click();
+
+      lightbox.classList.remove('opacity-0', 'pointer-events-none');
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      if (window.MIGAudio) window.MIGAudio.playClickTick(600);
     });
   });
 
   function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.add('opacity-0', 'pointer-events-none');
     lightbox.classList.remove('active');
     document.body.style.overflow = '';
   }
@@ -208,8 +262,14 @@
     });
   }
 
+  if (caseModalCta) {
+    caseModalCta.addEventListener('click', () => {
+      closeLightbox();
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
       closeLightbox();
     }
   });
@@ -276,27 +336,39 @@
     progress3.classList.remove('bg-amber-400', 'text-slate-900');
   });
 
-  // WhatsApp / Final Submit
+  // WhatsApp Technical Blueprint Transmitter
   const wizardForm = document.getElementById('wizardForm');
   if (wizardForm) {
     wizardForm.addEventListener('submit', (e) => {
       e.preventDefault();
       wizardData.name = document.getElementById('wizName').value;
       wizardData.phone = document.getElementById('wizPhone').value;
-      wizardData.city = document.getElementById('wizCity').value || 'Bangalore / Destination';
-      wizardData.date = document.getElementById('wizDate').value || 'To Be Finalized';
+      wizardData.city = document.getElementById('wizCity').value || 'Bangalore / Pan-India';
+      wizardData.date = document.getElementById('wizDate').value || 'Immediate Production Scope';
 
-      const waMessage = `*New Event Production Inquiry - MIG Events*%0A%0A` +
-        `👤 *Name:* ${encodeURIComponent(wizardData.name)}%0A` +
-        `📞 *Phone:* ${encodeURIComponent(wizardData.phone)}%0A` +
-        `🎯 *Event Type:* ${encodeURIComponent(wizardData.type)}%0A` +
-        `👥 *Guest Scale:* ${encodeURIComponent(wizardData.scale)}%0A` +
-        `📍 *City / Venue:* ${encodeURIComponent(wizardData.city)}%0A` +
-        `📅 *Planned Date:* ${encodeURIComponent(wizardData.date)}%0A%0A` +
-        `_Inquiry sent via MIG Events & Productions Digital Platform._`;
+      // Gather checked technical infrastructure needs
+      const checkedBoxes = Array.from(document.querySelectorAll('input[name="tech_need"]:checked'));
+      const techRequirements = checkedBoxes.map(cb => cb.value);
+      const techText = techRequirements.length > 0 
+        ? techRequirements.map(t => `%0A   • ${encodeURIComponent(t)}`).join('')
+        : '%0A   • Turnkey Technical Rigging & Production';
+
+      const waMessage = `*MIG PRODUCTION BLUEPRINT SPECIFICATION*%0A` +
+        `-----------------------------------------%0A` +
+        `👤 *Technical Director / Contact:* ${encodeURIComponent(wizardData.name)}%0A` +
+        `📞 *Direct Line:* ${encodeURIComponent(wizardData.phone)}%0A` +
+        `📍 *Location / Venue:* ${encodeURIComponent(wizardData.city)}%0A` +
+        `📅 *Production Date:* ${encodeURIComponent(wizardData.date)}%0A` +
+        `🎯 *Production Scope:* ${encodeURIComponent(wizardData.type)}%0A` +
+        `👥 *Audience Scale:* ${encodeURIComponent(wizardData.scale)}%0A%0A` +
+        `⚙️ *REQUIRED INFRASTRUCTURE:*${techText}%0A` +
+        `-----------------------------------------%0A` +
+        `_Transmitted via MIG Events & Productions Operations Desk._`;
 
       const whatsappURL = `https://wa.me/916366225477?text=${waMessage}`;
       
+      if (window.MIGAudio) window.MIGAudio.playClickTick(900);
+
       // Open WhatsApp in new tab
       window.open(whatsappURL, '_blank');
 
